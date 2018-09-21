@@ -157,6 +157,8 @@ public class Clients : MonoBehaviour
 
         mann.compclilist.Insert(0,client + "\n"+ deadrelativename + "\n" + Reasonofdeath + "\n" + Pay.ToString());
 
+        Destroy(this.gameObject);
+
 
     }
 
