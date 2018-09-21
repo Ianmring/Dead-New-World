@@ -15,11 +15,11 @@ public class mousetest : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && EventSystem.current.IsPointerOverGameObject())
         {
-            GameObject.Find("UIManager").GetComponent<UIManager>().UIselected = true;
+            GameObject.FindObjectOfType<UIManager>().UIselected = true;
         }
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
-            GameObject.Find("UIManager").GetComponent<UIManager>().UIselected = false;
+            GameObject.FindObjectOfType<UIManager>().UIselected = false;
         }
     }
    

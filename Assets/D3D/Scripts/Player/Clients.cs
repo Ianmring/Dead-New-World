@@ -54,8 +54,10 @@ public class Clients : MonoBehaviour
     int Deathnum;
     void Start()
     {
-        mann = GameObject.Find("GameManager").GetComponent<GameManager>();
-        uimann = GameObject.Find("UIManager").GetComponent<UIManager>();
+        mann = GameObject.FindObjectOfType<GameManager>();
+        uimann = GameObject.FindObjectOfType<UIManager>();
+
+        mann = mann.GetComponent<GameManager>();
 
         if (mann.tutorial)
         {
@@ -126,6 +128,8 @@ public class Clients : MonoBehaviour
     public void Complete()
     {
         Debug.Log("Complete");
+
+        //Judge();
        currentstatus = Status.Satisfied;
         ontheclock = false;
         switch (currentstatus)
