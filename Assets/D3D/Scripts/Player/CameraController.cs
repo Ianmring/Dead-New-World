@@ -21,7 +21,9 @@ public class CameraController : MonoBehaviour {
         //minZoom = 10f;
         //maxZoom = 25f;
 
-        camSpeed = 20f;
+        //camSpeed = 20f;
+
+        Input.ResetInputAxes();
     }
 
     private void Update()
@@ -34,14 +36,14 @@ public class CameraController : MonoBehaviour {
 
             vertPanVector += transform.up * Input.GetAxisRaw("Mouse Y") * Time.deltaTime * camSpeed;
             vertPanVector.y = 0;
+
+            transform.position = new Vector3(transform.position.x, currZoom, transform.position.z) + horzPanVector + vertPanVector;
         }
 
         currZoom += -Input.GetAxisRaw("Mouse ScrollWheel") * camSpeed * Time.deltaTime * 100f;
 
         if (currZoom < minZoom) currZoom = minZoom;
         else if (currZoom > maxZoom) currZoom = maxZoom;
-
-        transform.position = new Vector3(0, currZoom, 0) + horzPanVector + vertPanVector;
     }
 
 }

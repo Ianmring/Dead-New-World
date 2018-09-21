@@ -43,7 +43,7 @@ public class Clients : MonoBehaviour
     public int takscompl;
     // Use this for initialization
 
-    public Text name;
+    public Text clientName;
     public Text Causeofdeath;
     public Text payr;
     public Text timetocom;
@@ -67,7 +67,7 @@ public class Clients : MonoBehaviour
         Deathnum = Random.Range(1, mann.Death.Length);
 
      
-        name.text = ("Name:\n"+mann.Client[namenum]);
+        clientName.text = ("Name:\n"+mann.Client[namenum]);
         Causeofdeath.text = ("Cause of Death:\n"+ mann.Death[Deathnum]);
                           
         mann.openclients.Insert(0, this);
@@ -148,7 +148,6 @@ public class Clients : MonoBehaviour
                 {
                     return;
                 }
-                break;
         }
 
         mann.Rattingcalc();

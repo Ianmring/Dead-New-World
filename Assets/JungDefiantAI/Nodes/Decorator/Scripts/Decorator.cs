@@ -9,8 +9,16 @@ namespace JungDefiantAI
         NodeStatus thisNodeStatus = NodeStatus.SUCCESS;
         TreeNode thisAttachedNode;
 
-        public virtual NodeStatus CheckCondition() { return thisNodeStatus; }   //checks condition; if true, tick childnode and returns tick as status; if false, return failure
-        public virtual NodeStatus Tick(BehaviorAgent agent) { return CheckCondition(); }
+        public Conditions.Condition conditionToCheck;
+        public NodeStatus Tick(BehaviorAgent agent) { return CheckCondition(); }
+        public NodeStatus CheckCondition()  //checks condition; if true, tick childnode and returns tick as status; if false, return failure
+        {
+            if (conditionToCheck.checkCondition.Invoke()) thisNodeStatus = NodeStatus.FAILURE;
+            else thisNodeStatus = NodeStatus.SUCCESS;
+
+            return thisNodeStatus;
+        }   
+        
     }
 }
 
