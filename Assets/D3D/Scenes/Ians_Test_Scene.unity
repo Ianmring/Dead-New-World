@@ -1405,6 +1405,8 @@ MonoBehaviour:
   currBudget: 0
   inflationrate: 1
   TimePassed: 0
+  day: 0
+  dayrate: 20
   Timepass: 1
   clinum: 0
   Clients: {fileID: 1749113629120280, guid: 78bd239d419dbcb4a9379cb981603258, type: 2}

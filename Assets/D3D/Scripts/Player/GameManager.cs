@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour
     float infation;
     float inflationmax = 16;
     public float inflationrate;
-    public float TimePassed;
+    float TimePassed;
+    public float day;
+    public float dayrate;
     public bool Timepass;
 
     public int clinum;
@@ -74,7 +76,7 @@ public class GameManager : MonoBehaviour
         //Unclear if time will pass constantly like in the Sims or if there will be an option to pass to the next day.
 
         budgettxt.text = currBudget.ToString();
-        Timetxt.text = TimePassed.ToString();
+        Timetxt.text = day.ToString("f0");
 
 
         if (Timepass)
@@ -96,7 +98,7 @@ public class GameManager : MonoBehaviour
 
         }
 
-
+        day = 1+ (TimePassed / dayrate);
 
     }
     public void Rattingcalc()
