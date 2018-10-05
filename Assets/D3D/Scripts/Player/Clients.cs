@@ -32,8 +32,11 @@ public class Clients : MonoBehaviour
     }
     public enum Status { Satisfied, Unsatified, inprogress , notstarted , Finished};
 
+    public enum bodstate { fresh, boxed, placed, burried, rotton}
+
     Status currentstatus;
 
+    bodstate currentbodstatus;
     float Timetocomplete;
 
     int ratting;
@@ -125,10 +128,9 @@ public class Clients : MonoBehaviour
         Debug.Log(currentstatus);
         //still working on this
         mann.openclients.RemoveAt(mann.openclients.Count - 1);
-
-        
+                
         mann.currentclients.Insert(0,this);
-        
+                
     }
     public void Complete()
     {

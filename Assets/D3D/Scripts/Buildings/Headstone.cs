@@ -9,6 +9,7 @@ namespace D3D
     {
 
         public TextMesh engravedName;
+        public string headstonetype;
 
         public void SetEngraving(string newEngraving)
         {

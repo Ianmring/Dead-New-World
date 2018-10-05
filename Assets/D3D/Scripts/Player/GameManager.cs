@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     float infation;
     float inflationmax = 16;
     public float inflationrate;
-    float TimePassed;
+    public float TimePassed;
     public float day;
     public float dayrate;
     public bool Timepass;
@@ -117,9 +117,10 @@ public class GameManager : MonoBehaviour
 
         clinum++;
         cli = Instantiate(Clients,this.transform);
-        cli.transform.parent = cliholder.gameObject.transform;
+        cli.transform.SetParent(cliholder.gameObject.transform);
        clientspawnrate = Random.Range(mintimetospawn, maxtimetospawn);
         clientcountdown = clientspawnrate;
+
     }
 }
    
