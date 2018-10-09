@@ -6,28 +6,29 @@ public class InventoryMana : MonoBehaviour {
 
     // Use this for initialization
 
-    public List<D3D.Headstone> headstoneList = new List<D3D.Headstone>();
+    public List<GameObject> headstoneList = new List<GameObject>();
     public List<Coffin> CoffinList = new List<Coffin>();
 
-
+     GameManager man;
     public GameObject Headstoneholder;
     public GameObject coffinholder;
 
-    void Start () {
+    void Awake () {
+        man = FindObjectOfType<GameManager>();
         refreshheadstonelist();
         refreshcoffinlist();
     }
 	
 	// Update is called once per frame
 	void Update () {
-
+      
     }
 
     public void refreshheadstonelist()
     {
-        foreach (D3D.Headstone headlist in headstoneList)
+        foreach (GameObject headlist in headstoneList)
         {
-            D3D.Headstone head;
+            GameObject head;
             head = Instantiate(headlist, this.transform);
             head.transform.SetParent(Headstoneholder.gameObject.transform);
 
@@ -41,6 +42,13 @@ public class InventoryMana : MonoBehaviour {
             coffin = Instantiate(coffinlist, this.transform);
             coffin.transform.SetParent(coffinholder.gameObject.transform);
 
+        }
+    }
+    public void refreshclientlist()
+    {
+        foreach (var client in man.openclients)
+        {
+            
         }
     }
 }
