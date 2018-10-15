@@ -72,16 +72,14 @@ public class Clients : MonoBehaviour
         namenum = Random.Range(1, mann.Client.Length);
         Deathnum = Random.Range(1, mann.Death.Length);
 
-<<<<<<< HEAD
      
         clientName.text = ("Name:\n"+mann.Client[namenum]);
         Causeofdeath.text = ("Cause of Death:\n"+ mann.Death[Deathnum]);
-=======
         client = mann.Client[namenum];
-        name.text = ("Name:\n"+client);
+      //  name.text = ("Name:\n"+client);
         Reasonofdeath = mann.Death[Deathnum];
         Causeofdeath.text = ("Cause of Death:\n"+ Reasonofdeath);
->>>>>>> 748012388b21bd9e6a24ce1b6dedb3ff22a396f2
+
                           
         mann.openclients.Insert(0, this);
         payr.text =("Pay: " + Pay.ToString());

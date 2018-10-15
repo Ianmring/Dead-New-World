@@ -117,13 +117,11 @@ public class GameManager : MonoBehaviour
 
         clinum++;
         cli = Instantiate(Clients,this.transform);
-<<<<<<< HEAD
         cli.transform.parent = cliholder.gameObject.transform;
         clientspawnrate = Random.Range(mintimetospawn, maxtimetospawn);
-=======
+
         cli.transform.SetParent(cliholder.gameObject.transform);
        clientspawnrate = Random.Range(mintimetospawn, maxtimetospawn);
->>>>>>> 748012388b21bd9e6a24ce1b6dedb3ff22a396f2
         clientcountdown = clientspawnrate;
 
     }
