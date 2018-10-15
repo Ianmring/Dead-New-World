@@ -30,10 +30,13 @@ public class Clients : MonoBehaviour
         causeofdeath = Reasonofdeath;
         pay = Pay;
     }
-    public enum Status { Satisfied, Unsatified, fine, inprogress , notstarted , Finished};
+    public enum Status { Satisfied, Unsatified, inprogress , notstarted , Finished};
+
+    public enum bodstate { fresh, boxed, placed, burried, rotton}
 
     Status currentstatus;
 
+    bodstate currentbodstatus;
     float Timetocomplete;
 
     int ratting;
@@ -47,15 +50,18 @@ public class Clients : MonoBehaviour
     public Text Causeofdeath;
     public Text payr;
     public Text timetocom;
-
+    public Text jobstatus;
  
 
     int namenum;
     int Deathnum;
+
     void Start()
     {
-        mann = GameObject.Find("GameManager").GetComponent<GameManager>();
-        uimann = GameObject.Find("UIManager").GetComponent<UIManager>();
+        mann = GameObject.FindObjectOfType<GameManager>();
+        uimann = GameObject.FindObjectOfType<UIManager>();
+
+        mann = mann.GetComponent<GameManager>();
 
         if (mann.tutorial)
         {
@@ -66,16 +72,23 @@ public class Clients : MonoBehaviour
         namenum = Random.Range(1, mann.Client.Length);
         Deathnum = Random.Range(1, mann.Death.Length);
 
+<<<<<<< HEAD
      
         clientName.text = ("Name:\n"+mann.Client[namenum]);
         Causeofdeath.text = ("Cause of Death:\n"+ mann.Death[Deathnum]);
+=======
+        client = mann.Client[namenum];
+        name.text = ("Name:\n"+client);
+        Reasonofdeath = mann.Death[Deathnum];
+        Causeofdeath.text = ("Cause of Death:\n"+ Reasonofdeath);
+>>>>>>> 748012388b21bd9e6a24ce1b6dedb3ff22a396f2
                           
         mann.openclients.Insert(0, this);
         payr.text =("Pay: " + Pay.ToString());
         timetocom.text = ("Time to Complete: " + timetocomplete.ToString());
         currentstatus = Status.notstarted;
         //txtcontents = textAsset.text;
-
+        jobstatus.text = "Current Status: Not Started";
     }
 
     // Update is called once per frame
@@ -95,6 +108,7 @@ public class Clients : MonoBehaviour
             GetComponent<CanvasGroup>().interactable = false;
             
         }
+
     }
 
     void Judge()
@@ -113,19 +127,22 @@ public class Clients : MonoBehaviour
 
     public void accept()
     {
+        jobstatus.text = "Current Status: Started";
+
         ontheclock = true;
         currentstatus = Status.inprogress;
         Debug.Log(currentstatus);
         //still working on this
         mann.openclients.RemoveAt(mann.openclients.Count - 1);
-
-        
+                
         mann.currentclients.Insert(0,this);
-        
+                
     }
     public void Complete()
     {
         Debug.Log("Complete");
+
+        //Judge();
        currentstatus = Status.Satisfied;
         ontheclock = false;
         switch (currentstatus)
@@ -134,6 +151,9 @@ public class Clients : MonoBehaviour
                 {
                     mann.currBudget = mann.currBudget + Pay;
                   currentstatus=  Status.Finished;
+
+                    jobstatus.text = "Final Status: Unsatisfied";
+
                 }
                 break;
              case Status.Satisfied:
@@ -141,6 +161,9 @@ public class Clients : MonoBehaviour
                     mann.currBudget = mann.currBudget + Pay + (Pay * takscompl/numberoftaks);
                     
                     currentstatus = Status.Finished;
+
+                    jobstatus.text = "Final Status: Satisfied";
+
 
                 }
                 break;
@@ -154,7 +177,9 @@ public class Clients : MonoBehaviour
         //mann.compclilist.Insert(0, new Clients(client, deadrelativename, Reasonofdeath, Pay));
         mann.currentclients.RemoveAt(mann.currentclients.Count - 1);
 
-        mann.compclilist.Insert(0,client + "\n"+ deadrelativename + "\n" + Reasonofdeath + "\n" + Pay.ToString());
+        mann.compclilist.Insert(0,client + "\n" + Reasonofdeath + "\n" + Pay.ToString() + "\n" + jobstatus.text);
+
+        Destroy(this.gameObject);
 
 
     }
