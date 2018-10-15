@@ -1,33 +1,61 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using JungDefiantAI;
+using NPBehave;
+using Pathfinding;
 
-public class EmployeeBot : MonoBehaviour {
+public abstract class EmployeeBot : MonoBehaviour {
 
     public float Wages;
     protected float CurrentEnergy;
     public float MaximumEnergy;
     protected float CurrentHappiness;
     public float MaximumHappiness;
+    protected float CurrentStamina;
+    public float MaximumStamina;
+    protected float CurrentExperience;
+    public float MaximumExperience;
     public float WorkRate;
     public float MovementSpeed;
     public int Level;
-    EmployeeState CurrentState;
+    public Transform CurrentTarget;
+    public AIPath PathAgent;
+    public AIDestinationSetter DestSetter;
+    protected Blackboard Blackboard;
+    protected Root BehaviorTree;
 
-    public EmployeeBot()
+    public void StaminaChange(float staminaChange)
     {
-        Wages = 8.00f;
-        MaximumEnergy = 60f;
-        MaximumHappiness = 60f;
-        WorkRate = 5.0f;
-        MovementSpeed = 5.0f;
-        Level = 1;
-        CurrentState = EmployeeState.Wander;
+        CurrentStamina += staminaChange;
+
+        if (CurrentStamina > MaximumStamina) CurrentStamina = MaximumStamina;
+        else if (CurrentStamina < 0) CurrentStamina = 0;
+    }
+
+    public void HappinessChange(float happinessChange)
+    {
+        CurrentHappiness += happinessChange;
+
+        if (CurrentHappiness > MaximumHappiness) CurrentHappiness = MaximumHappiness;
+        else if (CurrentHappiness < 0) CurrentHappiness = 0;
+    }
+
+    public void EnergyChange(float energyChange)
+    {
+        CurrentEnergy += energyChange;
+
+        if (CurrentEnergy > MaximumEnergy) CurrentEnergy = MaximumEnergy;
+        else if (CurrentEnergy < 0) CurrentHappiness = 0;
+    }
+
+    public void ExperienceChange(float experienceChange)
+    {
+        CurrentExperience += experienceChange;
+
+        if (CurrentExperience > MaximumExperience) CurrentExperience = MaximumExperience;
+        else if (CurrentExperience < 0) CurrentExperience = 0;
     }
 
     //Determines when specific types of events are triggered; passes specific EventArgs to OnBehaviorEvent method of BehaviorTreeRef
 
 }
-
-public enum EmployeeState { GoHome, GoToWork, Maintain, Wander, Chase, Guard }

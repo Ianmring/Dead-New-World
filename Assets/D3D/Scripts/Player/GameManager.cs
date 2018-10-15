@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     public float[] rattings;
 
     float clientspawnrate;
-   public float clientcountdown;
+    public float clientcountdown;
 
     public int mintimetospawn;
     public int maxtimetospawn;
@@ -116,7 +116,7 @@ public class GameManager : MonoBehaviour
         clinum++;
         cli = Instantiate(Clients,this.transform);
         cli.transform.parent = cliholder.gameObject.transform;
-       clientspawnrate = Random.Range(mintimetospawn, maxtimetospawn);
+        clientspawnrate = Random.Range(mintimetospawn, maxtimetospawn);
         clientcountdown = clientspawnrate;
     }
 }
