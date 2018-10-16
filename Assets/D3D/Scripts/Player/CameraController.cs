@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 
-    public float camSpeed;
-    public float minZoom;
-    public float maxZoom;
-
-    Vector3 horzPanVector;
+    Vector3 lastPanPosition;
+    //Vector3 horzPanVector;
     Vector3 vertPanVector;
     float currZoom;
 
+    public float camSpeed;
+    public float minZoom;
+    public float maxZoom;
+    public float upperBoundsX;
+    public float lowerBoundsX;
+    public float upperBoundsZ;
+    public float lowerBoundsZ;
+
     private void Start()
     {
-        horzPanVector = transform.right;
-        vertPanVector = transform.up;
 
         currZoom = 40f;
         //minZoom = 10f;
@@ -29,21 +32,45 @@ public class CameraController : MonoBehaviour {
     private void Update()
     {
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButtonDown(1))
         {
-            horzPanVector += transform.right * Input.GetAxisRaw("Mouse X") * Time.deltaTime * camSpeed;
-            horzPanVector.y = 0;
-
-            vertPanVector += transform.up * Input.GetAxisRaw("Mouse Y") * Time.deltaTime * camSpeed;
-            vertPanVector.y = 0;
-
-            transform.position = new Vector3(transform.position.x, currZoom, transform.position.z) + horzPanVector + vertPanVector;
+            lastPanPosition = Input.mousePosition;
+        } else if (Input.GetMouseButton(1))
+        {
+            PanCamera(Input.mousePosition);
         }
 
-        currZoom += -Input.GetAxisRaw("Mouse ScrollWheel") * camSpeed * Time.deltaTime * 100f;
+        currZoom += -Input.GetAxisRaw("Mouse ScrollWheel") * 100f;
 
         if (currZoom < minZoom) currZoom = minZoom;
         else if (currZoom > maxZoom) currZoom = maxZoom;
+        Debug.Log(currZoom);
+
+        ZoomCamera(currZoom, camSpeed);
     }
 
+    void PanCamera(Vector3 newPanPosition)
+    {
+        Vector3 offset = GetComponent<Camera>().ScreenToViewportPoint(lastPanPosition - newPanPosition);
+        Vector3 move = new Vector3(offset.x * camSpeed, 0, offset.y * camSpeed);
+
+        transform.Translate(move, Space.World);
+
+        Vector3 pos = transform.position;
+        pos.x = Mathf.Clamp(transform.position.x, lowerBoundsX, upperBoundsX);
+        pos.z = Mathf.Clamp(transform.position.z, lowerBoundsZ, upperBoundsZ);
+        transform.position = pos;
+
+        lastPanPosition = newPanPosition;
+    }
+
+    void ZoomCamera(float offset, float speed)
+    {
+        if (offset == 0)
+        {
+            return;
+        }
+
+        GetComponent<Camera>().fieldOfView = Mathf.Clamp(GetComponent<Camera>().fieldOfView - (offset * speed), minZoom, maxZoom);
+    }
 }

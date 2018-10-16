@@ -5,8 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     public List<string> clientList;
-    public BoardManager boardManager;
-    public AssetPlacementManager assetManager;
+    //public AssetPlacementManager assetManager;
 
     private static PlayerController _player;
     public static PlayerController Player {
@@ -33,24 +32,15 @@ public class PlayerController : MonoBehaviour {
 
     private void Start()
     {
-        boardManager = GetComponent<BoardManager>();
-        assetManager = GetComponent<AssetPlacementManager>();
+        //assetManager = GetComponent<AssetPlacementManager>();
         //clientList = new List<string>();
 
-        boardManager.InitializeBoard();
-        assetManager.InitializeManager();
-        StartCoroutine(ScanGraph());
-    }
-
-    IEnumerator ScanGraph()
-    {
-        AstarPath.active.Scan();
-        yield return new WaitForSeconds(5);
+        //assetManager.InitializeManager();
     }
 
     private void Update()
     {
-        assetManager.SelectionHandler();
+        //assetManager.SelectionHandler();
     }
 
 }

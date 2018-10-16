@@ -18,9 +18,9 @@ public abstract class EmployeeBot : MonoBehaviour {
     public float WorkRate;
     public float MovementSpeed;
     public int Level;
-    public Transform CurrentTarget;
-    public AIPath PathAgent;
-    public AIDestinationSetter DestSetter;
+    protected Transform CurrentTarget;
+    protected AIPath PathAgent;
+    protected AIDestinationSetter DestSetter;
     protected Blackboard Blackboard;
     protected Root BehaviorTree;
 

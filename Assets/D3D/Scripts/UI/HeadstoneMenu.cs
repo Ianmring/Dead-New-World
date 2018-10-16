@@ -63,14 +63,14 @@ public class HeadstoneMenu : MonoBehaviour {
 
     public void GenerateNewHeadstone()
     {
-        if (currentClientSelected != null)
+        /*if (currentClientSelected != null)
         {
             Mod newHeadstone = PlayerController.Player.assetManager.SetNewMod(headstoneObject);
             newHeadstone.GetComponent<Headstone>().SetEngraving(currentClientSelected);
         }
 
         EmptyList();
-        currentClientSelected = null;
+        currentClientSelected = null;*/
     }
 
 }

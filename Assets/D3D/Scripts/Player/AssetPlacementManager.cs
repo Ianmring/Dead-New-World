@@ -46,7 +46,7 @@ public class AssetPlacementManager : MonoBehaviour
                 {
                     GetTileUnderCursor();
                     MoveModToBuilding();
-                    canPlaceObject = CheckModPlacement();
+                    //canPlaceObject = CheckModPlacement();
                     AttachMod();
                 }
                 break;
@@ -120,18 +120,19 @@ public class AssetPlacementManager : MonoBehaviour
         {
             for(int h = selectedTile.yPos; h < currentBuilding.tileSize.y + selectedTile.yPos; h++)
             {
-                if (PlayerController.Player.boardManager.GetTileAt(w, h) == null) return false;
-                else if (PlayerController.Player.boardManager.GetTileAt(w, h).isOccupied) return false;
+                //if (PlayerController.Player.boardManager.GetTileAt(w, h) == null) return false;
+                //else if (PlayerController.Player.boardManager.GetTileAt(w, h).isOccupied) return false;
             }
         }
         //TO ADD: then check if tile heights are contiguous
         return true;
     }
 
+    /*
     public bool CheckModPlacement()
     {
         //first check if nodes are occupied
-        Tile tileBeingChecked = PlayerController.Player.boardManager.GetTileAt(selectedTile.xPos, selectedTile.yPos);
+        /*Tile tileBeingChecked = PlayerController.Player.boardManager.GetTileAt(selectedTile.xPos, selectedTile.yPos);
 
         if (tileBeingChecked.isOccupied)
         {
@@ -153,7 +154,7 @@ public class AssetPlacementManager : MonoBehaviour
             }
         }
         return false;
-    }
+    }*/
 
     public void PlaceBuilding()
     {
@@ -167,8 +168,8 @@ public class AssetPlacementManager : MonoBehaviour
                 {
                     for (int h = selectedTile.yPos; h < currentBuilding.tileSize.y + selectedTile.yPos; h++)
                     {
-                        PlayerController.Player.boardManager.GetTileAt(w, h).isOccupied = true;
-                        PlayerController.Player.boardManager.GetTileAt(w, h).building = currentBuilding;
+                        //PlayerController.Player.boardManager.GetTileAt(w, h).isOccupied = true;
+                        //PlayerController.Player.boardManager.GetTileAt(w, h).building = currentBuilding;
                     }
                 }
 
