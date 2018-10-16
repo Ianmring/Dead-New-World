@@ -47,11 +47,13 @@ public class GameManager : MonoBehaviour
     public string[] Death;
 
     public bool tutorial;
+
+    public GameObject inv;
     private void Start()
     {
         ClientList = (TextAsset)Resources.Load("Clients_List");
         DeathList = (TextAsset)Resources.Load("Deaths_List");
-
+        inv = GameObject.Find("Inventory");
         if (ClientList != null)
         {
             Client = (ClientList.text.Split('\n'));
@@ -68,6 +70,7 @@ public class GameManager : MonoBehaviour
 
         Rattingcalc();
 
+        inv.SetActive(false);
     }
 
     private void Update()
