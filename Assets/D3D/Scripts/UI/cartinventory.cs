@@ -7,7 +7,7 @@ public class cartinventory : MonoBehaviour {
     public List<headstoneengraver> headstonecart = new List<headstoneengraver>();
     // Use this for initialization
 
-    public GameObject Headstoneholder;
+    public GameObject HeadstoneholderCA;
     void Awake () {
 		
 	}

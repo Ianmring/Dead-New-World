@@ -30,8 +30,8 @@ public class headstoneobj : MonoBehaviour {
     public void addedtocart()
     {
         GameObject cartheadtemp;
-        cartheadtemp = Instantiate(carthead, cart.Headstoneholder.transform);
-        cartheadtemp.transform.SetParent(cart.Headstoneholder.gameObject.transform);
+        cartheadtemp = Instantiate(carthead, cart.HeadstoneholderCA.transform);
+        cartheadtemp.transform.SetParent(cart.HeadstoneholderCA.gameObject.transform);
 
   cartheadtemp.GetComponent<headstoneengraver>().currentheadstoneeng = currentheadstone;
 

@@ -17,6 +17,7 @@ public class Clients : MonoBehaviour
 
    public float Pay;
 
+    
 
    public float timetocomplete;
 
@@ -74,11 +75,11 @@ public class Clients : MonoBehaviour
      
         clientName.text = ("Name:\n"+mann.Client[namenum]);
         Causeofdeath.text = ("Cause of Death:\n"+ mann.Death[Deathnum]);
-
         client = mann.Client[namenum];
-        clientName.text = ("Name:\n"+client);
+      //  name.text = ("Name:\n"+client);
         Reasonofdeath = mann.Death[Deathnum];
         Causeofdeath.text = ("Cause of Death:\n"+ Reasonofdeath);
+
                           
         mann.openclients.Insert(0, this);
         payr.text =("Pay: " + Pay.ToString());
