@@ -35,11 +35,18 @@ public class GroundskeeperAI : EmployeeBot {
         // we always need a root node
         return new Root(
 
-            new Service(0.8f, UpdateBlackboard,
+            new Service(4f, UpdateBlackboard,
 
-                new Sequence(
+                new Selector(
+                    
+                    /*new Action(() =>
+                    {
+                        Debug.Log("Checkpoint 1");
+                    })
+                    { Label = "Checkpoint" },*/
 
-                    new BlackboardCondition("quitJob", Operator.IS_EQUAL, true, Stops.SELF,
+
+                    new BlackboardCondition("quitJob", Operator.IS_EQUAL, true, Stops.IMMEDIATE_RESTART,
                         new Action(() =>
                         {
                             QuitJob();
@@ -48,7 +55,7 @@ public class GroundskeeperAI : EmployeeBot {
                         { Label = "Quit Job" }
                     ),
 
-                    new BlackboardCondition("askRaise", Operator.IS_EQUAL, true, Stops.SELF,
+                    new BlackboardCondition("askRaise", Operator.IS_EQUAL, true, Stops.IMMEDIATE_RESTART,
                         new Action(() =>
                         {
                             AskForRaise();
@@ -56,6 +63,12 @@ public class GroundskeeperAI : EmployeeBot {
                         })
                         { Label = "Ask For Raise" }
                     ),
+
+                    /*new Action(() =>
+                    {
+                        Debug.Log("Checkpoint 2");
+                    })
+                    { Label = "Checkpoint" },
 
                     /*new Selector(
                         new BlackboardCondition("currentSchedule", Operator.IS_EQUAL, "GoHome", Stops.SELF,
@@ -76,7 +89,7 @@ public class GroundskeeperAI : EmployeeBot {
                     ),*/
 
                     new Selector(
-                        new BlackboardCondition("currentBuilding", Operator.IS_NOT_EQUAL, null, Stops.SELF,
+                        new BlackboardCondition("currentBuilding", Operator.IS_NOT_EQUAL, null, Stops.IMMEDIATE_RESTART,
                             new Action((bool _shouldCancel) =>
                             {
                                 if (!_shouldCancel)
@@ -92,21 +105,11 @@ public class GroundskeeperAI : EmployeeBot {
                             { Label = "Repair Building" }
                         ),
 
-                        new BlackboardCondition("currentBuilding", Operator.IS_EQUAL, null, Stops.SELF,
-                            new Action((bool _shouldCancel) =>
-                            {
-                                if (!_shouldCancel)
-                                {
-                                    TakeBreak();
-                                    return Action.Result.PROGRESS;
-                                }
-                                else
-                                {
-                                    return Action.Result.FAILED;
-                                }
-                            })
-                            { Label = "Take A Break" }
-                        )
+                        new Action(() =>
+                        {
+                            TakeBreak();
+                        })
+                        { Label = "Take A Break" }
                     )
                 )
             )
@@ -117,10 +120,11 @@ public class GroundskeeperAI : EmployeeBot {
     //Update variables
     private void UpdateBlackboard()
     {
-        Building currentBuilding = FindBuildingToRepair();
+        GameObject currentBuilding = FindBuildingToRepair();
         if (currentBuilding != null)
         {
-            CurrentTarget = currentBuilding.transform;
+
+            //FollowNode.SetPositionAndRotation(currentBuilding.transform.position, Quaternion.identity);
             Debug.Log(currentBuilding.name);
         }
         BehaviorTree.Blackboard["currentBuilding"] = currentBuilding;
@@ -129,7 +133,7 @@ public class GroundskeeperAI : EmployeeBot {
         BehaviorTree.Blackboard["askRaise"] = CheckAskRaise();
     }
 
-    private Building FindBuildingToRepair()
+    private GameObject FindBuildingToRepair()
     {
         return CheckProximity(transform.position, 5f, 0, "Building");
     }
@@ -179,19 +183,22 @@ public class GroundskeeperAI : EmployeeBot {
     {
         //find random direction and move
         Debug.Log("Taking a break");
-        PathAgent.canMove = true;
-        if (DestSetter.target != CurrentTarget) DestSetter.target = CurrentTarget;
-        if (PathAgent.reachedEndOfPath)
+        Debug.Log(Vector3.Distance(transform.position, FollowNode.position));
+        if(PathAgent.canMove != true) PathAgent.canMove = true;
+        if (Vector3.Distance(transform.position, FollowNode.position) <= 2.5f)
         {
-            RandomPath path = RandomPath.Construct(transform.position, 100);
-            path.spread = 10;
-            GetComponent<Seeker>().StartPath(path);
+            Debug.Log(Vector3.Distance(transform.position, FollowNode.position));
+            Vector3 newDestination = new Vector3(UnityEngine.Random.Range(-1, 1) * UnityEngine.Random.Range(40f, 100f), 40f, 
+                UnityEngine.Random.Range(-1, 1) * UnityEngine.Random.Range(40f, 100f));
+            FollowNode.SetPositionAndRotation(newDestination, Quaternion.identity);
+            if (DestSetter.target != FollowNode) DestSetter.target = FollowNode;
         }
+        
     }
 
     private void RepairBuilding()
     {
-        if(Vector3.Distance(transform.position, CurrentTarget.position) <= 2.5f)
+        if(Vector3.Distance(transform.position, FollowNode.position) <= 2.5f)
         {
             PathAgent.canMove = false;
             Debug.Log("Repairing building");
@@ -199,13 +206,13 @@ public class GroundskeeperAI : EmployeeBot {
         else
         {
             PathAgent.canMove = true;
-            if(DestSetter.target != CurrentTarget) DestSetter.target = CurrentTarget;
+            if(DestSetter.target != FollowNode) DestSetter.target = FollowNode;
         }
     }
 
 
     //Utility Methods
-    private Building CheckProximity(Vector3 origin, float radius, int layerMask, string tagMatch)
+    private GameObject CheckProximity(Vector3 origin, float radius, int layerMask, string tagMatch)
     {
         if (origin != Vector3.zero && radius != 0 && tagMatch != null)
         {
@@ -217,7 +224,7 @@ public class GroundskeeperAI : EmployeeBot {
                 if (c.gameObject.tag == tagMatch)
                 {
                     Debug.Log("Tag match found!");
-                    return c.GetComponent<Building>(); //as Building;
+                    return c.gameObject; //as Building;
                 }
             }
         }

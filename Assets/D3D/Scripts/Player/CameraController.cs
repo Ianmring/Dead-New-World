@@ -40,13 +40,8 @@ public class CameraController : MonoBehaviour {
             PanCamera(Input.mousePosition);
         }
 
-        currZoom += -Input.GetAxisRaw("Mouse ScrollWheel") * 100f;
-
-        if (currZoom < minZoom) currZoom = minZoom;
-        else if (currZoom > maxZoom) currZoom = maxZoom;
-        Debug.Log(currZoom);
-
-        ZoomCamera(currZoom, camSpeed);
+        //if (currZoom < minZoom) currZoom = minZoom;
+        //else if (currZoom > maxZoom) currZoom = maxZoom;
     }
 
     void PanCamera(Vector3 newPanPosition)
@@ -64,13 +59,13 @@ public class CameraController : MonoBehaviour {
         lastPanPosition = newPanPosition;
     }
 
-    void ZoomCamera(float offset, float speed)
+    /*float ZoomCamera(float offset, float speed)
     {
-        if (offset == 0)
-        {
-            return;
-        }
+        //if (offset == 0)
+        //{
+        //    return 0;
+        //}
 
-        GetComponent<Camera>().fieldOfView = Mathf.Clamp(GetComponent<Camera>().fieldOfView - (offset * speed), minZoom, maxZoom);
-    }
+        return Mathf.Clamp(offset * speed, minZoom, maxZoom);
+    }*/
 }

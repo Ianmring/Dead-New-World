@@ -28,13 +28,13 @@ public class AssetPlacementManager : MonoBehaviour
         switch(currentInputMode)
         {
             case InputMode.selectMode:
-                GetTileUnderCursor();
+                GetBuildingUnderCursor();
                 break;
 
             case InputMode.buildMode:
                 if (CheckIfObjectSelected())
                 {
-                    GetTileUnderCursor();
+                    GetBuildingUnderCursor();
                     MoveObjectToCursor();
                     canPlaceObject = CheckBuildingPlacement();
                     PlaceBuilding();
@@ -44,7 +44,7 @@ public class AssetPlacementManager : MonoBehaviour
             case InputMode.modifyMode:
                 if (CheckIfObjectSelected())
                 {
-                    GetTileUnderCursor();
+                    GetBuildingUnderCursor();
                     MoveModToBuilding();
                     //canPlaceObject = CheckModPlacement();
                     AttachMod();
@@ -63,11 +63,11 @@ public class AssetPlacementManager : MonoBehaviour
         else return false;
     }
 
-    public void GetTileUnderCursor()
+    public void GetBuildingUnderCursor()
     {
         camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(camRay, out hitInfo) && hitInfo.transform.gameObject.GetComponent<Tile>() != null)
+        if (Physics.Raycast(camRay, out hitInfo) && hitInfo.transform.gameObject.GetComponent<Building>() != null)
         {
             selectedTile = hitInfo.transform.gameObject.GetComponent<Tile>();
         }
