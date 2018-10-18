@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 using D3D;
 
 
@@ -8,24 +9,52 @@ public class AssetPlacementManager : MonoBehaviour
 {
     public enum InputMode { selectMode, buildMode, modifyMode, tileMode }
 
+    Vector3 mouseToWorld;
+    Vector3 startNodePos;
+    Vector3 endNodePos;
+    InputMode currentInputMode;
+    List<GraphNode> selectedNodes;
+    GraphNode startNode;
+    GraphNode endNode;
+
     Ray camRay;
     RaycastHit hitInfo;
-
-    Tile selectedTile;
-    AttachNode selectedNode;
-    PlaceableAsset currentObject;
-    InputMode currentInputMode;
+    //Tile selectedTile;
+    //AttachNode selectedNode;
+    //PlaceableAsset currentObject;
 
     public bool canPlaceObject;
 
     public void InitializeManager()
     {
         currentInputMode = InputMode.selectMode;
+        selectedNodes = new List<GraphNode>();
     }
 
     public void SelectionHandler()
     {
-        switch(currentInputMode)
+        //MouseButtonDown will grab a node and highlight it
+        if (Input.GetMouseButtonDown(0))
+        {
+            camRay = Camera.main.ScreenPointToRay(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
+            if (Physics.Raycast(camRay, out hitInfo)) mouseToWorld = hitInfo.point;
+            startNode = AstarPath.active.GetNearest(mouseToWorld).node;
+            startNodePos = mouseToWorld;
+        }
+        else if (Input.GetMouseButton(0))
+        {
+            camRay = Camera.main.ScreenPointToRay(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
+            if (Physics.Raycast(camRay, out hitInfo)) mouseToWorld = hitInfo.point;
+            endNode = AstarPath.active.GetNearest(mouseToWorld).node;
+            endNodePos = mouseToWorld;
+            CreateSelectionFromNodes();
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            Debug.Log(selectedNodes.Count);
+        }
+        
+        /*switch(currentInputMode)
         {
             case InputMode.selectMode:
                 GetBuildingUnderCursor();
@@ -53,10 +82,30 @@ public class AssetPlacementManager : MonoBehaviour
 
             case InputMode.tileMode:
                 break;
-        }
+        }*/
         
     }
 
+    void CreateSelectionFromNodes()
+    {
+        selectedNodes.Clear();
+        for(int x = startNode.position.x; x < endNode.position.x; x++)
+        {
+            for(int y = startNode.position.x; y < endNode.position.z; y++)
+            {
+                selectedNodes.Add(AstarPath.active.data.gridGraph.GetNode(x, y));
+            }
+        }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        if (Input.GetMouseButton(0)) Gizmos.DrawCube((startNodePos + endNodePos) / 2, 
+            new Vector3(startNodePos.x - endNodePos.x, 0.5f, startNodePos.z - endNodePos.z));
+    }
+
+    /*
     public bool CheckIfObjectSelected()
     {
         if (currentObject != null) return true;
@@ -155,7 +204,7 @@ public class AssetPlacementManager : MonoBehaviour
         }
         return false;
     }*/
-
+    /*
     public void PlaceBuilding()
     {
         if(Input.GetMouseButtonDown(0))
@@ -209,6 +258,6 @@ public class AssetPlacementManager : MonoBehaviour
     public void SetInputMode(InputMode newMode)
     {
         currentInputMode = InputMode.selectMode;
-    }
+    }*/
 
 }
