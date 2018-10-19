@@ -9,7 +9,7 @@ public class Clients : MonoBehaviour
   public GameManager mann;
 
     UIManager uimann;
-    string client;
+   public string client;
 
     string deadrelativename;
 

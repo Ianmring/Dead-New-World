@@ -15,10 +15,15 @@ public class HeadstoneMenu : MonoBehaviour {
     [SerializeField]
     GameObject buttonTemplate;
     [SerializeField]
-    private Mod headstoneObject;
+    public Mod headstoneObject;
+
+    [SerializeField]
+    private GameManager man;
 
     private void Awake()
     {
+        this.gameObject.SetActive(true);
+        man = FindObjectOfType<GameManager>();
         buttonList = new List<GameObject>();
         currentClientSelected = null;
     }
@@ -38,11 +43,11 @@ public class HeadstoneMenu : MonoBehaviour {
     {
         EmptyList();
 
-        for (int i = 0; i < PlayerController.Player.clientList.Count; i++)
+        for (int i = 0; i < man.currentclients.Count; i++)
         {
             GameObject newButton = Instantiate(buttonTemplate);
             newButton.SetActive(true);
-            newButton.GetComponent<HeadstoneMenuButton>().AssignClient(PlayerController.Player.clientList[i]);
+            newButton.GetComponent<HeadstoneMenuButton>().AssignClient(man.currentclients[i].client);
             newButton.transform.SetParent(buttonTemplate.transform.parent, false);
             buttonList.Add(newButton);
         }
