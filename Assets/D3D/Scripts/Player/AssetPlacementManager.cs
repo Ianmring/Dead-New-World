@@ -10,10 +10,10 @@ public class AssetPlacementManager : MonoBehaviour
     public enum InputMode { selectMode, buildMode, modifyMode, tileMode }
 
     Vector3 mouseToWorld;
-    Vector3 startNodePos;
-    Vector3 endNodePos;
+    Int3 startNodePos;
+    Int3 endNodePos;
     InputMode currentInputMode;
-    List<GraphNode> selectedNodes;
+    List<GraphNode> selectedNodesPos;
     GraphNode startNode;
     GraphNode endNode;
 
@@ -28,7 +28,7 @@ public class AssetPlacementManager : MonoBehaviour
     public void InitializeManager()
     {
         currentInputMode = InputMode.selectMode;
-        selectedNodes = new List<GraphNode>();
+        selectedNodesPos = new List<GraphNode>();
     }
 
     public void SelectionHandler()
@@ -36,22 +36,25 @@ public class AssetPlacementManager : MonoBehaviour
         //MouseButtonDown will grab a node and highlight it
         if (Input.GetMouseButtonDown(0))
         {
+            selectedNodesPos.Clear();
             camRay = Camera.main.ScreenPointToRay(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
             if (Physics.Raycast(camRay, out hitInfo)) mouseToWorld = hitInfo.point;
             startNode = AstarPath.active.GetNearest(mouseToWorld).node;
-            startNodePos = mouseToWorld;
+            startNodePos = AstarPath.active.GetNearest(mouseToWorld).node.position;
+            //Debug.Log("Start " + startNodePos.ToString());
         }
         else if (Input.GetMouseButton(0))
         {
             camRay = Camera.main.ScreenPointToRay(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
             if (Physics.Raycast(camRay, out hitInfo)) mouseToWorld = hitInfo.point;
             endNode = AstarPath.active.GetNearest(mouseToWorld).node;
-            endNodePos = mouseToWorld;
+            endNodePos = AstarPath.active.GetNearest(mouseToWorld).node.position;
             CreateSelectionFromNodes();
+            //Debug.Log("End " + endNodePos.ToString());
         }
         else if (Input.GetMouseButtonUp(0))
         {
-            Debug.Log(selectedNodes.Count);
+            //Debug.Log(selectedNodesPos.Count);
         }
         
         /*switch(currentInputMode)
@@ -88,21 +91,37 @@ public class AssetPlacementManager : MonoBehaviour
 
     void CreateSelectionFromNodes()
     {
-        selectedNodes.Clear();
-        for(int x = startNode.position.x; x < endNode.position.x; x++)
+        var gg = AstarPath.active.data.gridGraph;
+
+        selectedNodesPos = gg.GetNodesInRegion(new IntRect(Mathf.Abs(startNodePos.x / gg.width), 
+            Mathf.Abs(startNodePos.z / gg.depth),
+            Mathf.Abs(endNodePos.x / gg.width),
+            Mathf.Abs(endNodePos.z / gg.depth)));
+
+        //selectedNodesPos = gg.GetNodesInRegion(new Bounds(((Vector3)startNodePos + (Vector3)endNodePos) / 2,
+        //new Vector3(Mathf.Abs(endNodePos.x - startNodePos.x) / gg.width, 1f, Mathf.Abs(endNodePos.z - startNodePos.z) / gg.width)));
+        //new Vector3(Mathf.Abs(endNodePos.x - startNodePos.x) / gg.depth, 1f, Mathf.Abs(endNodePos.z - startNodePos.z) / gg.depth)));
+
+        /*for (int z = 0; z < gg.depth; z++)
         {
-            for(int y = startNode.position.x; y < endNode.position.z; y++)
+            for (int x = startNode.NodeIndex; x < endNode.NodeIndex; x++)
             {
-                selectedNodes.Add(AstarPath.active.data.gridGraph.GetNode(x, y));
+                selectedNodesPos.Add(gg.nodes[z*endNode.NodeIndex + x].position);
+                Debug.Log(x + " " + " added!");
             }
-        }
+        }*/
     }
 
     void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
-        if (Input.GetMouseButton(0)) Gizmos.DrawCube((startNodePos + endNodePos) / 2, 
-            new Vector3(startNodePos.x - endNodePos.x, 0.5f, startNodePos.z - endNodePos.z));
+        if(selectedNodesPos != null) if(selectedNodesPos.Count > 0)
+        {
+            Debug.Log(selectedNodesPos.Count + " nodes selected");
+            foreach (GraphNode g in selectedNodesPos)
+                Gizmos.DrawCube(((Vector3)g.position + (Vector3)g.position) / 2,
+                new Vector3(AstarPath.active.data.gridGraph.nodeSize, 0.5f, AstarPath.active.data.gridGraph.nodeSize));
+        }   
     }
 
     /*

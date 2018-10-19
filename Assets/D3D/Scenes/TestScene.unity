@@ -413,6 +413,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: 0.5
+  height: 2
   repathRate: 0.5
   canSearch: 1
   canMove: 1
@@ -421,8 +423,9 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 0
+  centerOffsetCompatibility: 1
+  orientation: 0
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
@@ -458,7 +461,8 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  graphMask: -1
+  graphMask:
+    value: -1
 --- !u!143 &298088418
 CharacterController:
   m_ObjectHideFlags: 0
@@ -667,7 +671,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAACAn+vb5HJieAIAAFcFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGFVN9v2jAQ/leQn9cqgbK1e9sCZZtEi8qmPSx9MMmFWDh2ZJ8LtOJ/39kJJNBJk5Acvu9+fec7vzGhbA0ZajMzIp/rHNjnAfPf7MOA8cA9cRSa4JgQYXUFaET2Ra2lt40IdEoU2lTTfA2JtmgJLri0QJTR6L0VQW8Dtmsd9u356s/Bgb4yUAjmf1ZOZZJXNeRL8QqdcRxFR3v/GUwVSWmthtdjn0FLKWxbCsN9HZQmvLaOhJBBLjhJC0V4pSWIdYneve/8WBQWsC3M8P1EGOpQE5V91Vj6SBW3m6a6Fy4dnMpvQs7fsVdxoAujq2/HrHGQhKXINk98n3GLva724cl52U5tudzwlYTfJagHPTPaqZxINM67OgvDSS/USVlSQrbp7JpaL0BXv7+huLuhQ9C+S6SoVh65HjbAUurQ7RH9BUMX853qDWNh20CE+hp+WfjJ1/35aYl7YSwS1eZTvriVdsabsmlomdfiMNFGQYDbkmtQXOJ+QWHw8v4uuF7aC+ae+w1pk7fccQEuXALc2UfRBbXQ2+6uLPxwVb3QQuESuMnKXjxb6u0cbPnoUAoFnSJPPFATE61UM3v2H25LZwqe9dwQdugMTDjysAFUEw1J3nelhgYP5aT08xhU+OB/SIX/Pfsml5zyygCzB63C7pydz34O1k7k51POeASrUfTpdhzHw/HH+O6qGMVQ3MajYnR7d7OKblhYA6Go51wumqa1C0gDpDotikb++E4NZobXYe1yw7cz8Vrp3vULVehlZgDUYxPhJBYMJaEHIp/mgmQuAVGoMHvsLWVSZxvI01OgNDR2ukPD0y5KymrxotEjKUvCE5ayAzv8BVBLAwQUAAAICAAAgJ/rJlW+vm0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9QzNNNRUEovSizIKAaKGII4pZkpIHa0UqJBapKxgbmFqaGhkamZoaVumrFhapqFoXGasYWlSZKBiVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAgJ/r2+RyYngCAABXBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAgJ/rJlW+vm0AAAB4AAAACQAkAAAAAAAAAAAAAADFAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAH0DAAAAAA==
+    dataString: UEsDBBQAAAgIAACAn+vb5HJieAIAAFcFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGFVN9v2jAQ/leQn9cqgbK1e9sCZZtEi8qmPSx9MMmFWDh2ZJ8LtOJ/39kJJNBJk5Acvu9+fec7vzGhbA0ZajMzIp/rHNjnAfPf7MOA8cA9cRSa4JgQYXUFaET2Ra2lt40IdEoU2lTTfA2JtmgJLri0QJTR6L0VQW8Dtmsd9u356s/Bgb4yUAjmf1ZOZZJXNeRL8QqdcRxFR3v/GUwVSWmthtdjn0FLKWxbCsN9HZQmvLaOhJBBLjhJC0V4pSWIdYneve/8WBQWsC3M8P1EGOpQE5V91Vj6SBW3m6a6Fy4dnMpvQs7fsVdxoAujq2/HrHGQhKXINk98n3GLva724cl52U5tudzwlYTfJagHPTPaqZxINM67OgvDSS/USVlSQrbp7JpaL0BXv7+huLuhQ9C+S6SoVh65HjbAUurQ7RH9BUMX853qDWNh20CE+hp+WfjJ1/35aYl7YSwS1eZTvriVdsabsmlomdfiMNFGQYDbkmtQXOJ+QWHw8v4uuF7aC+ae+w1pk7fccQEuXALc2UfRBbXQ2+6uLPxwVb3QQuESuMnKXjxb6u0cbPnoUAoFnSJPPFATE61UM3v2H25LZwqe9dwQdugMTDjysAFUEw1J3nelhgYP5aT08xhU+OB/SIX/Pfsml5zyygCzB63C7pydz34O1k7k51POeASrUfTpdhzHw/HH+O6qGMVQ3MajYnR7d7OKblhYA6Go51wumqa1C0gDpDotikb++E4NZobXYe1yw7cz8Vrp3vULVehlZgDUYxPhJBYMJaEHIp/mgmQuAVGoMHvsLWVSZxvI01OgNDR2ukPD0y5KymrxotEjKUvCE5ayAzv8BVBLAwQUAAAICAAAgJ/rxxgS8WwAAAB3AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9Iz0FFQSi9KLMgoBgoYgjilmSkgdrRSokFqkrGBuYWpoaGRqZmhpW6asWFqmoWhcZqxhaVJkoGJUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAACAn+vb5HJieAIAAFcFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAACAn+vHGBLxbAAAAHcAAAAJACQAAAAAAAAAAAAAAMUCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAfAMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -687,7 +691,7 @@ MonoBehaviour:
   prioritizeGraphs: 0
   prioritizeGraphsLimit: 1
   colorSettings:
-    _NodeConnection: {r: 0, g: 1, b: 0, a: 0.5}
+    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
     _UnwalkableNode: {r: 0.99689525, g: 0, b: 0, a: 0.5}
     _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
     _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
@@ -731,7 +735,6 @@ MonoBehaviour:
   heuristicScale: 1
   threadCount: 1
   maxFrameTime: 10
-  minAreaSize: 4
   batchGraphUpdates: 0
   graphUpdateBatchingInterval: 0.2
   euclideanEmbedding:
@@ -841,7 +844,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1075985960}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 52.19997, y: 29, z: -53.81}
+  m_LocalPosition: {x: 52.19997, y: 20, z: -53.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 908824159}

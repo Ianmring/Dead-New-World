@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using Pathfinding.RVO;
 
 namespace Pathfinding.Examples {
-	/** Example movement script for using RVO.
-	 *
-	 * Primarily intended for the example scenes.
-	 * You can use the AIPath or RichAI movement scripts in your own projects.
-	 *
-	 * \see #Pathfinding.AIPath
-	 * \see #Pathfinding.RichAI
-	 * \see #Pathfinding.RVO.RVOController
-	 */
+	/// <summary>
+	/// Example movement script for using RVO.
+	///
+	/// Primarily intended for the example scenes.
+	/// You can use the AIPath or RichAI movement scripts in your own projects.
+	///
+	/// See: <see cref="Pathfinding.AIPath"/>
+	/// See: <see cref="Pathfinding.RichAI"/>
+	/// See: <see cref="Pathfinding.RVO.RVOController"/>
+	/// </summary>
 	[RequireComponent(typeof(RVOController))]
 	[RequireComponent(typeof(Seeker))]
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_examples_1_1_r_v_o_example_agent.php")]
@@ -44,13 +45,13 @@ namespace Pathfinding.Examples {
 			controller = GetComponent<RVOController>();
 		}
 
-		/** Set the point to move to */
+		/// <summary>Set the point to move to</summary>
 		public void SetTarget (Vector3 target) {
 			this.target = target;
 			RecalculatePath();
 		}
 
-		/** Animate the change of color */
+		/// <summary>Animate the change of color</summary>
 		public void SetColor (Color color) {
 			if (rends == null) rends = GetComponentsInChildren<MeshRenderer>();
 			foreach (MeshRenderer rend in rends) {

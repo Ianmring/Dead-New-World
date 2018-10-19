@@ -1,61 +1,62 @@
 using UnityEngine;
 
 namespace Pathfinding {
-	/** Helper for easier fast updates to recast graphs.
-	 *
-	 * When updating recast graphs, you might just have plonked down a few
-	 * GraphUpdateScene objects or issued a few GraphUpdateObjects to the
-	 * system. This works fine if you are only issuing a few but the problem
-	 * is that they don't have any coordination in between themselves. So if
-	 * you have 10 GraphUpdateScene objects in one tile, they will all update
-	 * that tile (10 times in total) instead of just updating it once which
-	 * is all that is required (meaning it will be 10 times slower than just
-	 * updating one tile). This script exists to help with updating only the
-	 * tiles that need updating and only updating them once instead of
-	 * multiple times.
-	 *
-	 * It is coupled with the RecastTileUpdate component, which works a bit
-	 * like the GraphUpdateScene component, just with fewer options. You can
-	 * attach the RecastTileUpdate to any GameObject to have it schedule an
-	 * update for the tile(s) that contain the GameObject. E.g if you are
-	 * creating a new building somewhere, you can attach the RecastTileUpdate
-	 * component to it to make it update the graph when it is instantiated.
-	 *
-	 * If a single tile contains multiple RecastTileUpdate components and
-	 * many try to update the graph at the same time, only one tile update
-	 * will be done, which greatly improves performance.
-	 *
-	 * If you have objects that are instantiated at roughly the same time
-	 * but not exactly the same frame, you can use the maxThrottlingDelay
-	 * field. It will delay updates up to that number of seconds to allow
-	 * more updates to be batched together.
-	 *
-	 * \note You should only have one instance of this script in the scene
-	 * if you only have a single recast graph. If you have more than one
-	 * graph you can have more than one instance of this script but you need
-	 * to manually call the SetGraph method to configure it with the correct
-	 * graph.
-	 *
-	 * \note This does not use navmesh cutting. If you only ever add
-	 * obstacles, but never add any new walkable surfaces then you might
-	 * want to use navmesh cutting instead. See \ref navmeshcutting.
-	 */
+	/// <summary>
+	/// Helper for easier fast updates to recast graphs.
+	///
+	/// When updating recast graphs, you might just have plonked down a few
+	/// GraphUpdateScene objects or issued a few GraphUpdateObjects to the
+	/// system. This works fine if you are only issuing a few but the problem
+	/// is that they don't have any coordination in between themselves. So if
+	/// you have 10 GraphUpdateScene objects in one tile, they will all update
+	/// that tile (10 times in total) instead of just updating it once which
+	/// is all that is required (meaning it will be 10 times slower than just
+	/// updating one tile). This script exists to help with updating only the
+	/// tiles that need updating and only updating them once instead of
+	/// multiple times.
+	///
+	/// It is coupled with the RecastTileUpdate component, which works a bit
+	/// like the GraphUpdateScene component, just with fewer options. You can
+	/// attach the RecastTileUpdate to any GameObject to have it schedule an
+	/// update for the tile(s) that contain the GameObject. E.g if you are
+	/// creating a new building somewhere, you can attach the RecastTileUpdate
+	/// component to it to make it update the graph when it is instantiated.
+	///
+	/// If a single tile contains multiple RecastTileUpdate components and
+	/// many try to update the graph at the same time, only one tile update
+	/// will be done, which greatly improves performance.
+	///
+	/// If you have objects that are instantiated at roughly the same time
+	/// but not exactly the same frame, you can use the maxThrottlingDelay
+	/// field. It will delay updates up to that number of seconds to allow
+	/// more updates to be batched together.
+	///
+	/// Note: You should only have one instance of this script in the scene
+	/// if you only have a single recast graph. If you have more than one
+	/// graph you can have more than one instance of this script but you need
+	/// to manually call the SetGraph method to configure it with the correct
+	/// graph.
+	///
+	/// Note: This does not use navmesh cutting. If you only ever add
+	/// obstacles, but never add any new walkable surfaces then you might
+	/// want to use navmesh cutting instead. See navmeshcutting (view in online documentation for working links).
+	/// </summary>
 	[AddComponentMenu("Pathfinding/Navmesh/RecastTileUpdateHandler")]
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_recast_tile_update_handler.php")]
 	public class RecastTileUpdateHandler : MonoBehaviour {
-		/** Graph that handles the updates */
+		/// <summary>Graph that handles the updates</summary>
 		RecastGraph graph;
 
-		/** True for a tile if it needs updating */
+		/// <summary>True for a tile if it needs updating</summary>
 		bool[] dirtyTiles;
 
-		/** True if any elements in dirtyTiles are true */
+		/// <summary>True if any elements in dirtyTiles are true</summary>
 		bool anyDirtyTiles = false;
 
-		/** Earliest update request we are handling right now */
+		/// <summary>Earliest update request we are handling right now</summary>
 		float earliestDirty = float.NegativeInfinity;
 
-		/** All tile updates will be performed within (roughly) this number of seconds */
+		/// <summary>All tile updates will be performed within (roughly) this number of seconds</summary>
 		public float maxThrottlingDelay = 0.5f;
 
 		public void SetGraph (RecastGraph graph) {
@@ -68,7 +69,7 @@ namespace Pathfinding {
 			anyDirtyTiles = false;
 		}
 
-		/** Requests an update to all tiles which touch the specified bounds */
+		/// <summary>Requests an update to all tiles which touch the specified bounds</summary>
 		public void ScheduleUpdate (Bounds bounds) {
 			if (graph == null) {
 				// If no graph has been set, use the first graph available
@@ -121,7 +122,7 @@ namespace Pathfinding {
 			}
 		}
 
-		/** Update all dirty tiles now */
+		/// <summary>Update all dirty tiles now</summary>
 		public void UpdateDirtyTiles () {
 			if (graph == null) {
 				new System.InvalidOperationException("No graph is set on this object");

@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 namespace Pathfinding.Examples {
-	/** Helper script in the example scene 'Turn Based' */
+	/// <summary>Helper script in the example scene 'Turn Based'</summary>
 	[RequireComponent(typeof(Animator))]
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_examples_1_1_hexagon_trigger.php")]
 	public class HexagonTrigger : MonoBehaviour {

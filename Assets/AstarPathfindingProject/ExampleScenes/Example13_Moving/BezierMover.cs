@@ -1,9 +1,10 @@
 using UnityEngine;
 
 namespace Pathfinding.Examples {
-	/** Moves an object along a spline.
-	 * Helper script in the example scene called 'Moving'.
-	 */
+	/// <summary>
+	/// Moves an object along a spline.
+	/// Helper script in the example scene called 'Moving'.
+	/// </summary>
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_examples_1_1_bezier_mover.php")]
 	public class BezierMover : MonoBehaviour {
 		public Transform[] points;
@@ -20,7 +21,7 @@ namespace Pathfinding.Examples {
 			return AstarSplines.CatmullRom(points[(pt-1+c)%c].position, points[pt].position, points[(pt+1)%c].position, points[(pt+2)%c].position, t - Mathf.FloorToInt(t));
 		}
 
-		/** Update is called once per frame */
+		/// <summary>Update is called once per frame</summary>
 		void Update () {
 			float mn = time;
 			float mx = time+1;

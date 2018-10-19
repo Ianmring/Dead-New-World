@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 namespace Pathfinding.Examples {
-	/** Helper script in the example scene 'Turn Based' */
+	/// <summary>Helper script in the example scene 'Turn Based'</summary>
 	[RequireComponent(typeof(Animator))]
 	[RequireComponent(typeof(SingleNodeBlocker))]
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_examples_1_1_turn_based_door.php")]

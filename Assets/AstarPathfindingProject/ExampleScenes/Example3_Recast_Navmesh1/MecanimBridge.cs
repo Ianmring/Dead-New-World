@@ -3,41 +3,42 @@ using UnityEngine;
 namespace Pathfinding.Examples {
 	using Pathfinding.Util;
 
-	/** Example of how to use Mecanim with the included movement scripts.
-	 *
-	 * This script will use Mecanim to apply root motion to move the character
-	 * instead of allowing the movement script to do the movement.
-	 *
-	 * It assumes that the Mecanim controller uses 3 input variables
-	 * - \a InputMagnitude which is simply 1 when the character should be moving and 0 when it should stop.
-	 * - \a X which is component of the desired movement direction along the left/right axis.
-	 * - \a Y which is component of the desired movement direction along the forward/backward axis.
-	 *
-	 * It works with AIPath and RichAI.
-	 *
-	 * \see #Pathfinding.IAstarAI
-	 * \see #Pathfinding.AIPath
-	 * \see #Pathfinding.RichAI
-	 */
+	/// <summary>
+	/// Example of how to use Mecanim with the included movement scripts.
+	///
+	/// This script will use Mecanim to apply root motion to move the character
+	/// instead of allowing the movement script to do the movement.
+	///
+	/// It assumes that the Mecanim controller uses 3 input variables
+	/// - InputMagnitude which is simply 1 when the character should be moving and 0 when it should stop.
+	/// - X which is component of the desired movement direction along the left/right axis.
+	/// - Y which is component of the desired movement direction along the forward/backward axis.
+	///
+	/// It works with AIPath and RichAI.
+	///
+	/// See: <see cref="Pathfinding.IAstarAI"/>
+	/// See: <see cref="Pathfinding.AIPath"/>
+	/// See: <see cref="Pathfinding.RichAI"/>
+	/// </summary>
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_examples_1_1_mecanim_bridge.php")]
 	public class MecanimBridge : VersionedMonoBehaviour {
 		public float velocitySmoothing = 1;
 
-		/** Cached reference to the movement script */
+		/// <summary>Cached reference to the movement script</summary>
 		IAstarAI ai;
 
-		/** Cached Animator component */
+		/// <summary>Cached Animator component</summary>
 		Animator anim;
 
-		/** Cached Transform component */
+		/// <summary>Cached Transform component</summary>
 		Transform tr;
 
 		Vector3 smoothedVelocity;
 
-		/** Position of the left and right feet during the previous frame */
+		/// <summary>Position of the left and right feet during the previous frame</summary>
 		Vector3[] prevFootPos = new Vector3[2];
 
-		/** Cached reference to the left and right feet */
+		/// <summary>Cached reference to the left and right feet</summary>
 		Transform[] footTransforms;
 
 		protected override void Awake () {
@@ -50,7 +51,7 @@ namespace Pathfinding.Examples {
 			footTransforms = new [] { anim.GetBoneTransform(HumanBodyBones.LeftFoot), anim.GetBoneTransform(HumanBodyBones.RightFoot) };
 		}
 
-		/** Update is called once per frame */
+		/// <summary>Update is called once per frame</summary>
 		void Update () {
 			var aiBase = ai as AIBase;
 
@@ -59,7 +60,7 @@ namespace Pathfinding.Examples {
 			// aiBase.updateRotation = false;
 		}
 
-		/** Calculate position of the currently grounded foot */
+		/// <summary>Calculate position of the currently grounded foot</summary>
 		Vector3 CalculateBlendPoint () {
 			// Fall back to rotating around the transform position if no feet could be found
 			if (footTransforms[0] == null || footTransforms[1] == null) return tr.position;
@@ -129,11 +130,12 @@ namespace Pathfinding.Examples {
 			return rotation * (point - around) + around;
 		}
 
-		/** Calculates a rotation closer to the desired direction.
-		 * \param direction Direction in the movement plane to rotate toward.
-		 * \param maxDegrees Maximum number of degrees to rotate this frame.
-		 * \returns The new rotation for the character
-		 */
+		/// <summary>
+		/// Calculates a rotation closer to the desired direction.
+		/// Returns: The new rotation for the character
+		/// </summary>
+		/// <param name="direction">Direction in the movement plane to rotate toward.</param>
+		/// <param name="maxDegrees">Maximum number of degrees to rotate this frame.</param>
 		protected virtual Quaternion RotateTowards (Vector3 direction, float maxDegrees) {
 			if (direction != Vector3.zero) {
 				Quaternion targetRotation = Quaternion.LookRotation(direction);

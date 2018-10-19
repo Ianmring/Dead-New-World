@@ -3,19 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 
 namespace Pathfinding.Examples {
-	/** Demos different path types.
-	 * This script is an example script demoing a number of different path types included in the project.
-	 * Since only the Pro version has access to many path types, it is only included in the pro version
-	 * \astarpro
-	 *
-	 * \see Pathfinding.ABPath
-	 * \see Pathfinding.MultiTargetPath
-	 * \see Pathfinding.ConstantPath
-	 * \see Pathfinding.FleePath
-	 * \see Pathfinding.RandomPath
-	 * \see Pathfinding.FloodPath
-	 * \see Pathfinding.FloodPathTracer
-	 */
+	/// <summary>
+	/// Demos different path types.
+	/// This script is an example script demoing a number of different path types included in the project.
+	/// Since only the Pro version has access to many path types, it is only included in the pro version
+	///
+	/// See: Pathfinding.ABPath
+	/// See: Pathfinding.MultiTargetPath
+	/// See: Pathfinding.ConstantPath
+	/// See: Pathfinding.FleePath
+	/// See: Pathfinding.RandomPath
+	/// See: Pathfinding.FloodPath
+	/// See: Pathfinding.FloodPathTracer
+	/// </summary>
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_examples_1_1_path_types_demo.php")]
 	public class PathTypesDemo : MonoBehaviour {
 		public DemoMode activeDemo = DemoMode.ABPath;
@@ -30,21 +30,22 @@ namespace Pathfinding.Examples {
 			FloodPathTracer
 		}
 
-		/** Start of paths */
+		/// <summary>Start of paths</summary>
 		public Transform start;
 
-		/** Target point of paths */
+		/// <summary>Target point of paths</summary>
 		public Transform end;
 
-		/** Offset from the real path to where it is rendered.
-		 * Used to avoid z-fighting
-		 */
+		/// <summary>
+		/// Offset from the real path to where it is rendered.
+		/// Used to avoid z-fighting
+		/// </summary>
 		public Vector3 pathOffset;
 
-		/** Material used for rendering paths */
+		/// <summary>Material used for rendering paths</summary>
 		public Material lineMat;
 
-		/** Material used for rendering result of the ConstantPath */
+		/// <summary>Material used for rendering result of the ConstantPath</summary>
 		public Material squareMat;
 		public float lineWidth;
 
@@ -87,7 +88,7 @@ namespace Pathfinding.Examples {
 			}
 		}
 
-		/** Draw some helpful gui */
+		/// <summary>Draw some helpful gui</summary>
 		public void OnGUI () {
 			GUILayout.BeginArea(new Rect(5, 5, 220, Screen.height-10), "", "Box");
 
@@ -105,7 +106,7 @@ namespace Pathfinding.Examples {
 			case DemoMode.FloodPath:
 				GUILayout.Label("Searches the whole graph from a specific point. FloodPathTracer can then be used to quickly find a path to that point"); break;
 			case DemoMode.FloodPathTracer:
-				GUILayout.Label("Traces a path to where the FloodPath started. Compare the claculation times for this path with ABPath!\nGreat for TD games"); break;
+				GUILayout.Label("Traces a path to where the FloodPath started. Compare the calculation times for this path with ABPath!\nGreat for TD games"); break;
 			}
 
 			GUILayout.Space(5);
@@ -144,7 +145,7 @@ namespace Pathfinding.Examples {
 			GUILayout.EndArea();
 		}
 
-		/** Will be called when the paths have been calculated */
+		/// <summary>Will be called when the paths have been calculated</summary>
 		public void OnPathComplete (Path p) {
 			// To prevent it from creating new GameObjects when the application is quitting when using multithreading.
 			if (lastRender == null) return;
@@ -178,7 +179,7 @@ namespace Pathfinding.Examples {
 			lastRender.Add(ob);
 		}
 
-		/** Destroys all previous render objects */
+		/// <summary>Destroys all previous render objects</summary>
 		void ClearPrevious () {
 			for (int i = 0; i < lastRender.Count; i++) {
 				Destroy(lastRender[i]);
@@ -186,13 +187,13 @@ namespace Pathfinding.Examples {
 			lastRender.Clear();
 		}
 
-		/** Clears renders when the object is destroyed */
+		/// <summary>Clears renders when the object is destroyed</summary>
 		void OnDestroy () {
 			ClearPrevious();
 			lastRender = null;
 		}
 
-		/** Starts a path specified by PathTypesDemo.activeDemo */
+		/// <summary>Starts a path specified by PathTypesDemo.activeDemo</summary>
 		void DemoPath () {
 			Path p = null;
 

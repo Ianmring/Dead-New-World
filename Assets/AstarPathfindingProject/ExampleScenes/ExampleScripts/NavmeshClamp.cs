@@ -1,15 +1,15 @@
 using UnityEngine;
 
 namespace Pathfinding {
-	/** Attach to any GameObject and the object will be clamped to the navmesh.
-	 * If a GameObject has this component attached, one or more graph linecasts will be carried out every frame to ensure that the object
-	 * does not leave the navmesh area.\n
-	 * It can be used with GridGraphs, but Navmesh based ones are prefered.
-	 *
-	 * \note This has partly been replaced by using an RVOController along with RVONavmesh.
-	 * It will not yield exactly the same results though, so this script is still useful in some cases.
-	 *
-	 * \astarpro */
+	/// <summary>
+	/// Attach to any GameObject and the object will be clamped to the navmesh.
+	/// If a GameObject has this component attached, one or more graph linecasts will be carried out every frame to ensure that the object
+	/// does not leave the navmesh area.\n
+	/// It can be used with GridGraphs, but Navmesh based ones are prefered.
+	///
+	/// Note: This has partly been replaced by using an RVOController along with RVONavmesh.
+	/// It will not yield exactly the same results though, so this script is still useful in some cases.
+	/// </summary>
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_navmesh_clamp.php")]
 	public class NavmeshClamp : MonoBehaviour {
 		GraphNode prevNode;

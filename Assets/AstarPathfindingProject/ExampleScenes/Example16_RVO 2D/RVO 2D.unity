@@ -1075,6 +1075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   target: {fileID: 440664349}
 --- !u!114 &52940672
 MonoBehaviour:
@@ -1088,6 +1089,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: .200000003
+  height: 2
   repathRate: 2
   canSearch: 1
   canMove: 1
@@ -1096,9 +1099,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 1
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: .300000012
   pickNextWaypointDist: .699999988
@@ -1106,6 +1111,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!114 &52940673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1118,8 +1124,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: .200000003
-  height: 1
+  radiusBackingField: .200000003
+  heightBackingField: 1
+  centerBackingField: 0
   locked: 0
   lockWhenNotMoving: 0
   agentTimeHorizon: .600000024
@@ -1130,7 +1137,6 @@ MonoBehaviour:
   wallAvoidForce: 1
   wallAvoidFalloff: 1
   priority: .5
-  center: 0
   debug: 0
 --- !u!114 &52940674
 MonoBehaviour:
@@ -1157,6 +1163,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!4 &52940675
 Transform:
   m_ObjectHideFlags: 0
@@ -4737,6 +4744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   target: {fileID: 440664349}
 --- !u!114 &258700731
 MonoBehaviour:
@@ -4750,6 +4758,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: .200000003
+  height: 2
   repathRate: 2
   canSearch: 1
   canMove: 1
@@ -4758,9 +4768,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 1
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: .300000012
   pickNextWaypointDist: .699999988
@@ -4768,6 +4780,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!114 &258700732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4780,8 +4793,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: .200000003
-  height: 1
+  radiusBackingField: .200000003
+  heightBackingField: 1
+  centerBackingField: 0
   locked: 0
   lockWhenNotMoving: 0
   agentTimeHorizon: .600000024
@@ -4792,7 +4806,6 @@ MonoBehaviour:
   wallAvoidForce: 1
   wallAvoidFalloff: 1
   priority: .5
-  center: 0
   debug: 0
 --- !u!114 &258700733
 MonoBehaviour:
@@ -4819,6 +4832,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!4 &258700734
 Transform:
   m_ObjectHideFlags: 0
@@ -5375,6 +5389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   target: {fileID: 440664349}
 --- !u!114 &274135454
 MonoBehaviour:
@@ -5388,6 +5403,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: .200000003
+  height: 2
   repathRate: 2
   canSearch: 1
   canMove: 1
@@ -5396,9 +5413,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 1
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: .300000012
   pickNextWaypointDist: .699999988
@@ -5406,6 +5425,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!114 &274135455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5418,8 +5438,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: .200000003
-  height: 1
+  radiusBackingField: .200000003
+  heightBackingField: 1
+  centerBackingField: 0
   locked: 0
   lockWhenNotMoving: 0
   agentTimeHorizon: .600000024
@@ -5430,7 +5451,6 @@ MonoBehaviour:
   wallAvoidForce: 1
   wallAvoidFalloff: 1
   priority: .5
-  center: 0
   debug: 0
 --- !u!114 &274135456
 MonoBehaviour:
@@ -5457,6 +5477,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!1 &279364898
 GameObject:
   m_ObjectHideFlags: 0
@@ -6671,6 +6692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   target: {fileID: 440664349}
 --- !u!114 &374457061
 MonoBehaviour:
@@ -6684,6 +6706,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: .200000003
+  height: 2
   repathRate: 2
   canSearch: 1
   canMove: 1
@@ -6692,9 +6716,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 1
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: .300000012
   pickNextWaypointDist: .699999988
@@ -6702,6 +6728,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!114 &374457062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6714,8 +6741,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: .200000003
-  height: 1
+  radiusBackingField: .200000003
+  heightBackingField: 1
+  centerBackingField: 0
   locked: 0
   lockWhenNotMoving: 0
   agentTimeHorizon: .600000024
@@ -6726,7 +6754,6 @@ MonoBehaviour:
   wallAvoidForce: 1
   wallAvoidFalloff: 1
   priority: .5
-  center: 0
   debug: 0
 --- !u!114 &374457063
 MonoBehaviour:
@@ -6753,6 +6780,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!1 &377577324
 GameObject:
   m_ObjectHideFlags: 0
@@ -6917,6 +6945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   target: {fileID: 440664349}
 --- !u!114 &386935893
 MonoBehaviour:
@@ -6930,6 +6959,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: .200000003
+  height: 2
   repathRate: 2
   canSearch: 1
   canMove: 1
@@ -6938,9 +6969,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 1
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: .300000012
   pickNextWaypointDist: .699999988
@@ -6948,6 +6981,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!114 &386935894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6960,8 +6994,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: .200000003
-  height: 1
+  radiusBackingField: .200000003
+  heightBackingField: 1
+  centerBackingField: 0
   locked: 0
   lockWhenNotMoving: 0
   agentTimeHorizon: .600000024
@@ -6972,7 +7007,6 @@ MonoBehaviour:
   wallAvoidForce: 1
   wallAvoidFalloff: 1
   priority: .5
-  center: 0
   debug: 0
 --- !u!114 &386935895
 MonoBehaviour:
@@ -6999,6 +7033,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!4 &386935896
 Transform:
   m_ObjectHideFlags: 0
@@ -7555,6 +7590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   target: {fileID: 440664349}
 --- !u!114 &413236724
 MonoBehaviour:
@@ -7568,6 +7604,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: .200000003
+  height: 2
   repathRate: 2
   canSearch: 1
   canMove: 1
@@ -7576,9 +7614,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 1
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: .300000012
   pickNextWaypointDist: .699999988
@@ -7586,6 +7626,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!114 &413236725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7598,8 +7639,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: .200000003
-  height: 1
+  radiusBackingField: .200000003
+  heightBackingField: 1
+  centerBackingField: 0
   locked: 0
   lockWhenNotMoving: 0
   agentTimeHorizon: .600000024
@@ -7610,7 +7652,6 @@ MonoBehaviour:
   wallAvoidForce: 1
   wallAvoidFalloff: 1
   priority: .5
-  center: 0
   debug: 0
 --- !u!114 &413236726
 MonoBehaviour:
@@ -7637,6 +7678,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!1 &413953868
 GameObject:
   m_ObjectHideFlags: 0
@@ -8337,6 +8379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   target: {fileID: 440664349}
 --- !u!114 &451380999
 MonoBehaviour:
@@ -8350,6 +8393,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: .200000003
+  height: 2
   repathRate: 2
   canSearch: 1
   canMove: 1
@@ -8358,9 +8403,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 1
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: .300000012
   pickNextWaypointDist: .699999988
@@ -8368,6 +8415,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!114 &451381000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8380,8 +8428,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: .200000003
-  height: 1
+  radiusBackingField: .200000003
+  heightBackingField: 1
+  centerBackingField: 0
   locked: 0
   lockWhenNotMoving: 0
   agentTimeHorizon: .600000024
@@ -8392,7 +8441,6 @@ MonoBehaviour:
   wallAvoidForce: 1
   wallAvoidFalloff: 1
   priority: .5
-  center: 0
   debug: 0
 --- !u!114 &451381001
 MonoBehaviour:
@@ -8419,6 +8467,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!4 &451381002
 Transform:
   m_ObjectHideFlags: 0
@@ -9479,6 +9528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   target: {fileID: 440664349}
 --- !u!114 &513594539
 MonoBehaviour:
@@ -9492,6 +9542,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: .200000003
+  height: 2
   repathRate: 2
   canSearch: 1
   canMove: 1
@@ -9500,9 +9552,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 1
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: .300000012
   pickNextWaypointDist: .699999988
@@ -9510,6 +9564,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!114 &513594540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9522,8 +9577,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: .200000003
-  height: 1
+  radiusBackingField: .200000003
+  heightBackingField: 1
+  centerBackingField: 0
   locked: 0
   lockWhenNotMoving: 0
   agentTimeHorizon: .600000024
@@ -9534,7 +9590,6 @@ MonoBehaviour:
   wallAvoidForce: 1
   wallAvoidFalloff: 1
   priority: .5
-  center: 0
   debug: 0
 --- !u!114 &513594541
 MonoBehaviour:
@@ -9561,6 +9616,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!4 &513594542
 Transform:
   m_ObjectHideFlags: 0
@@ -10390,6 +10446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   target: {fileID: 440664349}
 --- !u!114 &567654169
 MonoBehaviour:
@@ -10403,6 +10460,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: .200000003
+  height: 2
   repathRate: 2
   canSearch: 1
   canMove: 1
@@ -10411,9 +10470,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 1
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: .300000012
   pickNextWaypointDist: .699999988
@@ -10421,6 +10482,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!114 &567654170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10433,8 +10495,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: .200000003
-  height: 1
+  radiusBackingField: .200000003
+  heightBackingField: 1
+  centerBackingField: 0
   locked: 0
   lockWhenNotMoving: 0
   agentTimeHorizon: .600000024
@@ -10445,7 +10508,6 @@ MonoBehaviour:
   wallAvoidForce: 1
   wallAvoidFalloff: 1
   priority: .5
-  center: 0
   debug: 0
 --- !u!114 &567654171
 MonoBehaviour:
@@ -10472,6 +10534,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!114 &567654172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10559,6 +10622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   target: {fileID: 440664349}
 --- !u!114 &569860373
 MonoBehaviour:
@@ -10572,6 +10636,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: .200000003
+  height: 2
   repathRate: 2
   canSearch: 1
   canMove: 1
@@ -10580,9 +10646,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 1
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: .300000012
   pickNextWaypointDist: .699999988
@@ -10590,6 +10658,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!114 &569860374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10602,8 +10671,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: .200000003
-  height: 1
+  radiusBackingField: .200000003
+  heightBackingField: 1
+  centerBackingField: 0
   locked: 0
   lockWhenNotMoving: 0
   agentTimeHorizon: .600000024
@@ -10614,7 +10684,6 @@ MonoBehaviour:
   wallAvoidForce: 1
   wallAvoidFalloff: 1
   priority: .5
-  center: 0
   debug: 0
 --- !u!114 &569860375
 MonoBehaviour:
@@ -10641,6 +10710,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!1 &575193249
 GameObject:
   m_ObjectHideFlags: 0
@@ -16763,6 +16833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   target: {fileID: 440664349}
 --- !u!114 &828981983
 MonoBehaviour:
@@ -16776,6 +16847,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: .200000003
+  height: 2
   repathRate: 2
   canSearch: 1
   canMove: 1
@@ -16784,9 +16857,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 1
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: .300000012
   pickNextWaypointDist: .699999988
@@ -16794,6 +16869,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!114 &828981984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16806,8 +16882,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: .200000003
-  height: 1
+  radiusBackingField: .200000003
+  heightBackingField: 1
+  centerBackingField: 0
   locked: 0
   lockWhenNotMoving: 0
   agentTimeHorizon: .600000024
@@ -16818,7 +16895,6 @@ MonoBehaviour:
   wallAvoidForce: 1
   wallAvoidFalloff: 1
   priority: .5
-  center: 0
   debug: 0
 --- !u!114 &828981985
 MonoBehaviour:
@@ -16845,6 +16921,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!4 &828981986
 Transform:
   m_ObjectHideFlags: 0
@@ -17773,8 +17850,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: .200000003
-  height: 1
+  radiusBackingField: .200000003
+  heightBackingField: 1
+  centerBackingField: 0
   locked: 0
   lockWhenNotMoving: 0
   agentTimeHorizon: .600000024
@@ -17785,7 +17863,6 @@ MonoBehaviour:
   wallAvoidForce: 1
   wallAvoidFalloff: 1
   priority: .5
-  center: 0
   debug: 0
 --- !u!114 &878340689
 MonoBehaviour:
@@ -17812,6 +17889,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!4 &878340690
 Transform:
   m_ObjectHideFlags: 0
@@ -17837,6 +17915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   target: {fileID: 440664349}
 --- !u!114 &878340692
 MonoBehaviour:
@@ -17871,6 +17950,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: .200000003
+  height: 2
   repathRate: 2
   canSearch: 1
   canMove: 1
@@ -17879,9 +17960,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 1
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: .300000012
   pickNextWaypointDist: .699999988
@@ -17889,6 +17972,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!1 &883093607
 GameObject:
   m_ObjectHideFlags: 0
@@ -19173,6 +19257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   target: {fileID: 440664349}
 --- !u!114 &959624057
 MonoBehaviour:
@@ -19186,6 +19271,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: .200000003
+  height: 2
   repathRate: 2
   canSearch: 1
   canMove: 1
@@ -19194,9 +19281,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 1
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: .300000012
   pickNextWaypointDist: .699999988
@@ -19204,6 +19293,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!114 &959624058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19216,8 +19306,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: .200000003
-  height: 1
+  radiusBackingField: .200000003
+  heightBackingField: 1
+  centerBackingField: 0
   locked: 0
   lockWhenNotMoving: 0
   agentTimeHorizon: .600000024
@@ -19228,7 +19319,6 @@ MonoBehaviour:
   wallAvoidForce: 1
   wallAvoidFalloff: 1
   priority: .5
-  center: 0
   debug: 0
 --- !u!114 &959624059
 MonoBehaviour:
@@ -19255,6 +19345,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!1 &960764327
 GameObject:
   m_ObjectHideFlags: 0
@@ -19937,9 +20028,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAIIexwv9hvZQIAAC0FAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VNtu2kAQ/RXk56YyTkJK31pIaKskoNCqD1UehvUYr1jvWnspgSj/npm1XTu0RUhen5kzO2cufk6kdjUKb+zCyvzO5Jh8HCV8Tt6NEoi2B/DSEDwmRDpTobdSfNJbxb4pgUHLwtjqOt/izDjvCC5AOSSTNZ7ZmqDnUfJEj7MpUw50yq74dKTTNB290FGg9mgHrlnrOX6fxl920RIa/6CFgqrGfC2P2NOy8442jW6aVLUeLEEYpaRrc0r8oY6SH+DAinMJpC8mwb4lym3pOeaQuCwKh74Vb+Ewl5bK1ERMPhtfcqQK3K7J6TeoEC+P2TQh7/6ynjXmwprqS3frOOUbfCnFjvIT4PygtEN4/jbtoPegdrBR+LNEfW8W1gSdk9HbwNTgMJv3r3+EzUoUux5vUj0BQ91Xuutk10eS8BKlP82UrDathV7XysQyx96jpYZ8pWzjZLjWi1BO4YfD77AdjlBruJHWeTK1EiF4cyv1jkd16N3hc+n8raxkU0aeAhazMcGyd3IdK8zag58Zq9EOg9SoQfnDii72p/0+sf2fdQO8Vm26ra3bmhNKhHv/ND0xrcy+763Db6GqV0Zqv0awohzEc6XZ36Erl8ErqbHvGhvuqewzo3Uzq+4ftHWwBYgBzeOTDxbn4CFuC+VEQ5UPqVTRyNBBKZ7fqIKD/yIV/H/kKpdA96oIJ/eGMiPwzfORB2cbZP52K5KJgGmanqc4yS4mFPwsRcw24mIs0smH/OryMolrIzXVHNSqKVrbKpo53WvRtCLdx220sFDHNc0t7BfyWBnXe0pdmLWwiHrZRIhiX14BUEsDBBQAAAgIAAAIIexu4XRLNAAAADcAAAASACQAZ3JhcGgwX2VkaXRvci5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1bKyU/OTk1RslIoKSpN1VFQKs7IL3etKClKBAqlJeYUg8QKMsvyS4B8JefUvJLUIqVaAFBLAwQUAAAICAAACCHskMp7YmwAAAB3AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9Sz0FFQSi9KLMgoBgoYgjilmSkgdrSSWXKipYGBsUGqmZGJWVpisq5BaqpRUrKJYbKBmUWKuampUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAIIexwv9hvZQIAAC0FAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAIIexu4XRLNAAAADcAAAASACQAAAAAAAAAAAAAALICAABncmFwaDBfZWRpdG9yLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAACCHskMp7YmwAAAB3AAAACQAkAAAAAAAAAAAAAAA6AwAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAADAAMAHAEAAPEDAAAAAA==
+    dataString: UEsDBBQAAAgIAAAIIeytaFjilwIAAIwFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VNty2jAQ/RVGz03HOAkpfWuB0HZyYUI7fajzIOQ11iBLHmkVIBn+PSvZxA5tGWYsn92z2rMXvzCpXQ0CjZ1bmd+aHNjnAQtn9mHAeLQ9cJSG4CEh0pkK0ErxRa9V8E0I9FoWxlazfA0T49ARXHDlgEzWYGBrgl4GbEePs3Gg7OmUXoXTM53GyeBARwEawfZc09Zz+DGJv/SiJTT+XgvFqxrypXyGjpaeH2nj6KZJVesRJAijlHRtTgz3dZT8wPdBcS456YtJBN8S5LrEELNPvC8KB9iKt3w/lZbK1ERkXw2WIVLF3abJ6YkrHy+P2TQhb/+ynjXmwprq2/HWYRJuwFKKDeUnuMNeafvw9H3aXm+52vCVgt8l6Dszt8brnIxofaB6B+m0e30TNilBbDq8SfUE9HVX6WMnj30kCYcofTdRslq1FnpdKhPLHHsPlhrynbKNk+FaL0JDCr8c/OTr/gi1hmtpHZKplcg9mhupN2FU+95HfCod3shKNmUMUxDErIy3wZvNYoWDdo8TYzXYfpAaNFe4X9DFeNrvE9v/Wdc8rFWbbms7bs0JJcKdf5KcmBZm2/XWwQ9f1QsjNS6BW1H24rnSbG/BlfceldTQdS0Y7qjsE6N1M6vuH7SltwUXPRrCDr2FKUcet4VyoqHK+1SqaGRor1SY36giBP9DKsL/MVS55HSvijC7M5QZge+ej2Fw1l7m77eCjQQfJ8l5AqP0YkTBzxKAdCUuhiIZfcqvLi9ZXBupqeZcLZqita2imdOdFk0rcvy4DeaW13FNc8u3c/lcGdd5Sl2YpbAA+r6J8CYWLF1Cn5J8lkuSuQREqeO0speMKSM2kGdvgbJY2NkOLc+6KBmr5ZPBgGRsEj95GTuwwytQSwMEFAAACAgAAAgh7HxZDeVtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPUMzLSUVBKL0osyCgGihiCOKWZKSB2tJJZcqKlgYGxQaqZkYlZWmKyrkFqqlFSsolhsoGZRYq5qalSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAgh7K1oWOKXAgAAjAUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7HxZDeVtAAAAeAAAAAkAJAAAAAAAAAAAAAAA5AIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAACcAwAAAAA=
     upgradeData: 
-    data_backup: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
     cacheStartup: 0
@@ -19958,7 +20048,7 @@ MonoBehaviour:
   prioritizeGraphs: 0
   prioritizeGraphsLimit: 1
   colorSettings:
-    _NodeConnection: {r: 1, g: 1, b: 1, a: .899999976}
+    _SolidColor: {r: .117647059, g: .400000006, b: .788235307, a: .899999976}
     _UnwalkableNode: {r: 1, g: 0, b: 0, a: .5}
     _BoundsHandles: {r: .289999992, g: .453999996, b: .740999997, a: .899999976}
     _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: .5}
@@ -20002,7 +20092,6 @@ MonoBehaviour:
   heuristicScale: 1
   threadCount: 0
   maxFrameTime: 1
-  minAreaSize: 0
   batchGraphUpdates: 0
   graphUpdateBatchingInterval: .200000003
   euclideanEmbedding:
@@ -20264,6 +20353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   target: {fileID: 440664349}
 --- !u!114 &992790224
 MonoBehaviour:
@@ -20277,6 +20367,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: .200000003
+  height: 2
   repathRate: 2
   canSearch: 1
   canMove: 1
@@ -20285,9 +20377,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 1
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: .300000012
   pickNextWaypointDist: .699999988
@@ -20295,6 +20389,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!114 &992790225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20307,8 +20402,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: .200000003
-  height: 1
+  radiusBackingField: .200000003
+  heightBackingField: 1
+  centerBackingField: 0
   locked: 0
   lockWhenNotMoving: 0
   agentTimeHorizon: .600000024
@@ -20319,7 +20415,6 @@ MonoBehaviour:
   wallAvoidForce: 1
   wallAvoidFalloff: 1
   priority: .5
-  center: 0
   debug: 0
 --- !u!114 &992790226
 MonoBehaviour:
@@ -20346,6 +20441,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!114 &992790227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20853,6 +20949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   target: {fileID: 440664349}
 --- !u!114 &1007923980
 MonoBehaviour:
@@ -20866,6 +20963,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: .200000003
+  height: 2
   repathRate: 2
   canSearch: 1
   canMove: 1
@@ -20874,9 +20973,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 1
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: .300000012
   pickNextWaypointDist: .699999988
@@ -20884,6 +20985,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!114 &1007923981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20896,8 +20998,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: .200000003
-  height: 1
+  radiusBackingField: .200000003
+  heightBackingField: 1
+  centerBackingField: 0
   locked: 0
   lockWhenNotMoving: 0
   agentTimeHorizon: .600000024
@@ -20908,7 +21011,6 @@ MonoBehaviour:
   wallAvoidForce: 1
   wallAvoidFalloff: 1
   priority: .5
-  center: 0
   debug: 0
 --- !u!114 &1007923982
 MonoBehaviour:
@@ -20935,6 +21037,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!1 &1013481761
 GameObject:
   m_ObjectHideFlags: 0
@@ -21386,6 +21489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   target: {fileID: 440664349}
 --- !u!114 &1040210725
 MonoBehaviour:
@@ -21399,6 +21503,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: .200000003
+  height: 2
   repathRate: 2
   canSearch: 1
   canMove: 1
@@ -21407,9 +21513,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 1
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: .300000012
   pickNextWaypointDist: .699999988
@@ -21417,6 +21525,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!114 &1040210726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21429,8 +21538,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: .200000003
-  height: 1
+  radiusBackingField: .200000003
+  heightBackingField: 1
+  centerBackingField: 0
   locked: 0
   lockWhenNotMoving: 0
   agentTimeHorizon: .600000024
@@ -21441,7 +21551,6 @@ MonoBehaviour:
   wallAvoidForce: 1
   wallAvoidFalloff: 1
   priority: .5
-  center: 0
   debug: 0
 --- !u!114 &1040210727
 MonoBehaviour:
@@ -21468,6 +21577,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!4 &1040210728
 Transform:
   m_ObjectHideFlags: 0
@@ -22876,6 +22986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   target: {fileID: 440664349}
 --- !u!114 &1117226425
 MonoBehaviour:
@@ -22889,6 +23000,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: .200000003
+  height: 2
   repathRate: 2
   canSearch: 1
   canMove: 1
@@ -22897,9 +23010,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 1
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: .300000012
   pickNextWaypointDist: .699999988
@@ -22907,6 +23022,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!114 &1117226426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22919,8 +23035,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: .200000003
-  height: 1
+  radiusBackingField: .200000003
+  heightBackingField: 1
+  centerBackingField: 0
   locked: 0
   lockWhenNotMoving: 0
   agentTimeHorizon: .600000024
@@ -22931,7 +23048,6 @@ MonoBehaviour:
   wallAvoidForce: 1
   wallAvoidFalloff: 1
   priority: .5
-  center: 0
   debug: 0
 --- !u!114 &1117226427
 MonoBehaviour:
@@ -22958,6 +23074,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!1 &1119075703
 GameObject:
   m_ObjectHideFlags: 0
@@ -24529,6 +24646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   target: {fileID: 440664349}
 --- !u!114 &1203086864
 MonoBehaviour:
@@ -24542,6 +24660,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: .200000003
+  height: 2
   repathRate: 2
   canSearch: 1
   canMove: 1
@@ -24550,9 +24670,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 1
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: .300000012
   pickNextWaypointDist: .699999988
@@ -24560,6 +24682,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!114 &1203086865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24572,8 +24695,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: .200000003
-  height: 1
+  radiusBackingField: .200000003
+  heightBackingField: 1
+  centerBackingField: 0
   locked: 0
   lockWhenNotMoving: 0
   agentTimeHorizon: .600000024
@@ -24584,7 +24708,6 @@ MonoBehaviour:
   wallAvoidForce: 1
   wallAvoidFalloff: 1
   priority: .5
-  center: 0
   debug: 0
 --- !u!114 &1203086866
 MonoBehaviour:
@@ -24611,6 +24734,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!4 &1203086867
 Transform:
   m_ObjectHideFlags: 0
@@ -25876,6 +26000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   target: {fileID: 440664349}
 --- !u!114 &1233931424
 MonoBehaviour:
@@ -25889,6 +26014,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: .200000003
+  height: 2
   repathRate: 2
   canSearch: 1
   canMove: 1
@@ -25897,9 +26024,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 1
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: .300000012
   pickNextWaypointDist: .699999988
@@ -25907,6 +26036,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!114 &1233931425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25919,8 +26049,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: .200000003
-  height: 1
+  radiusBackingField: .200000003
+  heightBackingField: 1
+  centerBackingField: 0
   locked: 0
   lockWhenNotMoving: 0
   agentTimeHorizon: .600000024
@@ -25931,7 +26062,6 @@ MonoBehaviour:
   wallAvoidForce: 1
   wallAvoidFalloff: 1
   priority: .5
-  center: 0
   debug: 0
 --- !u!114 &1233931426
 MonoBehaviour:
@@ -25958,6 +26088,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!114 &1233931427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26213,6 +26344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   target: {fileID: 440664349}
 --- !u!114 &1240280509
 MonoBehaviour:
@@ -26226,6 +26358,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: .200000003
+  height: 2
   repathRate: 2
   canSearch: 1
   canMove: 1
@@ -26234,9 +26368,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 1
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: .300000012
   pickNextWaypointDist: .699999988
@@ -26244,6 +26380,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!114 &1240280510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26256,8 +26393,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: .200000003
-  height: 1
+  radiusBackingField: .200000003
+  heightBackingField: 1
+  centerBackingField: 0
   locked: 0
   lockWhenNotMoving: 0
   agentTimeHorizon: .600000024
@@ -26268,7 +26406,6 @@ MonoBehaviour:
   wallAvoidForce: 1
   wallAvoidFalloff: 1
   priority: .5
-  center: 0
   debug: 0
 --- !u!114 &1240280511
 MonoBehaviour:
@@ -26295,6 +26432,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!4 &1240280512
 Transform:
   m_ObjectHideFlags: 0
@@ -29861,6 +29999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   target: {fileID: 440664349}
 --- !u!114 &1466780508
 MonoBehaviour:
@@ -29874,6 +30013,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: .200000003
+  height: 2
   repathRate: 2
   canSearch: 1
   canMove: 1
@@ -29882,9 +30023,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 1
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: .300000012
   pickNextWaypointDist: .699999988
@@ -29892,6 +30035,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!114 &1466780509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29904,8 +30048,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: .200000003
-  height: 1
+  radiusBackingField: .200000003
+  heightBackingField: 1
+  centerBackingField: 0
   locked: 0
   lockWhenNotMoving: 0
   agentTimeHorizon: .600000024
@@ -29916,7 +30061,6 @@ MonoBehaviour:
   wallAvoidForce: 1
   wallAvoidFalloff: 1
   priority: .5
-  center: 0
   debug: 0
 --- !u!114 &1466780510
 MonoBehaviour:
@@ -29943,6 +30087,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!4 &1466780511
 Transform:
   m_ObjectHideFlags: 0
@@ -30100,6 +30245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   target: {fileID: 440664349}
 --- !u!114 &1491769277
 MonoBehaviour:
@@ -30113,6 +30259,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: .200000003
+  height: 2
   repathRate: 2
   canSearch: 1
   canMove: 1
@@ -30121,9 +30269,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 1
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: .300000012
   pickNextWaypointDist: .699999988
@@ -30131,6 +30281,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!114 &1491769278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30143,8 +30294,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: .200000003
-  height: 1
+  radiusBackingField: .200000003
+  heightBackingField: 1
+  centerBackingField: 0
   locked: 0
   lockWhenNotMoving: 0
   agentTimeHorizon: .600000024
@@ -30155,7 +30307,6 @@ MonoBehaviour:
   wallAvoidForce: 1
   wallAvoidFalloff: 1
   priority: .5
-  center: 0
   debug: 0
 --- !u!114 &1491769279
 MonoBehaviour:
@@ -30182,6 +30333,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!4 &1491769280
 Transform:
   m_ObjectHideFlags: 0
@@ -32915,6 +33067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   target: {fileID: 440664349}
 --- !u!114 &1644302546
 MonoBehaviour:
@@ -32928,6 +33081,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: .200000003
+  height: 2
   repathRate: 2
   canSearch: 1
   canMove: 1
@@ -32936,9 +33091,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 1
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: .300000012
   pickNextWaypointDist: .699999988
@@ -32946,6 +33103,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!114 &1644302547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32958,8 +33116,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: .200000003
-  height: 1
+  radiusBackingField: .200000003
+  heightBackingField: 1
+  centerBackingField: 0
   locked: 0
   lockWhenNotMoving: 0
   agentTimeHorizon: .600000024
@@ -32970,7 +33129,6 @@ MonoBehaviour:
   wallAvoidForce: 1
   wallAvoidFalloff: 1
   priority: .5
-  center: 0
   debug: 0
 --- !u!114 &1644302548
 MonoBehaviour:
@@ -32997,6 +33155,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!1 &1646672228
 GameObject:
   m_ObjectHideFlags: 0
@@ -33483,6 +33642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   target: {fileID: 440664349}
 --- !u!114 &1673388349
 MonoBehaviour:
@@ -33496,6 +33656,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: .200000003
+  height: 2
   repathRate: 2
   canSearch: 1
   canMove: 1
@@ -33504,9 +33666,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 1
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: .300000012
   pickNextWaypointDist: .699999988
@@ -33514,6 +33678,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!114 &1673388350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33526,8 +33691,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: .200000003
-  height: 1
+  radiusBackingField: .200000003
+  heightBackingField: 1
+  centerBackingField: 0
   locked: 0
   lockWhenNotMoving: 0
   agentTimeHorizon: .600000024
@@ -33538,7 +33704,6 @@ MonoBehaviour:
   wallAvoidForce: 1
   wallAvoidFalloff: 1
   priority: .5
-  center: 0
   debug: 0
 --- !u!114 &1673388351
 MonoBehaviour:
@@ -33565,6 +33730,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!1 &1675973997
 GameObject:
   m_ObjectHideFlags: 0
@@ -35852,6 +36018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   target: {fileID: 440664349}
 --- !u!114 &1810229893
 MonoBehaviour:
@@ -35865,6 +36032,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: .200000003
+  height: 2
   repathRate: 2
   canSearch: 1
   canMove: 1
@@ -35873,9 +36042,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 1
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: .300000012
   pickNextWaypointDist: .699999988
@@ -35883,6 +36054,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!114 &1810229894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35895,8 +36067,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: .200000003
-  height: 1
+  radiusBackingField: .200000003
+  heightBackingField: 1
+  centerBackingField: 0
   locked: 0
   lockWhenNotMoving: 0
   agentTimeHorizon: .600000024
@@ -35907,7 +36080,6 @@ MonoBehaviour:
   wallAvoidForce: 1
   wallAvoidFalloff: 1
   priority: .5
-  center: 0
   debug: 0
 --- !u!114 &1810229895
 MonoBehaviour:
@@ -35934,6 +36106,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!114 &1810229896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37197,6 +37370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   target: {fileID: 440664349}
 --- !u!114 &1859071790
 MonoBehaviour:
@@ -37210,6 +37384,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: .200000003
+  height: 2
   repathRate: 2
   canSearch: 1
   canMove: 1
@@ -37218,9 +37394,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 1
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: .300000012
   pickNextWaypointDist: .699999988
@@ -37228,6 +37406,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!114 &1859071791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37240,8 +37419,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: .200000003
-  height: 1
+  radiusBackingField: .200000003
+  heightBackingField: 1
+  centerBackingField: 0
   locked: 0
   lockWhenNotMoving: 0
   agentTimeHorizon: .600000024
@@ -37252,7 +37432,6 @@ MonoBehaviour:
   wallAvoidForce: 1
   wallAvoidFalloff: 1
   priority: .5
-  center: 0
   debug: 0
 --- !u!114 &1859071792
 MonoBehaviour:
@@ -37279,6 +37458,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!4 &1859071793
 Transform:
   m_ObjectHideFlags: 0
@@ -38822,6 +39002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   target: {fileID: 440664349}
 --- !u!114 &1956294323
 MonoBehaviour:
@@ -38835,6 +39016,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
+  radius: .200000003
+  height: 2
   repathRate: 2
   canSearch: 1
   canMove: 1
@@ -38843,9 +39026,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  centerOffset: 1
-  rotationIn2D: 1
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: .300000012
   pickNextWaypointDist: .699999988
@@ -38853,6 +39038,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
+  constrainInsideGraph: 0
 --- !u!114 &1956294324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38865,8 +39051,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: .200000003
-  height: 1
+  radiusBackingField: .200000003
+  heightBackingField: 1
+  centerBackingField: 0
   locked: 0
   lockWhenNotMoving: 0
   agentTimeHorizon: .600000024
@@ -38877,7 +39064,6 @@ MonoBehaviour:
   wallAvoidForce: 1
   wallAvoidFalloff: 1
   priority: .5
-  center: 0
   debug: 0
 --- !u!114 &1956294325
 MonoBehaviour:
@@ -38904,6 +39090,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!114 &1956294326
 MonoBehaviour:
   m_ObjectHideFlags: 0

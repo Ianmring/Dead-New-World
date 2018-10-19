@@ -4,25 +4,28 @@ using Pathfinding.RVO;
 
 namespace Pathfinding.Examples {
 	[RequireComponent(typeof(MeshFilter))]
-	/** Lightweight RVO Circle Example.
-	 * Lightweight script for simulating agents in a circle trying to reach their antipodal positions.
-	 * This script, compared to using lots of RVOAgents shows the real power of the RVO simulator when
-	 * little other overhead (e.g GameObjects) is present.
-	 *
-	 * For example with this script, I can simulate 5000 agents at around 50 fps on my laptop (with desired simulation fps = 10 and interpolation, 2 threads)
-	 * however when using prefabs, only instantiating the 5000 agents takes 10 seconds and it runs at around 5 fps.
-	 *
-	 * This script will render the agents by generating a square for each agent combined into a single mesh with appropriate UV.
-	 *
-	 * A few GUI buttons will be drawn by this script with which the user can change the number of agents.
-	 */
+	/// <summary>
+	/// Lightweight RVO Circle Example.
+	/// Lightweight script for simulating agents in a circle trying to reach their antipodal positions.
+	/// This script, compared to using lots of RVOAgents shows the real power of the RVO simulator when
+	/// little other overhead (e.g GameObjects) is present.
+	///
+	/// For example with this script, I can simulate 5000 agents at around 50 fps on my laptop (with desired simulation fps = 10 and interpolation, 2 threads)
+	/// however when using prefabs, only instantiating the 5000 agents takes 10 seconds and it runs at around 5 fps.
+	///
+	/// This script will render the agents by generating a square for each agent combined into a single mesh with appropriate UV.
+	///
+	/// A few GUI buttons will be drawn by this script with which the user can change the number of agents.
+	/// </summary>
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_examples_1_1_lightweight_r_v_o.php")]
 	public class LightweightRVO : MonoBehaviour {
-		/** Number of agents created at start */
+		/// <summary>Number of agents created at start</summary>
 		public int agentCount = 100;
 
-		/** How large is the area where agents are placed.
-		 * For e.g the circle example, it corresponds*/
+		/// <summary>
+		/// How large is the area where agents are placed.
+		/// For e.g the circle example, it corresponds
+		/// </summary>
 		public float exampleScale = 100;
 
 
@@ -36,42 +39,44 @@ namespace Pathfinding.Examples {
 
 		public RVOExampleType type = RVOExampleType.Circle;
 
-		/** Agent radius */
+		/// <summary>Agent radius</summary>
 		public float radius = 3;
 
-		/** Max speed for an agent */
+		/// <summary>Max speed for an agent</summary>
 		public float maxSpeed = 2;
 
-		/** How far in the future too look for agents */
+		/// <summary>How far in the future too look for agents</summary>
 		public float agentTimeHorizon = 10;
 
 		[HideInInspector]
-		/** How far in the future too look for obstacles */
+		/// <summary>How far in the future too look for obstacles</summary>
 		public float obstacleTimeHorizon = 10;
 
-		/** Max number of neighbour agents to take into account */
+		/// <summary>Max number of neighbour agents to take into account</summary>
 		public int maxNeighbours = 10;
 
-		/** Offset from the agent position the actual drawn postition.
-		 * Used to get rid of z-buffer issues */
+		/// <summary>
+		/// Offset from the agent position the actual drawn postition.
+		/// Used to get rid of z-buffer issues
+		/// </summary>
 		public Vector3 renderingOffset = Vector3.up*0.1f;
 
-		/** Enable the debug flag for all agents */
+		/// <summary>Enable the debug flag for all agents</summary>
 		public bool debug = false;
 
-		/** Mesh for rendering */
+		/// <summary>Mesh for rendering</summary>
 		Mesh mesh;
 
-		/** Reference to the simulator in the scene */
+		/// <summary>Reference to the simulator in the scene</summary>
 		Pathfinding.RVO.Simulator sim;
 
-		/** All agents handled by this script */
+		/// <summary>All agents handled by this script</summary>
 		List<IAgent> agents;
 
-		/** Goals for each agent */
+		/// <summary>Goals for each agent</summary>
 		List<Vector3> goals;
 
-		/** Color for each agent */
+		/// <summary>Color for each agent</summary>
 		List<Color> colors;
 
 		Vector3[] verts;
@@ -137,7 +142,7 @@ namespace Pathfinding.Examples {
 			else return radius * v;
 		}
 
-		/** Create a number of agents in circle and restart simulation */
+		/// <summary>Create a number of agents in circle and restart simulation</summary>
 		public void CreateAgents (int num) {
 			this.agentCount = num;
 

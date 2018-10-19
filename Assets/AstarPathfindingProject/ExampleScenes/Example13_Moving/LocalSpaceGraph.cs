@@ -2,7 +2,7 @@ using UnityEngine;
 namespace Pathfinding {
 	using Pathfinding.Util;
 
-	/** Helper for #Pathfinding.Examples.LocalSpaceRichAI */
+	/// <summary>Helper for <see cref="Pathfinding.Examples.LocalSpaceRichAI"/></summary>
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_local_space_graph.php")]
 	public class LocalSpaceGraph : VersionedMonoBehaviour {
 		Matrix4x4 originalMatrix;
