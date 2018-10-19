@@ -5,7 +5,7 @@ using Pathfinding;
 using UnityEngine.EventSystems;
 
 namespace Pathfinding.Examples {
-	/** Helper script in the example scene 'Turn Based' */
+	/// <summary>Helper script in the example scene 'Turn Based'</summary>
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_examples_1_1_turn_based_manager.php")]
 	public class TurnBasedManager : MonoBehaviour {
 		TurnBasedAI selected;
@@ -115,7 +115,7 @@ namespace Pathfinding.Examples {
 			state = State.SelectUnit;
 		}
 
-		/** Interpolates the unit along the path */
+		/// <summary>Interpolates the unit along the path</summary>
 		static IEnumerator MoveAlongPath (TurnBasedAI unit, ABPath path, float speed) {
 			if (path.error || path.vectorPath.Count == 0)
 				throw new System.ArgumentException("Cannot follow an empty path");

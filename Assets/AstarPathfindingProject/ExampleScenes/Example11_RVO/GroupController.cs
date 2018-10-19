@@ -4,9 +4,10 @@ using Pathfinding.RVO;
 using Pathfinding.RVO.Sampled;
 
 namespace Pathfinding.Examples {
-	/** RVO Example Scene Unit Controller.
-	 * Controls AIs and camera in the RVO example scene.
-	 */
+	/// <summary>
+	/// RVO Example Scene Unit Controller.
+	/// Controls AIs and camera in the RVO example scene.
+	/// </summary>
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_examples_1_1_group_controller.php")]
 	public class GroupController : MonoBehaviour {
 		public GUIStyle selectionBox;
@@ -127,10 +128,10 @@ namespace Pathfinding.Examples {
 			}
 		}
 
-		/** Radians to degrees constant */
+		/// <summary>Radians to degrees constant</summary>
 		const float rad2Deg = 360.0f/ ((float)System.Math.PI*2);
 
-		/** Color from an angle */
+		/// <summary>Color from an angle</summary>
 		public Color GetColor (float angle) {
 			return AstarMath.HSVToRGB(angle * rad2Deg, 0.8f, 0.6f);
 		}

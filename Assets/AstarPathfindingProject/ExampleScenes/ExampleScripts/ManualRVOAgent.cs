@@ -4,12 +4,13 @@ using System.Collections;
 namespace Pathfinding.Examples {
 	using Pathfinding.RVO;
 
-	/** Player controlled character which RVO agents will avoid.
-	 * This script is intended to show how you can make NPCs avoid
-	 * a player controlled (or otherwise externally controlled) character.
-	 *
-	 * \see Pathfinding.RVO.RVOController
-	 */
+	/// <summary>
+	/// Player controlled character which RVO agents will avoid.
+	/// This script is intended to show how you can make NPCs avoid
+	/// a player controlled (or otherwise externally controlled) character.
+	///
+	/// See: Pathfinding.RVO.RVOController
+	/// </summary>
 	[RequireComponent(typeof(RVOController))]
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_examples_1_1_manual_r_v_o_agent.php")]
 	public class ManualRVOAgent : MonoBehaviour {

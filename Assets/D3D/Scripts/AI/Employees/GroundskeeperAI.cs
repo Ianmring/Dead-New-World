@@ -183,13 +183,11 @@ public class GroundskeeperAI : EmployeeBot {
     {
         //find random direction and move
         Debug.Log("Taking a break");
-        Debug.Log(Vector3.Distance(transform.position, FollowNode.position));
         if(PathAgent.canMove != true) PathAgent.canMove = true;
         if (Vector3.Distance(transform.position, FollowNode.position) <= 2.5f)
         {
-            Debug.Log(Vector3.Distance(transform.position, FollowNode.position));
-            Vector3 newDestination = new Vector3(UnityEngine.Random.Range(-1, 1) * UnityEngine.Random.Range(40f, 100f), 40f, 
-                UnityEngine.Random.Range(-1, 1) * UnityEngine.Random.Range(40f, 100f));
+            Vector3 newDestination = new Vector3(UnityEngine.Random.Range(-1, 1) * UnityEngine.Random.Range(40f, 65f), 20f, 
+                UnityEngine.Random.Range(-1, 1) * UnityEngine.Random.Range(40f, 65f));
             FollowNode.SetPositionAndRotation(newDestination, Quaternion.identity);
             if (DestSetter.target != FollowNode) DestSetter.target = FollowNode;
         }
@@ -220,10 +218,10 @@ public class GroundskeeperAI : EmployeeBot {
 
             foreach (Collider c in targets)
             {
-                Debug.Log("Collision found!");
+                //Debug.Log("Collision found!");
                 if (c.gameObject.tag == tagMatch)
                 {
-                    Debug.Log("Tag match found!");
+                    //Debug.Log("Tag match found!");
                     return c.gameObject; //as Building;
                 }
             }
