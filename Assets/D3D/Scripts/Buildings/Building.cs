@@ -24,6 +24,7 @@ namespace D3D
         [Header("PlaceableAsset Properties")]
         [Tooltip("Properties: Properties for specific assets. Modify away!")]
         public BuildingTag[] bldgTagList;   //some objects check tags, mostly for Desires
+        public Vector2 tileSize;
         public float maxStructuralIntegrity;
         public float degradationRate;   //this is an hourly rate; set to 0 if it never degrades
         public float buildCost;         //cost of materials to build
@@ -36,7 +37,6 @@ namespace D3D
         [Header("Building-Specific Properties")]
         public float baseRenownValue;           //how cool is it normally
         public float renownDropRate;     //how quickly renown drops when it is in a lesser state
-        public Vector2 tileSize;
         public MenuOptions menuOptions;  //contains a MenuOptions object
         public List<AttachNode> attNodeList;
 

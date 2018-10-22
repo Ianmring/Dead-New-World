@@ -9,19 +9,20 @@ public class AssetPlacementManager : MonoBehaviour
 {
     public enum InputMode { selectMode, buildMode, modifyMode, tileMode }
 
+    bool[,] tileOccupied;
+
     Vector3 mouseToWorld;
     Int3 startNodePos;
     Int3 endNodePos;
+    Ray camRay;
+    RaycastHit hitInfo;
     InputMode currentInputMode;
     List<GraphNode> selectedNodesPos;
     GraphNode startNode;
     GraphNode endNode;
-
-    Ray camRay;
-    RaycastHit hitInfo;
+    PlaceableAsset currentObject;
     //Tile selectedTile;
     //AttachNode selectedNode;
-    //PlaceableAsset currentObject;
 
     public bool canPlaceObject;
 
@@ -29,33 +30,55 @@ public class AssetPlacementManager : MonoBehaviour
     {
         currentInputMode = InputMode.selectMode;
         selectedNodesPos = new List<GraphNode>();
+        tileOccupied = new bool[AstarPath.active.data.gridGraph.width, AstarPath.active.data.gridGraph.depth];
+    }
+
+    public void SetNewBuilding(PlaceableAsset newObject)
+    {
+        currentObject = Instantiate(newObject);
+        currentInputMode = InputMode.buildMode;
     }
 
     public void SelectionHandler()
     {
         //MouseButtonDown will grab a node and highlight it
-        if (Input.GetMouseButtonDown(0))
+        Debug.Log(currentInputMode.ToString());
+        switch (currentInputMode)
         {
-            selectedNodesPos.Clear();
-            camRay = Camera.main.ScreenPointToRay(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
-            if (Physics.Raycast(camRay, out hitInfo)) mouseToWorld = hitInfo.point;
-            startNode = AstarPath.active.GetNearest(mouseToWorld).node;
-            startNodePos = AstarPath.active.GetNearest(mouseToWorld).node.position;
-            //Debug.Log("Start " + startNodePos.ToString());
+            case InputMode.buildMode:
+                if (Input.GetMouseButtonDown(0))
+                {
+                    canPlaceObject = false;
+                    selectedNodesPos.Clear();
+                    camRay = Camera.main.ScreenPointToRay(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
+                    if (Physics.Raycast(camRay, out hitInfo)) mouseToWorld = hitInfo.point;
+                    startNode = AstarPath.active.GetNearest(mouseToWorld).node;
+                    startNodePos = AstarPath.active.GetNearest(mouseToWorld).node.position;
+                    //Debug.Log("Start " + startNodePos.ToString());
+                }
+                else if (Input.GetMouseButton(0))
+                {
+                    camRay = Camera.main.ScreenPointToRay(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
+                    if (Physics.Raycast(camRay, out hitInfo)) mouseToWorld = hitInfo.point;
+                    endNode = AstarPath.active.GetNearest(mouseToWorld).node;
+                    endNodePos = AstarPath.active.GetNearest(mouseToWorld).node.position;
+                    CreateSelectionFromNodes();
+                    CheckObjectPlacement();
+                    //Debug.Log("End " + endNodePos.ToString());
+                }
+                else if (Input.GetMouseButtonUp(0))
+                {
+                    PlaceBuildingInSelection();
+                    selectedNodesPos.Clear();
+                    canPlaceObject = false;
+                    //currentInputMode = InputMode.selectMode;
+                    //Debug.Log(selectedNodesPos.Count);
+                }
+                break;
+            case InputMode.selectMode:
+                break;
         }
-        else if (Input.GetMouseButton(0))
-        {
-            camRay = Camera.main.ScreenPointToRay(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
-            if (Physics.Raycast(camRay, out hitInfo)) mouseToWorld = hitInfo.point;
-            endNode = AstarPath.active.GetNearest(mouseToWorld).node;
-            endNodePos = AstarPath.active.GetNearest(mouseToWorld).node.position;
-            CreateSelectionFromNodes();
-            //Debug.Log("End " + endNodePos.ToString());
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            //Debug.Log(selectedNodesPos.Count);
-        }
+        
         
         /*switch(currentInputMode)
         {
@@ -89,18 +112,34 @@ public class AssetPlacementManager : MonoBehaviour
         
     }
 
+    void PlaceBuildingInSelection()
+    {
+        if (canPlaceObject)
+        {
+            currentObject.transform.position = (Vector3)startNodePos;
+            currentObject = null;
+            //currentInputMode = InputMode.selectMode;
+        }
+        else
+        {
+            Destroy(currentObject);
+            //currentInputMode = InputMode.selectMode;
+        }
+    }
+
     void CreateSelectionFromNodes()
     {
         var gg = AstarPath.active.data.gridGraph;
 
-        selectedNodesPos = gg.GetNodesInRegion(new IntRect(Mathf.Abs(startNodePos.x / gg.width), 
-            Mathf.Abs(startNodePos.z / gg.depth),
-            Mathf.Abs(endNodePos.x / gg.width),
-            Mathf.Abs(endNodePos.z / gg.depth)));
+        //selectedNodesPos = gg.GetNodesInRegion(new IntRect(Mathf.Abs(startNodePos.x / gg.width), 
+        //    Mathf.Abs(startNodePos.z / gg.depth),
+        //    Mathf.Abs(endNodePos.x / gg.width),
+         //   Mathf.Abs(endNodePos.z / gg.depth)));
 
-        //selectedNodesPos = gg.GetNodesInRegion(new Bounds(((Vector3)startNodePos + (Vector3)endNodePos) / 2,
+        selectedNodesPos = gg.GetNodesInRegion(new Bounds(((Vector3)startNodePos + (Vector3)endNodePos) / 2,
         //new Vector3(Mathf.Abs(endNodePos.x - startNodePos.x) / gg.width, 1f, Mathf.Abs(endNodePos.z - startNodePos.z) / gg.width)));
-        //new Vector3(Mathf.Abs(endNodePos.x - startNodePos.x) / gg.depth, 1f, Mathf.Abs(endNodePos.z - startNodePos.z) / gg.depth)));
+        new Vector3(Mathf.Abs(endNodePos.x - startNodePos.x) / (2 * gg.width), 1f, 
+        Mathf.Abs(endNodePos.z - startNodePos.z) / (2 * gg.depth))));
 
         /*for (int z = 0; z < gg.depth; z++)
         {
@@ -112,10 +151,28 @@ public class AssetPlacementManager : MonoBehaviour
         }*/
     }
 
+    void CheckObjectPlacement()
+    {
+        Debug.Log("Checking object placement");
+        Debug.Log((Mathf.Abs(endNodePos.x - startNodePos.x) / AstarPath.active.data.gridGraph.width) + " "
+            + (Mathf.Abs(endNodePos.z - startNodePos.z) / AstarPath.active.data.gridGraph.depth));
+        if ((Mathf.Abs(endNodePos.x - startNodePos.x) / AstarPath.active.data.gridGraph.depth) / 3 == currentObject.tileSize.x)
+        {
+            if ((Mathf.Abs(endNodePos.z - startNodePos.z) / AstarPath.active.data.gridGraph.depth) / 3 == currentObject.tileSize.y)
+            {
+                canPlaceObject = true;
+                //currentObject.transform.position = (Vector3)startNodePos;
+            }
+        }
+        else canPlaceObject = false;
+    }
+
     void OnDrawGizmos()
     {
-        Gizmos.color = Color.blue;
-        if(selectedNodesPos != null) if(selectedNodesPos.Count > 0)
+        if(canPlaceObject) Gizmos.color = Color.blue;
+        else Gizmos.color = Color.red;
+
+        if (selectedNodesPos != null) if(selectedNodesPos.Count > 0)
         {
             Debug.Log(selectedNodesPos.Count + " nodes selected");
             foreach (GraphNode g in selectedNodesPos)
