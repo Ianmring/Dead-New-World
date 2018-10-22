@@ -12,12 +12,14 @@ public class headstoneobj : MonoBehaviour {
 
     public GameObject carthead;
 
+    HeadstoneMenu man;
+
     Button thisbutton;
 	// Use this for initialization
 	void Start () {
         cart = FindObjectOfType<cartinventory>();
         thisbutton = GetComponent<Button>();
-
+        man = FindObjectOfType<HeadstoneMenu>();
         thisbutton.onClick.AddListener(addedtocart);
 	}
 	
@@ -34,6 +36,7 @@ public class headstoneobj : MonoBehaviour {
         cartheadtemp.transform.SetParent(cart.HeadstoneholderCA.gameObject.transform);
 
   cartheadtemp.GetComponent<headstoneengraver>().currentheadstoneeng = currentheadstone;
+        cartheadtemp.GetComponent<headstoneengraver>().head = man;
 
         cart.headstonecart.Insert(0, cartheadtemp.GetComponent<headstoneengraver>());
 
