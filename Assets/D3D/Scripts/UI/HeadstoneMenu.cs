@@ -7,7 +7,7 @@ using D3D;
 //Optimization: Implement object pooling instead of destroying objects
 public class HeadstoneMenu : MonoBehaviour {
 
-    public string currentClientSelected;
+    //public string currentClientSelected;
 
     List<GameObject> buttonList;
     int buttonPool;
@@ -25,7 +25,6 @@ public class HeadstoneMenu : MonoBehaviour {
         this.gameObject.SetActive(true);
         man = FindObjectOfType<GameManager>();
         buttonList = new List<GameObject>();
-        currentClientSelected = null;
     }
 
     private void OnEnable()
@@ -36,7 +35,6 @@ public class HeadstoneMenu : MonoBehaviour {
     private void OnDisable()
     {
         EmptyList();
-        currentClientSelected = null;
     }
 
     void GenerateNewButtonList()
@@ -66,16 +64,16 @@ public class HeadstoneMenu : MonoBehaviour {
         }
     }
 
-    public void GenerateNewHeadstone()
-    {
-        /*if (currentClientSelected != null)
-        {
-            Mod newHeadstone = PlayerController.Player.assetManager.SetNewMod(headstoneObject);
-            newHeadstone.GetComponent<Headstone>().SetEngraving(currentClientSelected);
-        }
+    //public void GenerateNewHeadstone()
+    //{
+    //    /*if (currentClientSelected != null)
+    //    {
+    //        Mod newHeadstone = PlayerController.Player.assetManager.SetNewMod(headstoneObject);
+    //        newHeadstone.GetComponent<Headstone>().SetEngraving(currentClientSelected);
+    //    }
 
-        EmptyList();
-        currentClientSelected = null;*/
-    }
+    //    EmptyList();
+    //    currentClientSelected = null;*/
+    //}
 
 }

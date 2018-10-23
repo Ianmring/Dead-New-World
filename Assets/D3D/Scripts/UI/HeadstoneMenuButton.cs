@@ -12,6 +12,13 @@ public class HeadstoneMenuButton : MonoBehaviour {
     [SerializeField]
     private HeadstoneMenu parentMenu;
 
+    [SerializeField]
+    private ValueStore store;
+
+    private void Start()
+    {
+        store = FindObjectOfType<ValueStore>();
+    }
     public void AssignClient(string newText)
     {
         clientName.text = newText;
@@ -19,7 +26,7 @@ public class HeadstoneMenuButton : MonoBehaviour {
 
     public void GetClient()
     {
-        parentMenu.currentClientSelected = clientName.text;
+        store.currentClientSelected = clientName.text;
     }
 
 }

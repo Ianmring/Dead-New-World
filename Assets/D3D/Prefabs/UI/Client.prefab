@@ -265,6 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mann: {fileID: 0}
+  client: 
   Pay: 20
   timetocomplete: 1000
   ontheclock: 0
@@ -536,7 +537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5735294, g: 0.15181662, b: 0.15181662, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -765,7 +766,7 @@ RectTransform:
   m_GameObject: {fileID: 1935698671319360}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.53171307, y: 0.36143464, z: 0.36143464}
+  m_LocalScale: {x: 0.58546925, y: 0.36143464, z: 0.36143464}
   m_Children: []
   m_Father: {fileID: 224759618080723532}
   m_RootOrder: 0

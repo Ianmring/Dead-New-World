@@ -8,6 +8,7 @@ public class headstoneobj : MonoBehaviour {
 
     public D3D.Headstone currentheadstone;
 
+    ValueStore store;
     cartinventory cart;
 
     public GameObject carthead;
@@ -15,12 +16,14 @@ public class headstoneobj : MonoBehaviour {
     HeadstoneMenu man;
 
     Button thisbutton;
+
 	// Use this for initialization
 	void Start () {
+        store = FindObjectOfType<ValueStore>();
         cart = FindObjectOfType<cartinventory>();
         thisbutton = GetComponent<Button>();
         man = FindObjectOfType<HeadstoneMenu>();
-        thisbutton.onClick.AddListener(addedtocart);
+        thisbutton.onClick.AddListener(StoreHead);
 	}
 	
 	// Update is called once per frame
@@ -29,16 +32,14 @@ public class headstoneobj : MonoBehaviour {
 	}
 
    
-    public void addedtocart()
+    public void StoreHead()
     {
-        GameObject cartheadtemp;
-        cartheadtemp = Instantiate(carthead, cart.HeadstoneholderCA.transform);
-        cartheadtemp.transform.SetParent(cart.HeadstoneholderCA.gameObject.transform);
+        store.currentHeadstone = currentheadstone;
+        store.currentHeadstoneSelected = currentheadstone.ToString();
+        store.numofscenes[1].SetActive(false);
+        store.numofscenes[2].SetActive(true);
 
-  cartheadtemp.GetComponent<headstoneengraver>().currentheadstoneeng = currentheadstone;
-        cartheadtemp.GetComponent<headstoneengraver>().head = man;
 
-        cart.headstonecart.Insert(0, cartheadtemp.GetComponent<headstoneengraver>());
 
     }
 }
