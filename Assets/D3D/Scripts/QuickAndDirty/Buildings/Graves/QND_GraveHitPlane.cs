@@ -6,20 +6,25 @@ public class QND_GraveHitPlane : MonoBehaviour {
 
     public Transform headstoneNode;
     public GraveState currentState;
+    QNDGraveManager graveUIManager;
 
     void Awake ()
     {
         currentState = GraveState.Hole;
+        graveUIManager = GetComponent<QNDGraveManager>();
     }
 
-    public void OpenCoffinSelection()
+    public void OpenGraveMenu()
     {
-        //opens coffin menu
+        if(graveUIManager.graveManagerMenu.activeSelf != true)
+            graveUIManager.graveManagerMenu.SetActive(true);
+
+        PopulateGraveMenu();
     }
 
-    public void OpenHeadstoneSelection()
+    public void CloseGraveMenu()
     {
-        //opens headstone menu
+        graveUIManager.graveManagerMenu.SetActive(false);
     }
 
     public void PlaceNewCoffin(Transform coffinPrefab)
@@ -37,6 +42,11 @@ public class QND_GraveHitPlane : MonoBehaviour {
     public void PlaceNewHeadstone(Transform headstonePrefab)
     {
         Transform newHeadstone = Instantiate(headstonePrefab, headstoneNode);
+    }
+
+    public void PopulateGraveMenu()
+    {
+
     }
 }
 

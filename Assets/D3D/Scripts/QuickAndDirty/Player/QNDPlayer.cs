@@ -10,6 +10,7 @@ public class QNDPlayer : MonoBehaviour {
 
     Ray camRay;
     RaycastHit rayHit;
+    QND_GraveHitPlane selectedGrave;
 
 	// Use this for initialization
 	void Start ()
@@ -37,7 +38,8 @@ public class QNDPlayer : MonoBehaviour {
         switch (graveClicked.currentState)
         {
             case GraveState.Hole:
-                graveClicked.PlaceNewCoffin(coffinPrefab);
+                //graveClicked.PlaceNewCoffin(coffinPrefab);
+                graveClicked.OpenGraveMenu();
                 break;
             case GraveState.Coffin:
                 graveClicked.FillGrave(filledGravePrefab);
@@ -49,5 +51,17 @@ public class QNDPlayer : MonoBehaviour {
                 Debug.Log("No state match");
                 break;
         }
+    }
+
+    public void SetCurrentGrave(QND_GraveHitPlane newGrave)
+    {
+        selectedGrave = newGrave;
+        newGrave.OpenGraveMenu();
+    }
+
+    public void DeselectGrave()
+    {
+        selectedGrave.CloseGraveMenu();
+        selectedGrave = null;
     }
 }
