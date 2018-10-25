@@ -11,7 +11,7 @@ public class headstoneobj : MonoBehaviour {
     ValueStore store;
     cartinventory cart;
 
-    public GameObject carthead;
+   // public GameObject carthead;
 
     HeadstoneMenu man;
 

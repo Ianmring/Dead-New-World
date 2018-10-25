@@ -10,6 +10,7 @@ public class ValueStore : MonoBehaviour {
     public string currentHeadstoneSelected;
     public D3D.Headstone currentHeadstone;
 
+    public Clients currentClient;
 
     public Text nameval;
     public Text Headval;
@@ -34,6 +35,7 @@ public class ValueStore : MonoBehaviour {
         currentClientSelected = null;
         currentHeadstone = null;
         currentHeadstoneSelected = null;
+        currentClient = null;
         numofscenes[0].SetActive(true);
         numofscenes[1].SetActive(false);
         numofscenes[2].SetActive(false);

@@ -118,9 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990a1d6340c03224b837147a82833c6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentheadstone: {fileID: 114365549799595078, guid: f5b0a83b4d618634dadae3cfc37423e8,
+  currentheadstone: {fileID: 114070503048794194, guid: 8b9e4c0bc1bc127448849cad41f987ae,
     type: 2}
-  carthead: {fileID: 1544798790248168, guid: b71d876071cde9f47a67752070f9fefe, type: 2}
 --- !u!114 &114757135904594920
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -214,7 +213,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 25, y: -25}
+  m_AnchoredPosition: {x: 120, y: -25}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224351624003920792

@@ -21,14 +21,25 @@ GameObject:
   - component: {fileID: 224696447424198476}
   - component: {fileID: 222910301184264530}
   - component: {fileID: 114243658008368076}
-  - component: {fileID: 114365549799595078}
+  - component: {fileID: 114198307587179122}
   m_Layer: 5
-  m_Name: list
+  m_Name: Coffin 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114198307587179122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1242756075858472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6678baee0a585f4cb7bd75ed7edd2dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114243658008368076
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -41,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -56,32 +67,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114365549799595078
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1242756075858472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b887c99dd32d3f140b6e8a50b60141ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currState: 0
-  threshold_shabby: 0
-  threshold_cruddy: 0
-  currBuildProgress: 0
-  currStructuralIntegrity: 0
-  bldgTagList: 
-  maxStructuralIntegrity: 0
-  degradationRate: 0
-  buildCost: 0
-  maintenanceCost: 0
-  canBeRepaired: 0
-  nodeTag: 0
-  owner: {fileID: 0}
-  engravedName: {fileID: 0}
-  headstonetype: 
 --- !u!222 &222910301184264530
 CanvasRenderer:
   m_ObjectHideFlags: 1

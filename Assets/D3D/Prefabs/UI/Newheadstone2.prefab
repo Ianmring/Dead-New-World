@@ -85,9 +85,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990a1d6340c03224b837147a82833c6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentheadstone: {fileID: 114070503048794194, guid: 8b9e4c0bc1bc127448849cad41f987ae,
+  currentheadstone: {fileID: 114365549799595078, guid: f5b0a83b4d618634dadae3cfc37423e8,
     type: 2}
-  carthead: {fileID: 1544798790248168, guid: b71d876071cde9f47a67752070f9fefe, type: 2}
 --- !u!114 &114516731480407632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -156,20 +155,32 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 114089169580159466}
+  m_TargetGraphic: {fileID: 114089169580159466, guid: 88cf12b88236e314198724d6429e327b,
+    type: 2}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null

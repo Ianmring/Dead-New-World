@@ -9,7 +9,10 @@ public class Clients : MonoBehaviour
   public GameManager mann;
 
     UIManager uimann;
-   public string client;
+
+    public InventoryMana invman;
+
+    public string client;
 
     string deadrelativename;
 
@@ -17,7 +20,8 @@ public class Clients : MonoBehaviour
 
    public float Pay;
 
-    
+   public D3D.Headstone RequestedHeadstone;
+    public Coffin RequestedCoffin;
 
    public float timetocomplete;
 
@@ -55,13 +59,19 @@ public class Clients : MonoBehaviour
 
     int namenum;
     int Deathnum;
+    int headnum;
+    int coffinnum;
 
     void Start()
     {
-        mann = GameObject.FindObjectOfType<GameManager>();
+        mann = GameObject.FindObjectOfType<GameManager>().GetComponent<GameManager>();
         uimann = GameObject.FindObjectOfType<UIManager>();
+        invman = GameObject.FindObjectOfType<InventoryMana>().GetComponent<InventoryMana>();
 
-        mann = mann.GetComponent<GameManager>();
+
+        //mann = mann
+
+        //invman = 
 
         if (mann.tutorial)
         {
@@ -71,7 +81,13 @@ public class Clients : MonoBehaviour
 
         namenum = Random.Range(1, mann.Client.Length);
         Deathnum = Random.Range(1, mann.Death.Length);
+        headnum = Random.Range(0, invman.headstoneList.Count);
+        coffinnum = Random.Range(0, invman.CoffinList.Count);
 
+        //  Debug.Log(invman.headstoneList.Count);
+
+        RequestedHeadstone = invman.headstoneList[headnum].GetComponent<headstoneobj>().currentheadstone;
+        RequestedCoffin = invman.CoffinList[coffinnum].GetComponent<Coffinobj>().SelectedCoffin;
      
         clientName.text = ("Name:\n"+mann.Client[namenum]);
         Causeofdeath.text = ("Cause of Death:\n"+ mann.Death[Deathnum]);

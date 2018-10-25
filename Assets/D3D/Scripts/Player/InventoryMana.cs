@@ -7,7 +7,7 @@ public class InventoryMana : MonoBehaviour {
     // Use this for initialization
 
     public List<GameObject> headstoneList = new List<GameObject>();
-    public List<Coffin> CoffinList = new List<Coffin>();
+    public List<GameObject> CoffinList = new List<GameObject>();
 
      GameManager man;
     public GameObject Headstoneholder;
@@ -36,9 +36,9 @@ public class InventoryMana : MonoBehaviour {
     }
     public void refreshcoffinlist()
     {
-        foreach (Coffin coffinlist in CoffinList)
+        foreach (GameObject coffinlist in CoffinList)
         {
-            Coffin coffin;
+            GameObject coffin;
             coffin = Instantiate(coffinlist, this.transform);
             coffin.transform.SetParent(coffinholder.gameObject.transform);
 

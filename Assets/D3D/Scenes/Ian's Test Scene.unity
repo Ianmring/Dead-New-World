@@ -1902,6 +1902,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114101628111038896, guid: 78bd239d419dbcb4a9379cb981603258,
+        type: 2}
+      propertyPath: invman
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1749113629120280, guid: 78bd239d419dbcb4a9379cb981603258, type: 2}
       propertyPath: m_Name
       value: Client (1)
@@ -2375,6 +2380,7 @@ GameObject:
   m_Component:
   - component: {fileID: 553217949}
   - component: {fileID: 553217948}
+  - component: {fileID: 553217950}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2430,6 +2436,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &553217950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 553217947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49abfece9a1dea6418f095bee8c06850, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headstoneList:
+  - {fileID: 1544798790248168, guid: 88cf12b88236e314198724d6429e327b, type: 2}
+  - {fileID: 1544798790248168, guid: 9f4dbfcfa74d46b42b76928d74ee9b3e, type: 2}
+  CoffinList:
+  - {fileID: 1544798790248168, guid: a10e3f6d8ef28a84aa8e64ef04696630, type: 2}
+  - {fileID: 1544798790248168, guid: 28ecf3f2ab4ebc4499f388dd4a2f7f6a, type: 2}
+  Headstoneholder: {fileID: 1080907979}
+  coffinholder: {fileID: 1442404923}
 --- !u!1 &581625183
 GameObject:
   m_ObjectHideFlags: 0
@@ -4121,7 +4146,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -77, y: -225.55}
+  m_AnchoredPosition: {x: -77, y: -225.55002}
   m_SizeDelta: {x: 350, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1123080964
@@ -5293,6 +5318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clientName: {fileID: 1159940011}
   parentMenu: {fileID: 1548819614}
+  currentcli: {fileID: 0}
   store: {fileID: 0}
 --- !u!114 &1357679382
 MonoBehaviour:
@@ -5786,7 +5812,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1425490310}
-  - component: {fileID: 1425490312}
   - component: {fileID: 1425490311}
   m_Layer: 5
   m_Name: Inventory
@@ -5836,29 +5861,13 @@ MonoBehaviour:
   currentClientSelected: 
   currentHeadstoneSelected: 
   currentHeadstone: {fileID: 0}
+  currentClient: {fileID: 0}
   nameval: {fileID: 477274054}
   Headval: {fileID: 827661903}
   numofscenes:
   - {fileID: 1548819612}
   - {fileID: 677928596}
   - {fileID: 2014759578}
---- !u!114 &1425490312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1425490309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49abfece9a1dea6418f095bee8c06850, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  headstoneList:
-  - {fileID: 1544798790248168, guid: 88cf12b88236e314198724d6429e327b, type: 2}
-  - {fileID: 1544798790248168, guid: 9f4dbfcfa74d46b42b76928d74ee9b3e, type: 2}
-  CoffinList: []
-  Headstoneholder: {fileID: 1080907979}
-  coffinholder: {fileID: 1442404923}
 --- !u!1 &1442404923
 GameObject:
   m_ObjectHideFlags: 0

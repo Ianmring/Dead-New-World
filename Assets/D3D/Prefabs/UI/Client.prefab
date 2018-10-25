@@ -265,8 +265,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mann: {fileID: 0}
+  invman: {fileID: 0}
   client: 
   Pay: 20
+  RequestedHeadstone: {fileID: 0}
   timetocomplete: 1000
   ontheclock: 0
   numberoftaks: 2

@@ -46,6 +46,7 @@ public class HeadstoneMenu : MonoBehaviour {
             GameObject newButton = Instantiate(buttonTemplate);
             newButton.SetActive(true);
             newButton.GetComponent<HeadstoneMenuButton>().AssignClient(man.currentclients[i].client);
+            newButton.GetComponent<HeadstoneMenuButton>().currentcli = man.currentclients[i];
             newButton.transform.SetParent(buttonTemplate.transform.parent, false);
             buttonList.Add(newButton);
         }

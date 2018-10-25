@@ -12,6 +12,8 @@ public class HeadstoneMenuButton : MonoBehaviour {
     [SerializeField]
     private HeadstoneMenu parentMenu;
 
+    public Clients currentcli;
+
     [SerializeField]
     private ValueStore store;
 
@@ -27,6 +29,7 @@ public class HeadstoneMenuButton : MonoBehaviour {
     public void GetClient()
     {
         store.currentClientSelected = clientName.text;
+        store.currentClient = currentcli;
     }
 
 }
