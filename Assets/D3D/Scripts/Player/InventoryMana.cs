@@ -44,11 +44,11 @@ public class InventoryMana : MonoBehaviour {
 
         }
     }
-    public void refreshclientlist()
-    {
-        foreach (var client in man.openclients)
-        {
+    //public void refreshclientlist()
+    //{
+    //    foreach (var client in man.openclients)
+    //    {
             
-        }
-    }
+    //    }
+    //}
 }

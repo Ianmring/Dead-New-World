@@ -20,31 +20,18 @@ public class GameManager : MonoBehaviour
     public GameObject Clients;
 
     GameObject cliholder;
-    public List<Clients> currentclients = new List<Clients>();
-
-    public List<Clients> openclients = new List<Clients>();
-
-    public List<string> compclilist = new List<string>();
-
+    ClientMana climana;
+  
 
     public float ratting;
     public float[] rattings;
 
-    float clientspawnrate;
-    public float clientcountdown;
-
-    public int mintimetospawn;
-    public int maxtimetospawn;
+ 
 
     Text budgettxt;
     Text Timetxt;
 
-    public TextAsset ClientList;
-    public TextAsset DeathList;
-
-
-    public string[] Client;
-    public string[] Death;
+   
 
     public bool tutorial;
 
@@ -52,19 +39,12 @@ public class GameManager : MonoBehaviour
     public GameObject Cli;
     private void Start()
     {
-        ClientList = (TextAsset)Resources.Load("Clients_List");
-        DeathList = (TextAsset)Resources.Load("Deaths_List");
+        climana = FindObjectOfType<ClientMana>();
+  
         inv = GameObject.Find("Inventory");
         Cli = GameObject.Find("Clients");
 
-        if (ClientList != null)
-        {
-            Client = (ClientList.text.Split('\n'));
-        }
-        if (ClientList != null)
-        {
-            Death = (DeathList.text.Split('\n'));
-        }
+    
         currBudget = 1000;
         cliholder = GameObject.Find("Clientholder");
 
@@ -90,12 +70,7 @@ public class GameManager : MonoBehaviour
         {
             TimePassed += Time.deltaTime;
 
-            clientcountdown -= Time.deltaTime;
-
-            if (clientcountdown < 1)
-            {
-                newclient();
-            }
+           
 
             if (infation < inflationmax)
             {
@@ -117,20 +92,6 @@ public class GameManager : MonoBehaviour
        ratting = ratting / rattings.Length;
     }
 
-    public void newclient()
-    {
-
-        GameObject cli;
-
-        clinum++;
-        cli = Instantiate(Clients,this.transform);
-        cli.transform.parent = cliholder.gameObject.transform;
-        clientspawnrate = Random.Range(mintimetospawn, maxtimetospawn);
-
-        cli.transform.SetParent(cliholder.gameObject.transform);
-       clientspawnrate = Random.Range(mintimetospawn, maxtimetospawn);
-        clientcountdown = clientspawnrate;
-
-    }
+   
 }
    

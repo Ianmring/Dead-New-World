@@ -72,7 +72,7 @@ MonoBehaviour:
   threshold_cruddy: 0
   currBuildProgress: 0
   currStructuralIntegrity: 0
-  bldgTagList: 
+  bldgTagList: 03000000
   tileSize: {x: 0, y: 0}
   maxStructuralIntegrity: 0
   degradationRate: 0

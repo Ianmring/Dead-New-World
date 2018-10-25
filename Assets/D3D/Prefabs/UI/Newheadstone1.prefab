@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114757135904594920}
   - component: {fileID: 114750999509567534}
   m_Layer: 5
-  m_Name: headstone1
+  m_Name: Newheadstone1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

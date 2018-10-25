@@ -41,7 +41,6 @@ public class ValueStore : MonoBehaviour {
         numofscenes[2].SetActive(false);
     }
     void Start () {
-		
 	}
 	
 	// Update is called once per frame
