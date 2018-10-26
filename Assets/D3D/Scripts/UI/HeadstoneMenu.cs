@@ -20,11 +20,13 @@ public class HeadstoneMenu : MonoBehaviour {
     [SerializeField]
     private GameManager man;
 
+    ClientMana climan;
     private void Awake()
     {
         this.gameObject.SetActive(true);
         man = FindObjectOfType<GameManager>();
         buttonList = new List<GameObject>();
+        climan = FindObjectOfType<ClientMana>();
     }
 
     private void OnEnable()
@@ -41,12 +43,12 @@ public class HeadstoneMenu : MonoBehaviour {
     {
         EmptyList();
 
-        for (int i = 0; i < man.currentclients.Count; i++)
+        for (int i = 0; i < climan.currentclients.Count; i++)
         {
             GameObject newButton = Instantiate(buttonTemplate);
             newButton.SetActive(true);
-            newButton.GetComponent<HeadstoneMenuButton>().AssignClient(man.currentclients[i].client);
-            newButton.GetComponent<HeadstoneMenuButton>().currentcli = man.currentclients[i];
+            newButton.GetComponent<HeadstoneMenuButton>().AssignClient(climan.currentclients[i].client);
+            newButton.GetComponent<HeadstoneMenuButton>().currentcli = climan.currentclients[i];
             newButton.transform.SetParent(buttonTemplate.transform.parent, false);
             buttonList.Add(newButton);
         }

@@ -8,6 +8,7 @@ public class Clients : MonoBehaviour
 
   public GameManager mann;
 
+    public ClientMana climan;
     UIManager uimann;
 
     public InventoryMana invman;
@@ -67,7 +68,7 @@ public class Clients : MonoBehaviour
         mann = GameObject.FindObjectOfType<GameManager>().GetComponent<GameManager>();
         uimann = GameObject.FindObjectOfType<UIManager>();
         invman = GameObject.FindObjectOfType<InventoryMana>().GetComponent<InventoryMana>();
-
+        climan = FindObjectOfType<ClientMana>();
 
         //mann = mann
 
@@ -79,8 +80,8 @@ public class Clients : MonoBehaviour
             Deathnum = 0;
         }
 
-        namenum = Random.Range(1, mann.Client.Length);
-        Deathnum = Random.Range(1, mann.Death.Length);
+        namenum = Random.Range(1, climan.Client.Length);
+        Deathnum = Random.Range(1, climan.Death.Length);
         headnum = Random.Range(0, invman.headstoneList.Count);
         coffinnum = Random.Range(0, invman.CoffinList.Count);
 
@@ -89,15 +90,15 @@ public class Clients : MonoBehaviour
         RequestedHeadstone = invman.headstoneList[headnum].GetComponent<headstoneobj>().currentheadstone;
         RequestedCoffin = invman.CoffinList[coffinnum].GetComponent<Coffinobj>().SelectedCoffin;
      
-        clientName.text = ("Name:\n"+mann.Client[namenum]);
-        Causeofdeath.text = ("Cause of Death:\n"+ mann.Death[Deathnum]);
-        client = mann.Client[namenum];
+        clientName.text = ("Name:\n"+climan.Client[namenum]);
+        Causeofdeath.text = ("Cause of Death:\n"+ climan.Death[Deathnum]);
+        client = climan.Client[namenum];
       //  name.text = ("Name:\n"+client);
-        Reasonofdeath = mann.Death[Deathnum];
+        Reasonofdeath = climan.Death[Deathnum];
         Causeofdeath.text = ("Cause of Death:\n"+ Reasonofdeath);
 
                           
-        mann.openclients.Insert(0, this);
+        climan.openclients.Insert(0, this);
         payr.text =("Pay: " + Pay.ToString());
         timetocom.text = ("Time to Complete: " + timetocomplete.ToString());
         currentstatus = Status.notstarted;
@@ -147,9 +148,9 @@ public class Clients : MonoBehaviour
         currentstatus = Status.inprogress;
         Debug.Log(currentstatus);
         //still working on this
-        mann.openclients.RemoveAt(mann.openclients.Count - 1);
+        climan.openclients.RemoveAt(climan.openclients.Count - 1);
                 
-        mann.currentclients.Insert(0,this);
+        climan.currentclients.Insert(0,this);
                 
     }
     public void Complete()
@@ -189,9 +190,9 @@ public class Clients : MonoBehaviour
 
         mann.Rattingcalc();
         //mann.compclilist.Insert(0, new Clients(client, deadrelativename, Reasonofdeath, Pay));
-        mann.currentclients.RemoveAt(mann.currentclients.Count - 1);
+        climan.currentclients.RemoveAt(climan.currentclients.Count - 1);
 
-        mann.compclilist.Insert(0,client + "\n" + Reasonofdeath + "\n" + Pay.ToString() + "\n" + jobstatus.text);
+        climan.compclilist.Insert(0,client + "\n" + Reasonofdeath + "\n" + Pay.ToString() + "\n" + jobstatus.text);
 
         Destroy(this.gameObject);
 
