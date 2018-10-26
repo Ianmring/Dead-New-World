@@ -5,15 +5,13 @@ using UnityEngine.UI;
 
 public class QNDGraveManager : MonoBehaviour {
 
-    public Slider progressBarPrefab;
     public GameObject graveManagerMenu;
     public Canvas canvasRoot;
 
-    Slider progressBar;
-
     void Awake()
     {
-        progressBar = Instantiate(progressBarPrefab, canvasRoot.transform);
+        //progressBar = Instantiate(progressBarPrefab, canvasRoot.transform);
+        graveManagerMenu.SetActive(false);
     }
 
     void Update()
@@ -23,10 +21,9 @@ public class QNDGraveManager : MonoBehaviour {
 
     void OnGUI()
     {
-        if (progressBar.enabled == true)
-        {
-            progressBar.transform.position = Camera.main.WorldToScreenPoint(transform.position);
-        }
+        /*if (progressBar.enabled == true)
+            if(QNDPlayer.player.selectedGrave != null)
+                progressBar.transform.position = Camera.main.WorldToScreenPoint(QNDPlayer.player.selectedGrave.transform.position);*/
 
         if (graveManagerMenu.activeSelf == true)
         {

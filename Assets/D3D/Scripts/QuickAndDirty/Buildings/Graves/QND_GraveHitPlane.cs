@@ -8,24 +8,27 @@ public class QND_GraveHitPlane : MonoBehaviour {
     public GraveState currentState;
     QNDGraveManager graveUIManager;
 
-    void Awake ()
+    void Start ()
     {
         currentState = GraveState.Hole;
-        graveUIManager = GetComponent<QNDGraveManager>();
+        graveUIManager = QNDPlayer.player.GetComponent<QNDGraveManager>();
     }
 
-    public void OpenGraveMenu()
+    public void ToggleGraveMenu()
     {
-        if(graveUIManager.graveManagerMenu.activeSelf != true)
+        if (graveUIManager.graveManagerMenu.activeSelf != true)
+        {
+            QNDPlayer.player.selectedGrave = this;
             graveUIManager.graveManagerMenu.SetActive(true);
+        }
 
-        PopulateGraveMenu();
+        else
+        {
+            QNDPlayer.player.selectedGrave = null;
+            graveUIManager.graveManagerMenu.SetActive(true);
+        }
     }
 
-    public void CloseGraveMenu()
-    {
-        graveUIManager.graveManagerMenu.SetActive(false);
-    }
 
     public void PlaceNewCoffin(Transform coffinPrefab)
     {
@@ -42,11 +45,6 @@ public class QND_GraveHitPlane : MonoBehaviour {
     public void PlaceNewHeadstone(Transform headstonePrefab)
     {
         Transform newHeadstone = Instantiate(headstonePrefab, headstoneNode);
-    }
-
-    public void PopulateGraveMenu()
-    {
-
     }
 }
 

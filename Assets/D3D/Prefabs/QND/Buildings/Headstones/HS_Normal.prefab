@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4053960842834184}
   - component: {fileID: 33775815718769348}
   - component: {fileID: 23589243602827380}
+  - component: {fileID: 114474732339383568}
   m_Layer: 0
   m_Name: HS_Normal
   m_TagString: Untagged
@@ -83,3 +84,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1941374606676290}
   m_Mesh: {fileID: 4300000, guid: 9dfc10040df109f4b872531057ab7161, type: 3}
+--- !u!114 &114474732339383568
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1941374606676290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b887c99dd32d3f140b6e8a50b60141ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currState: 0
+  threshold_shabby: 0
+  threshold_cruddy: 0
+  currBuildProgress: 0
+  currStructuralIntegrity: 0
+  bldgTagList: 
+  tileSize: {x: 0, y: 0}
+  maxStructuralIntegrity: 0
+  degradationRate: 0
+  buildCost: 0
+  maintenanceCost: 0
+  canBeRepaired: 0
+  nodeTag: 0
+  owner: {fileID: 0}
+  engravedName: {fileID: 0}
+  headstonetype: 

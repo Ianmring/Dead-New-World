@@ -8,15 +8,24 @@ public class QNDPlayer : MonoBehaviour {
     public Transform coffinPrefab;
     public Transform headstonePrefab;
 
+    [HideInInspector]
+    public static QNDPlayer player;
+    [HideInInspector]
+    public QND_GraveHitPlane selectedGrave;
+
     Ray camRay;
     RaycastHit rayHit;
-    QND_GraveHitPlane selectedGrave;
+    QNDGraveManager graveManager;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Awake ()
     {
-        
-	}
+        if (player != null) DestroyImmediate(gameObject);
+        else player = this;
+
+        selectedGrave = null;
+        graveManager = GetComponent<QNDGraveManager>();
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -39,7 +48,7 @@ public class QNDPlayer : MonoBehaviour {
         {
             case GraveState.Hole:
                 //graveClicked.PlaceNewCoffin(coffinPrefab);
-                graveClicked.OpenGraveMenu();
+                graveClicked.ToggleGraveMenu();
                 break;
             case GraveState.Coffin:
                 graveClicked.FillGrave(filledGravePrefab);
@@ -56,12 +65,12 @@ public class QNDPlayer : MonoBehaviour {
     public void SetCurrentGrave(QND_GraveHitPlane newGrave)
     {
         selectedGrave = newGrave;
-        newGrave.OpenGraveMenu();
+        graveManager.graveManagerMenu.SetActive(true);
     }
 
     public void DeselectGrave()
     {
-        selectedGrave.CloseGraveMenu();
+        graveManager.graveManagerMenu.SetActive(false);
         selectedGrave = null;
     }
 }

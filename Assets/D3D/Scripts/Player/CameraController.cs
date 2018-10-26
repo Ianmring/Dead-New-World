@@ -8,6 +8,8 @@ public class CameraController : MonoBehaviour {
     //Vector3 horzPanVector;
     Vector3 vertPanVector;
     float currZoom;
+    bool lockedOn;
+    Transform currentTarget;
 
     public float camSpeed;
     public float minZoom;
@@ -21,6 +23,7 @@ public class CameraController : MonoBehaviour {
     {
 
         currZoom = 40f;
+        lockedOn = false;
         //minZoom = 10f;
         //maxZoom = 25f;
 
@@ -31,8 +34,10 @@ public class CameraController : MonoBehaviour {
 
     private void Update()
     {
-
-        if (Input.GetMouseButtonDown(1))
+        if(lockedOn && currentTarget != null)
+        {
+            LockOnTarget();
+        } else if (Input.GetMouseButtonDown(1))
         {
             lastPanPosition = Input.mousePosition;
         } else if (Input.GetMouseButton(1))
@@ -68,4 +73,23 @@ public class CameraController : MonoBehaviour {
 
         return Mathf.Clamp(offset * speed, minZoom, maxZoom);
     }*/
+
+    public void LockOnTarget()
+    {
+        Vector3 offset = new Vector3(0f, 48f, -20f);
+        transform.position = currentTarget.position + offset;
+        //transform.LookAt(currentTarget);
+    }
+
+    public void SetLockOn(Transform newTarget)
+    {
+        currentTarget = newTarget;
+        lockedOn = true;
+    }
+
+    public void StopLockOn()
+    {
+        currentTarget = null;
+        lockedOn = false;
+    }
 }

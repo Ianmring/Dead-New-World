@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
 
+    public static GameManager gameManager;
+
     public float currBudget;
     float infation;
     float inflationmax = 16;
@@ -50,12 +52,22 @@ public class GameManager : MonoBehaviour
 
     public GameObject inv;
     public GameObject Cli;
+
+    public ValueStore store;
+
+    void Awake()
+    {
+        if (gameManager != null) DestroyImmediate(gameObject);
+        else gameManager = this;
+    }
+
     private void Start()
     {
         ClientList = (TextAsset)Resources.Load("Clients_List");
         DeathList = (TextAsset)Resources.Load("Deaths_List");
         inv = GameObject.Find("Inventory");
         Cli = GameObject.Find("Clients");
+        store = GetComponent<ValueStore>();
 
         if (ClientList != null)
         {

@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4009907456411506}
   - component: {fileID: 64758086734229426}
   - component: {fileID: 114359891920271692}
-  - component: {fileID: 114915553705249516}
   m_Layer: 0
   m_Name: GraveHitPlane
   m_TagString: Untagged
@@ -98,17 +97,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headstoneNode: {fileID: 4180883518421112}
   currentState: 0
---- !u!114 &114915553705249516
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1617336816850356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b844884548c7a4d923a7683ca6f383, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  progressBarPrefab: {fileID: 114785850620170208, guid: 47f38e69012ccea4fafc1a0c5ed8a1ae,
-    type: 2}
-  canvasRoot: {fileID: 0}
