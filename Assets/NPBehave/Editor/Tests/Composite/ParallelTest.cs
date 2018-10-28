@@ -275,6 +275,7 @@ namespace NPBehave
         }
 
         [Test]
+        [ExpectedException(typeof(Exception))]
         public void StopLowerPriorityChildrenForChild_WithoutImmediateRestart_ShouldThrowError()
         {
             Parallel.Policy failurePolicy = Parallel.Policy.ALL;
