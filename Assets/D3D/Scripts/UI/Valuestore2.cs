@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class ValueStore : MonoBehaviour {
+public class Valuestore2 : MonoBehaviour {
 
-    // Use this for initialization
     [SerializeField]
     public string currentClientSelected;
     public string currentHeadstoneSelected;
@@ -17,7 +16,7 @@ public class ValueStore : MonoBehaviour {
 
 
 
-    
+
     public GameObject[] numofscenes;
 
     private void Awake()
@@ -26,11 +25,11 @@ public class ValueStore : MonoBehaviour {
         currentHeadstone = null;
 
     }
-   
+
 
     public void Restart()
     {
-       
+
 
         currentClientSelected = null;
         currentHeadstone = null;
@@ -40,17 +39,18 @@ public class ValueStore : MonoBehaviour {
         numofscenes[1].SetActive(false);
         numofscenes[2].SetActive(false);
     }
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    void Start()
+    {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
 
         nameval.text = currentClientSelected;
         Headval.text = currentHeadstoneSelected;
-       
+
 
     }
 }
