@@ -2213,6 +2213,7 @@ MonoBehaviour:
   tutorial: 0
   inv: {fileID: 0}
   Cli: {fileID: 0}
+  store: {fileID: 0}
 --- !u!4 &553217949
 Transform:
   m_ObjectHideFlags: 0
@@ -5199,8 +5200,8 @@ MonoBehaviour:
   currentHeadstoneSelected: 
   currentHeadstone: {fileID: 0}
   currentClient: {fileID: 0}
-  nameval: {fileID: 0}
-  Headval: {fileID: 0}
+  nameval: {fileID: 477274054}
+  Headval: {fileID: 827661903}
   numofscenes: []
 --- !u!1 &1442404923
 GameObject:
