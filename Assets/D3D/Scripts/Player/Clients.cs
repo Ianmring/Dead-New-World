@@ -58,10 +58,10 @@ public class Clients : MonoBehaviour
     public Text jobstatus;
  
 
-    int namenum;
-    int Deathnum;
-    int headnum;
-    int coffinnum;
+  public  int namenum;
+   public int Deathnum;
+   public int headnum;
+   public int coffinnum;
 
     void Start()
     {
@@ -80,10 +80,7 @@ public class Clients : MonoBehaviour
             Deathnum = 0;
         }
 
-        namenum = Random.Range(1, climan.Client.Length);
-        Deathnum = Random.Range(1, climan.Death.Length);
-        headnum = Random.Range(0, invman.headstoneList.Count);
-        coffinnum = Random.Range(0, invman.CoffinList.Count);
+      
 
         //  Debug.Log(invman.headstoneList.Count);
 
