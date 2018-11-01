@@ -6,7 +6,11 @@ public class QND_GraveHitPlane : MonoBehaviour {
 
     public Transform headstoneNode;
     public GraveState currentState;
+
     QNDGraveManager graveUIManager;
+    GameObject currentClient;
+    GameObject currentCoffin;
+    GameObject currentHeadstone;
 
     void Start ()
     {
@@ -16,35 +20,42 @@ public class QND_GraveHitPlane : MonoBehaviour {
 
     public void ToggleGraveMenu()
     {
-        if (graveUIManager.graveManagerMenu.activeSelf != true)
+        if (graveUIManager.graveManagerMenu.gameObject.activeSelf != true)
         {
-            QNDPlayer.player.selectedGrave = this;
-            graveUIManager.graveManagerMenu.SetActive(true);
+            QNDPlayer.player.graveManager.selectedGrave = this;
+            graveUIManager.graveManagerMenu.gameObject.SetActive(true);
         }
 
         else
         {
-            QNDPlayer.player.selectedGrave = null;
-            graveUIManager.graveManagerMenu.SetActive(true);
+            QNDPlayer.player.graveManager.selectedGrave = null;
+            graveUIManager.graveManagerMenu.gameObject.SetActive(true);
         }
     }
 
-
-    public void PlaceNewCoffin(Transform coffinPrefab)
+    public void SetClient(GameObject newClient)
     {
-        Transform newCoffin = Instantiate(coffinPrefab, transform);
+        if (currentClient != null) Destroy(currentClient);
+        if (newClient != null) currentClient = Instantiate(newClient, transform);
+    }
+
+    public void PlaceNewCoffin(GameObject coffinPrefab)
+    {
+        if (currentCoffin != null) Destroy(currentCoffin);
+        if (coffinPrefab != null) currentCoffin = Instantiate(coffinPrefab, transform);
         currentState = GraveState.Coffin;
     }
 
-    public void FillGrave(Transform filledGravePrefab)
+    public void FillGrave(GameObject filledGravePrefab)
     {
-        Transform newFilledGrave = Instantiate(filledGravePrefab, transform);
+        GameObject newFilledGrave = Instantiate(filledGravePrefab, transform);
         currentState = GraveState.Filled;
     }
 
-    public void PlaceNewHeadstone(Transform headstonePrefab)
+    public void PlaceNewHeadstone(GameObject headstonePrefab)
     {
-        Transform newHeadstone = Instantiate(headstonePrefab, headstoneNode);
+        if (currentHeadstone != null) Destroy(currentHeadstone);
+        //if (headstonePrefab != null) currentHeadstone = Instantiate(headstonePrefab, headstoneNode);
     }
 }
 

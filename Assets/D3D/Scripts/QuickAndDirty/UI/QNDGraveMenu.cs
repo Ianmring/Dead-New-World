@@ -5,6 +5,13 @@ using UnityEngine.UI;
 
 public class QNDGraveMenu : MonoBehaviour {
 
+    public Text textClientSelection;
+    public Text textTitle;
+    public Image imageCoffinSelection;
+    public Text textCoffinSelection;
+    public Image imageHeadstoneSelection;
+    public Text textHeadstoneSelection;
+
     public Slider progressBarSlider;
     public List<GameObject> currentClientList;
     public List<GameObject> currentCoffinList;
@@ -15,8 +22,8 @@ public class QNDGraveMenu : MonoBehaviour {
 
     void OnEnable()
     {
-        if(QNDPlayer.player.selectedGrave != null)
-            Camera.main.GetComponent<CameraController>().SetLockOn(QNDPlayer.player.selectedGrave.transform);
+        if(QNDPlayer.player.graveManager.selectedGrave != null)
+            Camera.main.GetComponent<CameraController>().SetLockOn(QNDPlayer.player.graveManager.selectedGrave.transform);
     }
 
     void OnDisable()

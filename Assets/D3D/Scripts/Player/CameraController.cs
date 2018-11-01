@@ -18,6 +18,8 @@ public class CameraController : MonoBehaviour {
     public float lowerBoundsX;
     public float upperBoundsZ;
     public float lowerBoundsZ;
+    public Vector3 origPosition;
+    public Vector3 lockPosOffset;
 
     private void Start()
     {
@@ -60,6 +62,7 @@ public class CameraController : MonoBehaviour {
         pos.x = Mathf.Clamp(transform.position.x, lowerBoundsX, upperBoundsX);
         pos.z = Mathf.Clamp(transform.position.z, lowerBoundsZ, upperBoundsZ);
         transform.position = pos;
+        origPosition = pos;
 
         lastPanPosition = newPanPosition;
     }
@@ -76,8 +79,8 @@ public class CameraController : MonoBehaviour {
 
     public void LockOnTarget()
     {
-        Vector3 offset = new Vector3(0f, 48f, -20f);
-        transform.position = currentTarget.position + offset;
+        //Vector3 offset = new Vector3(0f, 48f, -20f);
+        transform.position = currentTarget.position + lockPosOffset;
         //transform.LookAt(currentTarget);
     }
 
@@ -91,5 +94,6 @@ public class CameraController : MonoBehaviour {
     {
         currentTarget = null;
         lockedOn = false;
+        transform.position = origPosition;
     }
 }

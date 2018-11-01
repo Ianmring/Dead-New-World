@@ -5,29 +5,29 @@ using UnityEngine.UI;
 
 public class QNDMenuButton : MonoBehaviour {
 
-    [SerializeField]
-    private Text clientName;
+    public GameObject assignedObject;
+    public string assignedObjectName;
+    public Sprite assignedObjectSprite;
 
+    //[SerializeField]
+    //private Text clientName;
     [SerializeField]
     private QNDGraveMenu parentMenu;
-
-    public Clients currentcli;
-
-    [SerializeField]
     private ValueStore store;
 
     private void Start()
     {
-        store = GameManager.gameManager.store;
+        //store = GameManager.gameManager.store;
     }
-    public void AssignClient(string newText)
+
+    /*public void AssignClient(string newText)
     {
         clientName.text = newText;
     }
 
     public void GetClient()
     {
-        store.currentClientSelected = clientName.text;
-        store.currentClient = currentcli;
-    }
+        //store.currentClientSelected = clientName.text;
+        //store.currentClient = currentClient;
+    }*/
 }
