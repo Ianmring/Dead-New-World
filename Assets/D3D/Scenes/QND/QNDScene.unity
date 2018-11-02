@@ -207,6 +207,7 @@ MonoBehaviour:
   assignedObject: {fileID: 0}
   assignedObjectName: Sumfkindood
   assignedObjectSprite: {fileID: 0}
+  disabledButtonSprite: {fileID: 0}
   parentMenu: {fileID: 92405656}
 --- !u!1 &73218696
 GameObject:
@@ -828,6 +829,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 888159968}
+    - target: {fileID: 114903680317935090, guid: b670569db9b511442a982d581c692cea,
+        type: 2}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b670569db9b511442a982d581c692cea, type: 2}
   m_IsPrefabAsset: 0
@@ -1786,6 +1792,7 @@ MonoBehaviour:
   assignedObjectName: Skull Headstone
   assignedObjectSprite: {fileID: 21300000, guid: 4c71af40b7a927a4eb30db68c96ee83d,
     type: 3}
+  disabledButtonSprite: {fileID: 0}
   parentMenu: {fileID: 92405656}
 --- !u!1 &461035571
 GameObject:
@@ -2927,6 +2934,7 @@ MonoBehaviour:
   assignedObject: {fileID: 0}
   assignedObjectName: No Selection
   assignedObjectSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  disabledButtonSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   parentMenu: {fileID: 92405656}
 --- !u!1 &900637323
 GameObject:
@@ -3146,6 +3154,7 @@ MonoBehaviour:
   assignedObject: {fileID: 0}
   assignedObjectName: No Selection
   assignedObjectSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  disabledButtonSprite: {fileID: 0}
   parentMenu: {fileID: 92405656}
 --- !u!1 &1000601251
 GameObject:
@@ -4901,6 +4910,7 @@ MonoBehaviour:
   assignedObjectName: Crossbird Coffin
   assignedObjectSprite: {fileID: 21300000, guid: 17073c5423e952f41bbd4bed2c1097d7,
     type: 3}
+  disabledButtonSprite: {fileID: 0}
   parentMenu: {fileID: 92405656}
 --- !u!1 &1897946727
 GameObject:

@@ -47,14 +47,14 @@ public class QNDGraveManager : MonoBehaviour {
 
     public void SetGraveCoffin(QNDMenuButton buttonOptions)
     {
-        selectedGrave.PlaceNewCoffin(buttonOptions.assignedObject);
+        selectedGrave.SetCoffin(buttonOptions.assignedObject);
         graveManagerMenu.textCoffinSelection.text = buttonOptions.assignedObjectName;
         graveManagerMenu.imageCoffinSelection.sprite = buttonOptions.assignedObjectSprite;
     }
 
     public void SetGraveHeadstone(QNDMenuButton buttonOptions)
     {
-        selectedGrave.PlaceNewHeadstone(buttonOptions.assignedObject);
+        selectedGrave.SetHeadstone(buttonOptions.assignedObject);
         graveManagerMenu.textHeadstoneSelection.text = buttonOptions.assignedObjectName;
         graveManagerMenu.imageHeadstoneSelection.sprite = buttonOptions.assignedObjectSprite;
     }
