@@ -73,14 +73,14 @@ public class NPBehaveExampleEnemyAI : MonoBehaviour
     private void UpdatePlayerDistance()
     {
         
-        Vector3 playerLocalPos = this.transform.InverseTransformPoint(GameObject.FindGameObjectWithTag("Player").transform.position) * speed;
+        Vector3 playerLocalPos = this.transform.InverseTransformPoint(GameObject.FindGameObjectWithTag("Player").transform.position);
         behaviorTree.Blackboard["playerLocalPos"] = playerLocalPos;
         behaviorTree.Blackboard["playerDistance"] = playerLocalPos.magnitude;
     }
 
     private void MoveTowards(Vector3 localPosition)
     {
-        transform.localPosition += localPosition * 0.5f * Time.deltaTime;
+        transform.localPosition += localPosition * speed * Time.deltaTime;
     }
 
     private void SetColor(Color color)
