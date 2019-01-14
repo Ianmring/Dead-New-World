@@ -5,7 +5,8 @@ public class NPBehaveExampleEnemyAI : MonoBehaviour
 {
     private Blackboard blackboard;
     private Root behaviorTree;
-
+    public float speed;
+    public Vector3 vec;
     void Start()
     {
         // create our behaviour tree and get it's blackboard
@@ -34,7 +35,7 @@ public class NPBehaveExampleEnemyAI : MonoBehaviour
 
                     // check the 'playerDistance' blackboard value.
                     // When the condition changes, we want to immediately jump in or out of this path, thus we use IMMEDIATE_RESTART
-                    new BlackboardCondition("playerDistance", Operator.IS_SMALLER, 7.5f, Stops.IMMEDIATE_RESTART,
+                    new BlackboardCondition("playerDistance", Operator.IS_SMALLER, 100f, Stops.IMMEDIATE_RESTART,
 
                         // the player is in our range of 7.5f
                         new Sequence(
@@ -68,9 +69,11 @@ public class NPBehaveExampleEnemyAI : MonoBehaviour
         );
     }
 
+ 
     private void UpdatePlayerDistance()
     {
-        Vector3 playerLocalPos = this.transform.InverseTransformPoint(GameObject.FindGameObjectWithTag("Player").transform.position);
+        
+        Vector3 playerLocalPos = this.transform.InverseTransformPoint(GameObject.FindGameObjectWithTag("Player").transform.position) * speed;
         behaviorTree.Blackboard["playerLocalPos"] = playerLocalPos;
         behaviorTree.Blackboard["playerDistance"] = playerLocalPos.magnitude;
     }
