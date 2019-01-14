@@ -419,11 +419,12 @@ GameObject:
   - component: {fileID: 1728834719}
   - component: {fileID: 1728834718}
   - component: {fileID: 1728834717}
-  - component: {fileID: 1728834716}
   - component: {fileID: 1728834721}
   - component: {fileID: 1728834724}
   - component: {fileID: 1728834723}
   - component: {fileID: 1728834722}
+  - component: {fileID: 1728834716}
+  - component: {fileID: 1728834725}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -438,13 +439,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728834715}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e93f0a67c059f4b0293da0f71ef29a40, type: 3}
+  m_Script: {fileID: 11500000, guid: 66f3c45ff51154e1c87e46d598e07518, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.5
-  vec: {x: 0, y: 0, z: 0}
 --- !u!65 &1728834717
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -511,7 +510,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728834715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.16, y: 3.57, z: 0}
+  m_LocalPosition: {x: -7.16, y: 10.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -616,6 +615,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 559459066}
+--- !u!114 &1728834725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728834715}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e93f0a67c059f4b0293da0f71ef29a40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1.5
+  vec: {x: 0, y: 0, z: 0}
 --- !u!1 &2033565311
 GameObject:
   m_ObjectHideFlags: 0
@@ -714,4 +727,4 @@ MonoBehaviour:
   clickmak:
     serializedVersion: 2
     m_Bits: 1024
-  enemy: {fileID: 1728834716}
+  enemy: {fileID: 0}
