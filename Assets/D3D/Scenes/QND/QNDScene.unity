@@ -207,7 +207,6 @@ MonoBehaviour:
   assignedObject: {fileID: 0}
   assignedObjectName: Sumfkindood
   assignedObjectSprite: {fileID: 0}
-  disabledButtonSprite: {fileID: 0}
   parentMenu: {fileID: 92405656}
 --- !u!1 &73218696
 GameObject:
@@ -305,8 +304,7 @@ RectTransform:
   - {fileID: 807601971}
   - {fileID: 173755514}
   - {fileID: 1093676708}
-  - {fileID: 339448354}
-  - {fileID: 305185151}
+  - {fileID: 682424567}
   - {fileID: 811521200}
   m_Father: {fileID: 1687475964}
   m_RootOrder: 0
@@ -634,9 +632,9 @@ RectTransform:
   m_GameObject: {fileID: 256093046}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.6666665, y: 1.6666665, z: 1.6666665}
+  m_LocalScale: {x: 1.6666664, y: 1.6666664, z: 1.6666664}
   m_Children: []
-  m_Father: {fileID: 339448354}
+  m_Father: {fileID: 682424567}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -868,15 +866,15 @@ RectTransform:
   m_GameObject: {fileID: 305185150}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1906157551}
-  m_Father: {fileID: 92405655}
-  m_RootOrder: 8
+  m_Father: {fileID: 682424567}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -106.4}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 600, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &305185152
@@ -913,7 +911,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 305185153}
   m_OnClick:
     m_PersistentCalls:
@@ -1089,7 +1087,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 92405655}
+    m_TransformParent: {fileID: 682424567}
     m_Modifications:
     - target: {fileID: 224283798092752368, guid: 4e32ee5929c614a41ad542e1242c7f3b,
         type: 2}
@@ -1129,7 +1127,7 @@ Prefab:
     - target: {fileID: 224283798092752368, guid: 4e32ee5929c614a41ad542e1242c7f3b,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224283798092752368, guid: 4e32ee5929c614a41ad542e1242c7f3b,
         type: 2}
@@ -1139,7 +1137,7 @@ Prefab:
     - target: {fileID: 224283798092752368, guid: 4e32ee5929c614a41ad542e1242c7f3b,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -106.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224283798092752368, guid: 4e32ee5929c614a41ad542e1242c7f3b,
         type: 2}
@@ -1184,7 +1182,7 @@ Prefab:
     - target: {fileID: 224767788366854880, guid: 4e32ee5929c614a41ad542e1242c7f3b,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114813537985668324, guid: 4e32ee5929c614a41ad542e1242c7f3b,
         type: 2}
@@ -1230,6 +1228,25 @@ Prefab:
         type: 2}
       propertyPath: m_Interactable
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881623551562362, guid: 4e32ee5929c614a41ad542e1242c7f3b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224283798092752368, guid: 4e32ee5929c614a41ad542e1242c7f3b,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224283798092752368, guid: 4e32ee5929c614a41ad542e1242c7f3b,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224283798092752368, guid: 4e32ee5929c614a41ad542e1242c7f3b,
+        type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e32ee5929c614a41ad542e1242c7f3b, type: 2}
@@ -1792,7 +1809,6 @@ MonoBehaviour:
   assignedObjectName: Skull Headstone
   assignedObjectSprite: {fileID: 21300000, guid: 4c71af40b7a927a4eb30db68c96ee83d,
     type: 3}
-  disabledButtonSprite: {fileID: 0}
   parentMenu: {fileID: 92405656}
 --- !u!1 &461035571
 GameObject:
@@ -2293,6 +2309,56 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 676962771}
   m_CullTransparentMesh: 0
+--- !u!1 &682424566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 682424567}
+  - component: {fileID: 682424568}
+  m_Layer: 0
+  m_Name: ProgressHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &682424567
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 682424566}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_Children:
+  - {fileID: 256093047}
+  - {fileID: 339448354}
+  - {fileID: 305185151}
+  m_Father: {fileID: 92405655}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -106.399994}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &682424568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 682424566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd5cf8c8f4866d8439bc19ef41a40daa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressBar: {fileID: 0}
+  progressButton: {fileID: 0}
 --- !u!1001 &692141968
 Prefab:
   m_ObjectHideFlags: 0
@@ -2817,7 +2883,7 @@ RectTransform:
   m_Children:
   - {fileID: 2113238963}
   m_Father: {fileID: 92405655}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2934,7 +3000,6 @@ MonoBehaviour:
   assignedObject: {fileID: 0}
   assignedObjectName: No Selection
   assignedObjectSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  disabledButtonSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   parentMenu: {fileID: 92405656}
 --- !u!1 &900637323
 GameObject:
@@ -3154,7 +3219,6 @@ MonoBehaviour:
   assignedObject: {fileID: 0}
   assignedObjectName: No Selection
   assignedObjectSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  disabledButtonSprite: {fileID: 0}
   parentMenu: {fileID: 92405656}
 --- !u!1 &1000601251
 GameObject:
@@ -4910,7 +4974,6 @@ MonoBehaviour:
   assignedObjectName: Crossbird Coffin
   assignedObjectSprite: {fileID: 21300000, guid: 17073c5423e952f41bbd4bed2c1097d7,
     type: 3}
-  disabledButtonSprite: {fileID: 0}
   parentMenu: {fileID: 92405656}
 --- !u!1 &1897946727
 GameObject:

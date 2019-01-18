@@ -12,13 +12,13 @@ namespace D3D
     public abstract class PlaceableAsset : MonoBehaviour
     {
         
-        [Header("PlaceableAsset Diagnostics")]
-        [Tooltip("Diagnostics: Check certain values in-game. Don't modify!")]
-        public BuildingState currState;
-        public float threshold_shabby;
-        public float threshold_cruddy;
-        public float currBuildProgress;     //once this equals 100, the state is changed from Building to intact
-        public float currStructuralIntegrity;   //once this equals 60%, the state is changed to shabby
+        //[Header("PlaceableAsset Diagnostics")]
+        //[Tooltip("Diagnostics: Check certain values in-game. Don't modify!")]
+        protected BuildingState currState;
+        protected float threshold_shabby;
+        protected float threshold_cruddy;
+        protected float currBuildProgress;     //once this equals 100, the state is changed from Building to intact
+        protected float currStructuralIntegrity;   //once this equals 60%, the state is changed to shabby
                                                 //once this equals 30%, the state is changed to cruddy
                                                 //once this equals 0, the state is changed to ruined
         [Header("PlaceableAsset Properties")]
@@ -35,6 +35,8 @@ namespace D3D
     public class Building : PlaceableAsset
     {
         [Header("Building-Specific Properties")]
+        public string buildingName;
+        public Sprite buildingImage;
         public float baseRenownValue;           //how cool is it normally
         public float renownDropRate;     //how quickly renown drops when it is in a lesser state
         public MenuOptions menuOptions;  //contains a MenuOptions object

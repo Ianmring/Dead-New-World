@@ -31,4 +31,21 @@ public class QNDGraveMenu : MonoBehaviour {
         Camera.main.GetComponent<CameraController>().StopLockOn();
     }
 
+    public void SetClientSelection(string clientSelection, string title)
+    {
+        textClientSelection.text = clientSelection;
+        textTitle.text = "Grave (" + title + ")";
+    }
+
+    public void SetCoffinSelection(string coffinSelection, Sprite coffinSprite)
+    {
+        textCoffinSelection.text = coffinSelection;
+        imageCoffinSelection.sprite = coffinSprite;
+    }
+
+    public void SetHeadstoneSelection(string headstoneSelection, Sprite headstoneSprite)
+    {
+        textHeadstoneSelection.text = headstoneSelection;
+        imageHeadstoneSelection.sprite = headstoneSprite;
+    }
 }

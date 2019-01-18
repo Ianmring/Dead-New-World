@@ -1,17 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using D3D;
 
 public class QND_GraveHitPlane : MonoBehaviour {
+
+    public Clients currentClient
+    {
+        set
+        {
+            if (_currentClient != null) Destroy(_currentClient);
+            if (value != null) _currentClient = Instantiate(value, transform);
+        }
+        get { return _currentClient; }
+    }
+
+    public Building currentCoffin
+    {
+        set { _currentCoffin = value; }
+        get { return _currentCoffin; }
+    }
+
+    public Building currentHeadstone
+    {
+        set { _currentHeadstone = value; }
+        get { return _currentHeadstone; }
+    }
 
     public Transform headstoneNode;
     public GraveState currentState;
 
     QNDGraveManager graveUIManager;
     QNDBuildingTask currentTask;
-    GameObject currentClient;
-    GameObject currentCoffin;
-    GameObject currentHeadstone;
+    Clients _currentClient;
+    Building _currentCoffin;
+    Building _currentHeadstone;
 
     void Start ()
     {
@@ -35,37 +58,21 @@ public class QND_GraveHitPlane : MonoBehaviour {
         }
     }
 
-    public void SetClient(GameObject newClient)
-    {
-        if (currentClient != null) Destroy(currentClient);
-        if (newClient != null) currentClient = Instantiate(newClient, transform);
-    }
-
     public void PlaceNewCoffin()
     {
-        GameObject newCoffin = Instantiate(currentCoffin, transform);
+        Building newCoffin = Instantiate(currentCoffin, transform);
         //currentState = GraveState.Coffin;
     }
 
     public void PlaceNewHeadstone()
     {
-        GameObject newHeadstone = Instantiate(currentHeadstone, headstoneNode);
+        Building newHeadstone = Instantiate(currentHeadstone, headstoneNode);
     }
 
     public void FillGrave(GameObject filledGravePrefab)
     {
         GameObject newFilledGrave = Instantiate(filledGravePrefab, transform);
         //currentState = GraveState.Filled;
-    }
-
-    public void SetCoffin(GameObject coffinPrefab)
-    {
-        currentCoffin = coffinPrefab;
-    }
-
-    public void SetHeadstone(GameObject headstonePrefab)
-    {
-        currentHeadstone = headstonePrefab;
     }
 }
 
