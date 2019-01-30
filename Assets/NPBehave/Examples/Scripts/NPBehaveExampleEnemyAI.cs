@@ -35,7 +35,7 @@ public class NPBehaveExampleEnemyAI : MonoBehaviour
 
                     // check the 'playerDistance' blackboard value.
                     // When the condition changes, we want to immediately jump in or out of this path, thus we use IMMEDIATE_RESTART
-                    new BlackboardCondition("playerDistance", Operator.IS_SMALLER, 100f, Stops.IMMEDIATE_RESTART,
+                    new BlackboardCondition("playerDistance", Operator.IS_SMALLER, 10f, Stops.IMMEDIATE_RESTART,
 
                         // the player is in our range of 7.5f
                         new Sequence(
@@ -57,7 +57,34 @@ public class NPBehaveExampleEnemyAI : MonoBehaviour
                                 }
                             }) { Label = "Follow" }
                         )
+
+                     
+
+                    ),    
+                    
+                    new BlackboardCondition("playerDistance", Operator.IS_GREATER, 10f, Stops.IMMEDIATE_RESTART,
+                    
+                    new Sequence(
+                                                                                                                                                      
+                    new Action(()=> SetColor(Color.blue)) { Label = "Change to Blue"}
+                    
+                    )
+                    
+                    
+                    
+                    
+                    
+                    
                     ),
+                    
+                   
+                    
+                    
+                    
+                    
+                    
+                   
+                   
 
                     // park until playerDistance does change
                     new Sequence(
