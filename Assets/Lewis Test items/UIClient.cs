@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using D3D;
 
-public class UIMenu : MonoBehaviour
+public class UIClient : MonoBehaviour
 {
     [SerializeField]
     private Text clientName;
@@ -13,6 +13,8 @@ public class UIMenu : MonoBehaviour
     private ValueStore store;
 
     public Clients currentcli;
+
+    
 
     // Start is called before the first frame update
     void Start()
