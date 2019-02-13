@@ -14,15 +14,12 @@ public class UIClient : MonoBehaviour
 
     public Clients currentcli;
 
-    public GameObject clientVisual;
-    public GameObject buildingSelection;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         store = FindObjectOfType<ValueStore>();
-        buildingSelection.SetActive(false);
-        clientVisual.SetActive(true);
     }
 
     // Update is called once per frame
