@@ -351,13 +351,13 @@ namespace Pathfinding.Util {
 			for (int i = 0; i < reloadedInBatch.Length; i++) reloadedInBatch[i] = false;
 
 			AstarPath.active.AddWorkItem(new AstarWorkItem((ctx, force) => {
-				Profiler.BeginSample("Apply Tile Modifications");
+				UnityEngine.Profiling.Profiler.BeginSample("Apply Tile Modifications");
 				graph.EndBatchTileUpdate();
 
 				// Trigger post update event
 				// This can trigger for example recalculation of navmesh links
 				ctx.SetGraphDirty(graph);
-				Profiler.EndSample();
+				UnityEngine.Profiling.Profiler.EndSample();
 				return true;
 			}));
 		}
@@ -1183,16 +1183,16 @@ namespace Pathfinding.Util {
 
 				tile.Load(out verts, out tris, rotation, yoffset);
 
-				Profiler.BeginSample("Cut Poly");
+				UnityEngine.Profiling.Profiler.BeginSample("Cut Poly");
 				// Cut the polygon
 				var cuttingResult = CutPoly(verts, tris, null, graph.transform, new IntRect(x, z, x + tile.Width - 1, z + tile.Depth - 1));
-				Profiler.EndSample();
+				UnityEngine.Profiling.Profiler.EndSample();
 
-				Profiler.BeginSample("Delaunay Refinement");
+				UnityEngine.Profiling.Profiler.BeginSample("Delaunay Refinement");
 				// Refine to tweak bad triangles
 				var tCount = cuttingResult.tris.Length;
 				DelaunayRefinement(cuttingResult.verts, cuttingResult.tris, ref tCount, true, false);
-				Profiler.EndSample();
+				UnityEngine.Profiling.Profiler.EndSample();
 
 				if (tCount != cuttingResult.tris.Length) cuttingResult.tris = Memory.ShrinkArray(cuttingResult.tris, tCount);
 
@@ -1204,11 +1204,11 @@ namespace Pathfinding.Util {
 
 				if (newWidth != 1 || newDepth != 1) throw new System.Exception("Only tiles of width = depth = 1 are supported at this time");
 
-				Profiler.BeginSample("ReplaceTile");
+				UnityEngine.Profiling.Profiler.BeginSample("ReplaceTile");
 				// Replace the tile using the final vertices and triangles
 				// The vertices are still in local space
 				graph.ReplaceTile(x, z, cuttingResult.verts, cuttingResult.tris);
-				Profiler.EndSample();
+				UnityEngine.Profiling.Profiler.EndSample();
 
 				if (!isBatching) {
 				    // Trigger post update event

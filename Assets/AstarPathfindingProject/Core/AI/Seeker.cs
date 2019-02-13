@@ -260,13 +260,13 @@ namespace Pathfinding {
 
 				for (int i = 0; i < modifiers.Count; i++) modifiers[i].PreProcess(path);
 			} else if (pass == ModifierPass.PostProcess) {
-				Profiler.BeginSample("Running Path Modifiers");
+				UnityEngine.Profiling.Profiler.BeginSample("Running Path Modifiers");
 				// Call delegates if they exist
 				if (postProcessPath != null) postProcessPath(path);
 
 				// Loop through all modifiers and apply post processing
 				for (int i = 0; i < modifiers.Count; i++) modifiers[i].Apply(path);
-				Profiler.EndSample();
+				UnityEngine.Profiling.Profiler.EndSample();
 			}
 		}
 

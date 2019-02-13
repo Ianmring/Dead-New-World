@@ -1,4 +1,4 @@
-using UnityEngine;
+
 using System.Collections.Generic;
 #if UNITY_5_5_OR_NEWER
 using UnityEngine.Profiling;
@@ -35,7 +35,7 @@ namespace Pathfinding {
 		/// </summary>
 		/// <param name="timeSlice">Do not return all paths at once if it takes a long time, instead return some and wait until the next call.</param>
 		public void ReturnPaths (bool timeSlice) {
-			Profiler.BeginSample("Calling Path Callbacks");
+			UnityEngine.Profiling.Profiler.BeginSample("Calling Path Callbacks");
 
 			// Hard coded limit on 1.0 ms
 			long targetTick = timeSlice ? System.DateTime.UtcNow.Ticks + 1 * 10000 : 0;
@@ -67,7 +67,7 @@ namespace Pathfinding {
 					}
 				}
 			}
-			Profiler.EndSample();
+			UnityEngine.Profiling.Profiler.EndSample();
 		}
 	}
 }

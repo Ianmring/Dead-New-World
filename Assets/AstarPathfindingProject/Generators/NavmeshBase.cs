@@ -930,7 +930,7 @@ namespace Pathfinding {
 
 			var wasNotBatching = !batchTileUpdate;
 			if (wasNotBatching) StartBatchTileUpdate();
-			Profiler.BeginSample("Tile Initialization");
+			UnityEngine.Profiling.Profiler.BeginSample("Tile Initialization");
 
 			//Create a new navmesh tile and assign its settings
 			var tile = new NavmeshTile {
@@ -955,7 +955,7 @@ namespace Pathfinding {
 			tile.verts = (Int3[])verts.Clone();
 			transform.Transform(tile.verts);
 
-			Profiler.BeginSample("Clear Previous Tiles");
+			UnityEngine.Profiling.Profiler.BeginSample("Clear Previous Tiles");
 
 			// Create a backing array for the new nodes
 			var nodes = tile.nodes = new TriangleMeshNode[tris.Length/3];
@@ -967,10 +967,10 @@ namespace Pathfinding {
 			// Remove previous tiles (except the nodes that were recycled above)
 			ClearTile(x, z);
 
-			Profiler.EndSample();
-			Profiler.EndSample();
+			UnityEngine.Profiling.Profiler.EndSample();
+			UnityEngine.Profiling.Profiler.EndSample();
 
-			Profiler.BeginSample("Assign Node Data");
+			UnityEngine.Profiling.Profiler.BeginSample("Assign Node Data");
 
 			// Set tile
 			tiles[x + z*tileXCount] = tile;
@@ -979,19 +979,19 @@ namespace Pathfinding {
 			// Create nodes and assign triangle indices
 			CreateNodes(nodes, tile.tris, x + z*tileXCount, (uint)active.data.GetGraphIndex(this));
 
-			Profiler.EndSample();
-			Profiler.BeginSample("AABBTree Rebuild");
+			UnityEngine.Profiling.Profiler.EndSample();
+			UnityEngine.Profiling.Profiler.BeginSample("AABBTree Rebuild");
 			tile.bbTree.RebuildFrom(nodes);
-			Profiler.EndSample();
+			UnityEngine.Profiling.Profiler.EndSample();
 
-			Profiler.BeginSample("Create Node Connections");
+			UnityEngine.Profiling.Profiler.BeginSample("Create Node Connections");
 			CreateNodeConnections(tile.nodes);
-			Profiler.EndSample();
+			UnityEngine.Profiling.Profiler.EndSample();
 
-			Profiler.BeginSample("Connect With Neighbours");
+			UnityEngine.Profiling.Profiler.BeginSample("Connect With Neighbours");
 
 			if (wasNotBatching) EndBatchTileUpdate();
-			Profiler.EndSample();
+			UnityEngine.Profiling.Profiler.EndSample();
 		}
 
 		protected void CreateNodes (TriangleMeshNode[] buffer, int[] tris, int tileIndex, uint graphIndex) {

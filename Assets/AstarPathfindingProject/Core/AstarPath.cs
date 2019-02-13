@@ -790,13 +790,13 @@ public class AstarPath : VersionedMonoBehaviour {
 				RecalculateDebugLimits();
 			}
 
-			Profiler.BeginSample("Graph.OnDrawGizmos");
+			UnityEngine.Profiling.Profiler.BeginSample("Graph.OnDrawGizmos");
 			// Loop through all graphs and draw their gizmos
 			for (int i = 0; i < graphs.Length; i++) {
 				if (graphs[i] != null && graphs[i].drawGizmos)
 					graphs[i].OnDrawGizmos(gizmos, showNavGraphs);
 			}
-			Profiler.EndSample();
+			UnityEngine.Profiling.Profiler.EndSample();
 
 			if (showNavGraphs) {
 				euclideanEmbedding.OnDrawGizmos();
@@ -880,12 +880,12 @@ public class AstarPath : VersionedMonoBehaviour {
 			// since these might change the graph and make returned paths invalid (at least the nodes)
 			pathReturnQueue.ReturnPaths(false);
 
-			Profiler.BeginSample("Work Items");
+			UnityEngine.Profiling.Profiler.BeginSample("Work Items");
 			if (workItems.ProcessWorkItems(force)) {
 				// At this stage there are no more work items, resume pathfinding threads
 				workItemLock.Release();
 			}
-			Profiler.EndSample();
+			UnityEngine.Profiling.Profiler.EndSample();
 		}
 	}
 
@@ -1603,21 +1603,21 @@ public class AstarPath : VersionedMonoBehaviour {
 	public void Scan (NavGraph[] graphsToScan = null) {
 		var prevProgress = new Progress();
 
-		Profiler.BeginSample("Scan");
-		Profiler.BeginSample("Init");
+		UnityEngine.Profiling.Profiler.BeginSample("Scan");
+		UnityEngine.Profiling.Profiler.BeginSample("Init");
 		foreach (var p in ScanAsync(graphsToScan)) {
 			if (prevProgress.description != p.description) {
 #if !NETFX_CORE && UNITY_EDITOR
-				Profiler.EndSample();
-				Profiler.BeginSample(p.description);
+				UnityEngine.Profiling.Profiler.EndSample();
+				UnityEngine.Profiling.Profiler.BeginSample(p.description);
 				// Log progress to the console
 				System.Console.WriteLine(p.description);
 				prevProgress = p;
 #endif
 			}
 		}
-		Profiler.EndSample();
-		Profiler.EndSample();
+		UnityEngine.Profiling.Profiler.EndSample();
+		UnityEngine.Profiling.Profiler.EndSample();
 	}
 
 	/// <summary>

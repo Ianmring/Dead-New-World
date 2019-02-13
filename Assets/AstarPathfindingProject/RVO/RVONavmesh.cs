@@ -49,7 +49,7 @@ namespace Pathfinding.RVO {
 		public override void OnLatePostScan () {
 			if (!Application.isPlaying) return;
 
-			Profiler.BeginSample("Update RVO Obstacles From Graphs");
+			UnityEngine.Profiling.Profiler.BeginSample("Update RVO Obstacles From Graphs");
 			RemoveObstacles();
 			NavGraph[] graphs = AstarPath.active.graphs;
 			RVOSimulator rvosim = RVOSimulator.active;
@@ -72,7 +72,7 @@ namespace Pathfinding.RVO {
 					AddGraphObstacles(lastSim, grid);
 				}
 			}
-			Profiler.EndSample();
+			UnityEngine.Profiling.Profiler.EndSample();
 		}
 
 		protected override void OnDisable () {

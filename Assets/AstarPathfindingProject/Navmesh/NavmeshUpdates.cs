@@ -165,7 +165,7 @@ namespace Pathfinding {
 		/// <summary>Update is called once per frame</summary>
 		internal void Update () {
 			if (AstarPath.active.isScanning) return;
-			Profiler.BeginSample("Navmesh cutting");
+			UnityEngine.Profiling.Profiler.BeginSample("Navmesh cutting");
 			bool anyInvalidHandlers = false;
 			var graphs = AstarPath.active.graphs;
 			for (int i = 0; i < graphs.Length; i++) {
@@ -179,7 +179,7 @@ namespace Pathfinding {
 			if ((updateInterval >= 0 && Time.realtimeSinceStartup - lastUpdateTime > updateInterval) || anyInvalidHandlers) {
 				ForceUpdate();
 			}
-			Profiler.EndSample();
+			UnityEngine.Profiling.Profiler.EndSample();
 		}
 
 		/// <summary>
