@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using D3D;
 
-public class UIMenu : MonoBehaviour
+public class UIClient : MonoBehaviour
 {
     [SerializeField]
     private Text clientName;
@@ -14,10 +14,15 @@ public class UIMenu : MonoBehaviour
 
     public Clients currentcli;
 
+    public GameObject clientVisual;
+    public GameObject buildingSelection;
+
     // Start is called before the first frame update
     void Start()
     {
         store = FindObjectOfType<ValueStore>();
+        buildingSelection.SetActive(false);
+        clientVisual.SetActive(true);
     }
 
     // Update is called once per frame
