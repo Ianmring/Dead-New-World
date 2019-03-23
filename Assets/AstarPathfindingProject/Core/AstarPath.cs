@@ -26,13 +26,13 @@ using Thread = System.Threading.Thread;
 [HelpURL("http://arongranberg.com/astar/docs/class_astar_path.php")]
 public class AstarPath : VersionedMonoBehaviour {
 	/// <summary>The version number for the A* %Pathfinding Project</summary>
-	public static readonly System.Version Version = new System.Version(4, 2, 0);
+	public static readonly System.Version Version = new System.Version(4, 2, 2);
 
 	/// <summary>Information about where the package was downloaded</summary>
 	public enum AstarDistribution { WebsiteDownload, AssetStore };
 
 	/// <summary>Used by the editor to guide the user to the correct place to download updates</summary>
-	public static readonly AstarDistribution Distribution = AstarDistribution.WebsiteDownload;
+	public static readonly AstarDistribution Distribution = AstarDistribution.AssetStore;
 
 	/// <summary>
 	/// Which branch of the A* %Pathfinding Project is this release.
@@ -790,13 +790,13 @@ public class AstarPath : VersionedMonoBehaviour {
 				RecalculateDebugLimits();
 			}
 
-			UnityEngine.Profiling.Profiler.BeginSample("Graph.OnDrawGizmos");
+			Profiler.BeginSample("Graph.OnDrawGizmos");
 			// Loop through all graphs and draw their gizmos
 			for (int i = 0; i < graphs.Length; i++) {
 				if (graphs[i] != null && graphs[i].drawGizmos)
 					graphs[i].OnDrawGizmos(gizmos, showNavGraphs);
 			}
-			UnityEngine.Profiling.Profiler.EndSample();
+			Profiler.EndSample();
 
 			if (showNavGraphs) {
 				euclideanEmbedding.OnDrawGizmos();
@@ -880,12 +880,12 @@ public class AstarPath : VersionedMonoBehaviour {
 			// since these might change the graph and make returned paths invalid (at least the nodes)
 			pathReturnQueue.ReturnPaths(false);
 
-			UnityEngine.Profiling.Profiler.BeginSample("Work Items");
+			Profiler.BeginSample("Work Items");
 			if (workItems.ProcessWorkItems(force)) {
 				// At this stage there are no more work items, resume pathfinding threads
 				workItemLock.Release();
 			}
-			UnityEngine.Profiling.Profiler.EndSample();
+			Profiler.EndSample();
 		}
 	}
 
@@ -1603,21 +1603,21 @@ public class AstarPath : VersionedMonoBehaviour {
 	public void Scan (NavGraph[] graphsToScan = null) {
 		var prevProgress = new Progress();
 
-		UnityEngine.Profiling.Profiler.BeginSample("Scan");
-		UnityEngine.Profiling.Profiler.BeginSample("Init");
+		Profiler.BeginSample("Scan");
+		Profiler.BeginSample("Init");
 		foreach (var p in ScanAsync(graphsToScan)) {
 			if (prevProgress.description != p.description) {
 #if !NETFX_CORE && UNITY_EDITOR
-				UnityEngine.Profiling.Profiler.EndSample();
-				UnityEngine.Profiling.Profiler.BeginSample(p.description);
+				Profiler.EndSample();
+				Profiler.BeginSample(p.description);
 				// Log progress to the console
 				System.Console.WriteLine(p.description);
 				prevProgress = p;
 #endif
 			}
 		}
-		UnityEngine.Profiling.Profiler.EndSample();
-		UnityEngine.Profiling.Profiler.EndSample();
+		Profiler.EndSample();
+		Profiler.EndSample();
 	}
 
 	/// <summary>

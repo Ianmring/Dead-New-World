@@ -323,9 +323,9 @@ namespace Pathfinding {
 
 			EnsureValidFloodFill();
 
-			UnityEngine.Profiling.Profiler.BeginSample("PostUpdate");
+			Profiler.BeginSample("PostUpdate");
 			if (anyGraphsDirty) GraphModifier.TriggerEvent(GraphModifier.EventType.PostUpdate);
-			UnityEngine.Profiling.Profiler.EndSample();
+			Profiler.EndSample();
 
 			anyGraphsDirty = false;
 			workItemsInProgressRightNow = false;

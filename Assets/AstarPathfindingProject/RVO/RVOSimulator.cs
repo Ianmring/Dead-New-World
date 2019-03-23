@@ -151,7 +151,7 @@ namespace Pathfinding.RVO {
 				}
 
 				if (!gizmos.Draw(hasher)) {
-					UnityEngine.Profiling.Profiler.BeginSample("Rebuild RVO Obstacle Gizmos");
+					Profiler.BeginSample("Rebuild RVO Obstacle Gizmos");
 					using (var helper = gizmos.GetGizmoHelper(null, hasher)) {
 						var up = movementPlane == MovementPlane.XY ? Vector3.back : Vector3.up;
 						var vertices = new Vector3[numEdges*6];
@@ -178,7 +178,7 @@ namespace Pathfinding.RVO {
 
 						helper.DrawTriangles(vertices, colors, numEdges * 2);
 					}
-					UnityEngine.Profiling.Profiler.EndSample();
+					Profiler.EndSample();
 				}
 
 				gizmos.FinalizeDraw();

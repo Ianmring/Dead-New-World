@@ -930,7 +930,7 @@ namespace Pathfinding {
 
 			var wasNotBatching = !batchTileUpdate;
 			if (wasNotBatching) StartBatchTileUpdate();
-			UnityEngine.Profiling.Profiler.BeginSample("Tile Initialization");
+			Profiler.BeginSample("Tile Initialization");
 
 			//Create a new navmesh tile and assign its settings
 			var tile = new NavmeshTile {
@@ -955,7 +955,7 @@ namespace Pathfinding {
 			tile.verts = (Int3[])verts.Clone();
 			transform.Transform(tile.verts);
 
-			UnityEngine.Profiling.Profiler.BeginSample("Clear Previous Tiles");
+			Profiler.BeginSample("Clear Previous Tiles");
 
 			// Create a backing array for the new nodes
 			var nodes = tile.nodes = new TriangleMeshNode[tris.Length/3];
@@ -967,10 +967,10 @@ namespace Pathfinding {
 			// Remove previous tiles (except the nodes that were recycled above)
 			ClearTile(x, z);
 
-			UnityEngine.Profiling.Profiler.EndSample();
-			UnityEngine.Profiling.Profiler.EndSample();
+			Profiler.EndSample();
+			Profiler.EndSample();
 
-			UnityEngine.Profiling.Profiler.BeginSample("Assign Node Data");
+			Profiler.BeginSample("Assign Node Data");
 
 			// Set tile
 			tiles[x + z*tileXCount] = tile;
@@ -979,19 +979,19 @@ namespace Pathfinding {
 			// Create nodes and assign triangle indices
 			CreateNodes(nodes, tile.tris, x + z*tileXCount, (uint)active.data.GetGraphIndex(this));
 
-			UnityEngine.Profiling.Profiler.EndSample();
-			UnityEngine.Profiling.Profiler.BeginSample("AABBTree Rebuild");
+			Profiler.EndSample();
+			Profiler.BeginSample("AABBTree Rebuild");
 			tile.bbTree.RebuildFrom(nodes);
-			UnityEngine.Profiling.Profiler.EndSample();
+			Profiler.EndSample();
 
-			UnityEngine.Profiling.Profiler.BeginSample("Create Node Connections");
+			Profiler.BeginSample("Create Node Connections");
 			CreateNodeConnections(tile.nodes);
-			UnityEngine.Profiling.Profiler.EndSample();
+			Profiler.EndSample();
 
-			UnityEngine.Profiling.Profiler.BeginSample("Connect With Neighbours");
+			Profiler.BeginSample("Connect With Neighbours");
 
 			if (wasNotBatching) EndBatchTileUpdate();
-			UnityEngine.Profiling.Profiler.EndSample();
+			Profiler.EndSample();
 		}
 
 		protected void CreateNodes (TriangleMeshNode[] buffer, int[] tris, int tileIndex, uint graphIndex) {
@@ -1025,6 +1025,10 @@ namespace Pathfinding {
 
 				node.UpdatePositionFromVertices();
 			}
+		}
+
+		public NavmeshBase () {
+			navmeshUpdateData = new NavmeshUpdates.NavmeshUpdateSettings(this);
 		}
 
 		/// <summary>
@@ -1105,10 +1109,6 @@ namespace Pathfinding {
 
 		/// <summary>Used to optimize linecasts by precomputing some values</summary>
 		static readonly byte[] LinecastShapeEdgeLookup;
-
-		public NavmeshBase () {
-			navmeshUpdateData = new NavmeshUpdates.NavmeshUpdateSettings(this);
-		}
 
 		static NavmeshBase () {
 			// Want want to figure out which side of a triangle that a ray exists using.

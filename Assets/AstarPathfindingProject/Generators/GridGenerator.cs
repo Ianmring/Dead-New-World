@@ -1584,7 +1584,7 @@ namespace Pathfinding {
 			GridNodeBase[] allNodes = ArrayPool<GridNodeBase>.Claim(chunkWidth*chunkWidth*LayerCount);
 			for (int cx = width/chunkWidth; cx >= 0; cx--) {
 				for (int cz = depth/chunkWidth; cz >= 0; cz--) {
-					UnityEngine.Profiling.Profiler.BeginSample("Hash");
+					Profiler.BeginSample("Hash");
 					var allNodesCount = GetNodesInRegion(new IntRect(cx*chunkWidth, cz*chunkWidth, (cx+1)*chunkWidth - 1, (cz+1)*chunkWidth - 1), allNodes);
 					var hasher = new RetainedGizmos.Hasher(active);
 					hasher.AddHash(showMeshOutline ? 1 : 0);
@@ -1593,10 +1593,10 @@ namespace Pathfinding {
 					for (int i = 0; i < allNodesCount; i++) {
 						hasher.HashNode(allNodes[i]);
 					}
-					UnityEngine.Profiling.Profiler.EndSample();
+					Profiler.EndSample();
 
 					if (!gizmos.Draw(hasher)) {
-						UnityEngine.Profiling.Profiler.BeginSample("Rebuild Retained Gizmo Chunk");
+						Profiler.BeginSample("Rebuild Retained Gizmo Chunk");
 						using (var helper = gizmos.GetGizmoHelper(active, hasher)) {
 							if (showNodeConnections) {
 								for (int i = 0; i < allNodesCount; i++) {
@@ -1608,7 +1608,7 @@ namespace Pathfinding {
 							}
 							if (showMeshSurface || showMeshOutline) CreateNavmeshSurfaceVisualization(allNodes, allNodesCount, helper);
 						}
-						UnityEngine.Profiling.Profiler.EndSample();
+						Profiler.EndSample();
 					}
 				}
 			}
