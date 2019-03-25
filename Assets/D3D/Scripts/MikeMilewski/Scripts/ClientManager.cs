@@ -13,16 +13,14 @@ public class ClientManager : MonoBehaviour
     [SerializeField]
     private Transform TextParentTransform;
 
+    //Clients that are currently available for instantiation.
     [SerializeField]
     private List<Client> CurrentClients;
 
+    //Clients that are going to be added via the "Accept Client" button
+    //into the "CurrentClients" list.
     [SerializeField]
-    private List<Client> ClientsToAdd;
-
-    //Exposed for testing purposes.
-    //Set to -1;
-    [SerializeField]
-    private int ClientIndex;
+    private List<Client> ClientsToAdd = new List<Client>();
 
     private void Awake()
     {
@@ -37,15 +35,33 @@ public class ClientManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
         #endregion
+
+        AddClientsToTheList();
     }
 
-    public void UpdateClients()
+    //Function that adds all of the Client prefabs into the "ClientsToAdd" list
+    //at the start of the game.
+    private void AddClientsToTheList()
+    {
+        Object[] subListObjects = Resources.LoadAll("Prefabs", typeof(Client));
+
+        foreach(Client client in subListObjects)
+        {
+            Client clientobject = (Client)client;
+
+            ClientsToAdd.Add(clientobject);
+        }
+    }
+
+    //Creates the "CurrentClientsText" prefab and parents itself to "TextParentTransform"
+    //which is a vertical layout transform inside of the "Clients" panel.
+    public void UpdateClients(int ClientIndex)
     {
         var TextObject = Instantiate(CurrentClientsText);
 
         TextObject.transform.SetParent(TextParentTransform, false);
 
-        CurrentClientsText.text = CurrentClients[ClientIndex].ClientDetails();
+        CurrentClientsText.text = ClientsToAdd[ClientIndex].ClientDetails();
     }
 
     public List<Client> GetCurrentClients
@@ -81,18 +97,6 @@ public class ClientManager : MonoBehaviour
         set
         {
             CurrentClientsText = value;
-        }
-    }
-
-    public int GetClientIndex
-    {
-        get
-        {
-            return ClientIndex;
-        }
-        set
-        {
-            ClientIndex = value;
         }
     }
 }

@@ -9,32 +9,24 @@ public class MenuButtons : MonoBehaviour
 {
     public void GenerateClient()
     {
-        if(ClientManager.Instance.GetClientIndex >= ClientManager.Instance.GetClientsToAdd.Count)
+        if(ClientManager.Instance.GetCurrentClients.Count > 0)
         {
-            Debug.Log("Can't make new Clients.");
-            return;
-        }
-        else
-        {
-            Instantiate(ClientManager.Instance.GetCurrentClients[ClientManager.Instance.GetClientIndex], 
-                                                                 new Vector3(Random.Range(-4, 4), Random.Range(-4, 0), 0), 
-                                                                 Quaternion.identity);
+            Instantiate(ClientManager.Instance.GetCurrentClients[0], new Vector3(Random.Range(-4, 4), Random.Range(-4, 0), 0),
+                                                                     Quaternion.identity);
+
+            ClientManager.Instance.GetCurrentClients.RemoveAt(0);
         }
     }
 
     public void AcceptClient()
     {
-        if(ClientManager.Instance.GetClientIndex >= ClientManager.Instance.GetClientsToAdd.Count)
+        if(ClientManager.Instance.GetClientsToAdd.Count > 0)
         {
-            return;
-        }
-        else
-        {
-            ClientManager.Instance.GetClientIndex++;
+            ClientManager.Instance.GetCurrentClients.Add(ClientManager.Instance.GetClientsToAdd[0]);
 
-            ClientManager.Instance.GetCurrentClients.Add(ClientManager.Instance.GetClientsToAdd[ClientManager.Instance.GetClientIndex]);
+            ClientManager.Instance.UpdateClients(0);
 
-            ClientManager.Instance.UpdateClients();
+            ClientManager.Instance.GetClientsToAdd.RemoveAt(0);
         }
     }
 

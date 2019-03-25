@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38f5b47d08913a143ba6c54be4868e88, type: 3}
-  m_Name: Cynthia
+  m_Name: Alphonse
   m_EditorClassIdentifier: 
-  Name: Cynthia
-  CauseOfDeath: Car Accident
-  ReligiousFaction: Christian
+  Name: Alphonse
+  CauseOfDeath: Stroke
+  ReligiousFaction: Buddhist
   RequestedCoffin: {fileID: 0}
   RequestedHeadstone: {fileID: 0}

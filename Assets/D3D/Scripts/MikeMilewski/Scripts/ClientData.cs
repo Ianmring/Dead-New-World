@@ -7,7 +7,7 @@ public class ClientData : ScriptableObject
 {
     public string Name, CauseOfDeath, ReligiousFaction;
 
-    public Coffin RequestedCoffin;
+    public Coffin RequestedCoffin = null;
 
-    public D3D.Headstone RequestedHeadstone;
+    public D3D.Headstone RequestedHeadstone = null;
 }
