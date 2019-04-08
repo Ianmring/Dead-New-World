@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 //This class holds data of each client instance by
 //reading from the ClientData scriptable object class
@@ -11,7 +9,10 @@ public class Client : MonoBehaviour
     private ClientData clientData;
 
     [SerializeField]
-    private string Name, CauseOfDeath, ReligiousFaction;
+    private string Name, CauseOfDeath, ReligiousFaction, CurrentStatusOfBurial;
+
+    [SerializeField]
+    private float TimeRemainingToBury;
 
     [SerializeField]
     private Coffin RequestedCoffin = null;
@@ -29,15 +30,42 @@ public class Client : MonoBehaviour
         RequestedHeadstone = clientData.RequestedHeadstone;
     }
 
-    public string ClientDetails()
+    public string NewRequestedClientDetails()
+    {
+        Name = clientData.Name;
+        RequestedCoffin = clientData.RequestedCoffin;
+        RequestedHeadstone = clientData.RequestedHeadstone;
+
+        return Name + "\n" + "Requested Coffin: " + RequestedCoffin + "\n" + "Requested Headstone: " + RequestedHeadstone;
+    }
+
+    public string ClientMenuDetails()
+    {
+        Name = clientData.name;
+        CurrentStatusOfBurial = clientData.CurrentStatusOfBurial;
+        TimeRemainingToBury = clientData.TimeRemainingToBury;
+
+        return Name + "\n" + "Burial Status: " + CurrentStatusOfBurial + "\n" + "Burial Time: " + TimeRemainingToBury;
+    }
+
+    public string AdditionalClientDetails()
     {
         Name = clientData.Name;
         CauseOfDeath = clientData.CauseOfDeath;
         ReligiousFaction = clientData.ReligiousFaction;
 
-        RequestedCoffin = clientData.RequestedCoffin;
-        RequestedHeadstone = clientData.RequestedHeadstone;
+        return Name + "\n" + "Cause of death: " + CauseOfDeath + "\n" + "Religion: " + ReligiousFaction;
+    }
 
-        return Name + "\n" + CauseOfDeath + ", " + ReligiousFaction;
+    public ClientData GetClientData
+    {
+        get
+        {
+            return clientData;
+        }
+        set
+        {
+            clientData = value;
+        }
     }
 }

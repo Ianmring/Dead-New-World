@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,10 +7,22 @@ public class ClientManager : MonoBehaviour
     public static ClientManager Instance = null;
 
     [SerializeField]
-    private Text CurrentClientsText;
+    private Button CurrentClientsButton;
 
     [SerializeField]
-    private Transform TextParentTransform;
+    private GameObject NewClientRequestMenu, ClientInfoMenu;
+
+    [SerializeField]
+    private Transform ButtonParentTransform;
+
+    [SerializeField]
+    private Text ClientInfoText;
+
+    [SerializeField]
+    private Client clientObject;
+
+    [SerializeField]
+    private List<ClientData> data;
 
     //Clients that are currently available for instantiation.
     [SerializeField]
@@ -39,17 +50,22 @@ public class ClientManager : MonoBehaviour
         AddClientsToTheList();
     }
 
-    //Function that adds all of the Client prefabs into the "ClientsToAdd" list
-    //at the start of the game.
+    //Function that adds all of the ClientData into the "Data" list
+    //at the start of the game and assigns a random ClientData to each
+    //Client in the list.
     private void AddClientsToTheList()
     {
-        Object[] subListObjects = Resources.LoadAll("Prefabs", typeof(Client));
+        Object[] clientData = Resources.LoadAll("ClientData", typeof(ClientData));
 
-        foreach(Client client in subListObjects)
+        foreach (ClientData cd in clientData)
         {
-            Client clientobject = (Client)client;
+            data.Add(cd);
+        }
 
-            ClientsToAdd.Add(clientobject);
+        for (int i = 0; i < data.Count; i++)
+        {
+            ClientsToAdd.Add(clientObject);
+            ClientsToAdd[i].GetClientData = data[Random.Range(0, data.Count)];
         }
     }
 
@@ -57,11 +73,11 @@ public class ClientManager : MonoBehaviour
     //which is a vertical layout transform inside of the "Clients" panel.
     public void UpdateClients(int ClientIndex)
     {
-        var TextObject = Instantiate(CurrentClientsText);
+        var ClientButton = Instantiate(CurrentClientsButton);
 
-        TextObject.transform.SetParent(TextParentTransform, false);
+        ClientButton.transform.SetParent(ButtonParentTransform, false);
 
-        CurrentClientsText.text = ClientsToAdd[ClientIndex].ClientDetails();
+        CurrentClientsButton.GetComponentInChildren<Text>().text = ClientsToAdd[ClientIndex].ClientMenuDetails();
     }
 
     public List<Client> GetCurrentClients
@@ -88,15 +104,39 @@ public class ClientManager : MonoBehaviour
         }
     }
 
-    public Text GetCurrentClientText
+    public GameObject GetNewClientRequestMenu
     {
         get
         {
-            return CurrentClientsText;
+           return NewClientRequestMenu;
         }
         set
         {
-            CurrentClientsText = value;
+            NewClientRequestMenu = value;
+        }
+    }
+    
+    public GameObject GetClientInfoMenu
+    {
+        get
+        {
+            return ClientInfoMenu;
+        }
+        set
+        {
+            ClientInfoMenu = value;
+        }
+    }
+
+    public Text GetClientInfoText
+    {
+        get
+        {
+            return ClientInfoText;
+        }
+        set
+        {
+            ClientInfoText = value;
         }
     }
 }

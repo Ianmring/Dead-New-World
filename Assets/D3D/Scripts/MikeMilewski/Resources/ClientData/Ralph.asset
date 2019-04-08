@@ -15,5 +15,7 @@ MonoBehaviour:
   Name: Ralph
   CauseOfDeath: Lung Cancer
   ReligiousFaction: Agnostic
+  CurrentStatusOfBurial: Not buried
+  TimeRemainingToBury: 0
   RequestedCoffin: {fileID: 0}
   RequestedHeadstone: {fileID: 0}

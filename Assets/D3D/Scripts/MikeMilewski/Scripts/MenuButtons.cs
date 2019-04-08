@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 //This class handles all of the button functionalities.
 //Add this onto an empty object in the scene and attach
@@ -11,7 +9,7 @@ public class MenuButtons : MonoBehaviour
     {
         if(ClientManager.Instance.GetCurrentClients.Count > 0)
         {
-            Instantiate(ClientManager.Instance.GetCurrentClients[0], new Vector3(Random.Range(-4, 4), Random.Range(-4, 0), 0),
+            Instantiate(ClientManager.Instance.GetCurrentClients[0], new Vector3(Random.Range(0.37f, 5.95f), Random.Range(-4.28f, -0.37f), 0),
                                                                      Quaternion.identity);
 
             ClientManager.Instance.GetCurrentClients.RemoveAt(0);
@@ -30,8 +28,31 @@ public class MenuButtons : MonoBehaviour
         }
     }
 
-    public void RejectClient(GameObject menu)
+    public void GetClientInfo()
+    {
+        ClientManager.Instance.GetClientInfoMenu.SetActive(true);
+        ClientManager.Instance.GetClientInfoText.text = ClientManager.Instance.GetCurrentClients[0].AdditionalClientDetails();
+    }
+
+    public void CloseMenu(GameObject menu)
     {
         menu.gameObject.SetActive(false);
+    }
+
+    public void OpenMenu(GameObject menu)
+    {
+        menu.gameObject.SetActive(true);
+    }
+
+    public void ToggleMenu(GameObject menu)
+    {
+        if(menu.activeInHierarchy)
+        {
+            menu.SetActive(false);
+        }
+        else
+        {
+            menu.SetActive(true);
+        }
     }
 }

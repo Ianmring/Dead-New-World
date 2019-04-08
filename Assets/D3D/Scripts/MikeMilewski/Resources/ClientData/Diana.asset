@@ -10,8 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38f5b47d08913a143ba6c54be4868e88, type: 3}
-  m_Name: Charlie
+  m_Name: Diana
   m_EditorClassIdentifier: 
-  Name: Charlie
-  CauseOfDeath: Heart Attack
-  ReligiousFaction: Atheist
+  Name: Diana
+  CauseOfDeath: Old Age
+  ReligiousFaction: Catholic
+  CurrentStatusOfBurial: Not buried
+  TimeRemainingToBury: 0
+  RequestedCoffin: {fileID: 0}
+  RequestedHeadstone: {fileID: 0}

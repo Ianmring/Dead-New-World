@@ -15,5 +15,7 @@ MonoBehaviour:
   Name: Kate
   CauseOfDeath: Car Accident
   ReligiousFaction: Christian
+  CurrentStatusOfBurial: Not buried
+  TimeRemainingToBury: 0
   RequestedCoffin: {fileID: 0}
   RequestedHeadstone: {fileID: 0}
