@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8282004035860591643}
   - component: {fileID: 8282004035860591652}
   m_Layer: 0
-  m_Name: Client
+  m_Name: Client 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4231d4a9e2773134991af984ba384f1c, type: 2}
+  - {fileID: 2100000, guid: eb27085b42ef854408ec7a12ba47e52c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a5920ad469f47e4b9a8b5bfea4fc513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clientData: {fileID: 11400000, guid: eea9e8dbe345abf44b57a9cd16ef28ac, type: 2}
+  clientData: {fileID: 11400000, guid: bcd8ee74ffcecbb488f422e1bac20dc2, type: 2}
   Name: 
   CauseOfDeath: 
   ReligiousFaction: 

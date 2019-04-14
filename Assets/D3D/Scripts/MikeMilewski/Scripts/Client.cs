@@ -30,6 +30,7 @@ public class Client : MonoBehaviour
         RequestedHeadstone = clientData.RequestedHeadstone;
     }
 
+    //Information displayed in the "New Client Request" menu.
     public string NewRequestedClientDetails()
     {
         Name = clientData.Name;
@@ -39,6 +40,7 @@ public class Client : MonoBehaviour
         return Name + "\n" + "Requested Coffin: " + RequestedCoffin + "\n" + "Requested Headstone: " + RequestedHeadstone;
     }
 
+    //Information displayed in the "Client" menu.
     public string ClientMenuDetails()
     {
         Name = clientData.name;
@@ -48,6 +50,7 @@ public class Client : MonoBehaviour
         return Name + "\n" + "Burial Status: " + CurrentStatusOfBurial + "\n" + "Burial Time: " + TimeRemainingToBury;
     }
 
+    //Information displayed in the "Client Details" menu.
     public string AdditionalClientDetails()
     {
         Name = clientData.Name;

@@ -9,10 +9,12 @@ public class MenuButtons : MonoBehaviour
     {
         if(ClientManager.Instance.GetCurrentClients.Count > 0)
         {
-            Instantiate(ClientManager.Instance.GetCurrentClients[0], new Vector3(Random.Range(0.37f, 5.95f), Random.Range(-4.28f, -0.37f), 0),
-                                                                     Quaternion.identity);
-
-            ClientManager.Instance.GetCurrentClients.RemoveAt(0);
+            if(ClientManager.Instance.GetLastSelectedObject.GetComponent<ClientButton>())
+            {
+                Instantiate(ClientManager.Instance.GetCurrentClients
+                           [ClientManager.Instance.GetLastSelectedObject.GetComponent<ClientButton>().GetClientIndex], 
+                           new Vector3(Random.Range(0.37f, 5.95f), Random.Range(-4.28f, -0.37f), 0), Quaternion.identity);
+            }
         }
     }
 
@@ -30,8 +32,10 @@ public class MenuButtons : MonoBehaviour
 
     public void GetClientInfo()
     {
-        ClientManager.Instance.GetClientInfoMenu.SetActive(true);
-        ClientManager.Instance.GetClientInfoText.text = ClientManager.Instance.GetCurrentClients[0].AdditionalClientDetails();
+        ClientManager.Instance.GetClientDetailsMenu.SetActive(true);
+
+        ClientManager.Instance.GetClientInfoText.text = ClientManager.Instance.GetCurrentClients
+        [ClientManager.Instance.GetEventSystem.currentSelectedGameObject.GetComponent<ClientButton>().GetClientIndex].AdditionalClientDetails();
     }
 
     public void CloseMenu(GameObject menu)

@@ -17,7 +17,9 @@ public class DayNightCycle : MonoBehaviour
 
     private void Update()
     {
-        DirectionalLight.transform.Rotate(0, 1 * Time.deltaTime, 0);
+        //Rotates the directional light to represent the passage of the day.
+        //This is placed just as a test for now. 
+        DirectionalLight.transform.Rotate(0, 0.1f * Time.deltaTime, 0);
 
         timer += Time.deltaTime;
 
@@ -33,7 +35,7 @@ public class DayNightCycle : MonoBehaviour
     {
         if (Mathf.Floor(timer % 60) == RequestTimer)
         {
-            RequestTimer += 5;
+            RequestTimer += 4;
             if (ClientManager.Instance.GetNewClientRequestMenu.activeInHierarchy)
             {
                 return;

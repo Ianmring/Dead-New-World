@@ -513,10 +513,10 @@ RectTransform:
   m_Father: {fileID: 356139142}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -530.088, y: -74.78085}
-  m_SizeDelta: {x: 100.6, y: 36.98}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -26.088013, y: -74.78085}
+  m_SizeDelta: {x: 100.600006, y: 36.97998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &502382151
 MonoBehaviour:
@@ -927,7 +927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f3fa17387a4eb43b153959838e9fb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detailsText: {fileID: 1387348263}
+  ClientDetailsText: {fileID: 1387348263}
 --- !u!1 &869540757
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,10 +960,10 @@ RectTransform:
   m_Father: {fileID: 356139142}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -392.2, y: -103.6}
-  m_SizeDelta: {x: 160, y: 82.29}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -403, y: -344.6}
+  m_SizeDelta: {x: 160, y: 82.29001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &869540759
 MonoBehaviour:
@@ -1085,8 +1085,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1254411951}
   m_HandleRect: {fileID: 1254411950}
   m_Direction: 2
-  m_Value: 0.99999994
-  m_Size: 0.6453319
+  m_Value: 0
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1371,10 +1371,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c9f6a0c76dd52846a236430a9dfe800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventSystem: {fileID: 1136350984}
+  clientIndex: -1
   CurrentClientsButton: {fileID: 8691738532020059499, guid: 50ebdaa46df962c4db493d8933a8daaf,
     type: 3}
   NewClientRequestMenu: {fileID: 714126053}
-  ClientInfoMenu: {fileID: 699332839}
+  ClientDetailsMenu: {fileID: 699332839}
+  LastSelectedObject: {fileID: 0}
   ButtonParentTransform: {fileID: 1910905101}
   ClientInfoText: {fileID: 494049192}
   clientObject: {fileID: 8282004035860591652, guid: 5bdea4df2a0a4c74a97b4ffcea765331,
@@ -2037,6 +2040,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1910905101}
   - component: {fileID: 1910905102}
+  - component: {fileID: 1910905103}
   m_Layer: 5
   m_Name: ClientBtnHolder
   m_TagString: Untagged
@@ -2058,11 +2062,11 @@ RectTransform:
   m_Father: {fileID: 1600625068}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -134.1}
-  m_SizeDelta: {x: 100, y: 756.2}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0.00007534027, y: 0.0000006592859}
+  m_SizeDelta: {x: 160, y: 0}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1910905102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2079,13 +2083,27 @@ MonoBehaviour:
     m_Left: 0
     m_Right: 0
     m_Top: 0
-    m_Bottom: 667
+    m_Bottom: 123
   m_ChildAlignment: 1
-  m_Spacing: 80.3
-  m_ChildForceExpandWidth: 1
+  m_Spacing: 120
+  m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
+  m_ChildControlHeight: 1
+--- !u!114 &1910905103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910905100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1741964061, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &1911601902
 GameObject:
   m_ObjectHideFlags: 0
@@ -2122,7 +2140,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 121, y: -164}
+  m_AnchoredPosition: {x: 122.5, y: -164}
   m_SizeDelta: {x: 500.31, y: 488}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1911601904
@@ -2310,7 +2328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DirectionalLight: {fileID: 1121575794}
   TimeText: {fileID: 869540759}
-  RequestTimer: 5
+  RequestTimer: 1
 --- !u!4 &2025246332
 Transform:
   m_ObjectHideFlags: 0

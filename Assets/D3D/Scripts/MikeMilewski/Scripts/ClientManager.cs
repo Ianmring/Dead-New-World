@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class ClientManager : MonoBehaviour
@@ -7,10 +8,19 @@ public class ClientManager : MonoBehaviour
     public static ClientManager Instance = null;
 
     [SerializeField]
+    private EventSystem eventSystem;
+
+    [SerializeField]
+    private int clientIndex;
+
+    [SerializeField]
     private Button CurrentClientsButton;
 
     [SerializeField]
-    private GameObject NewClientRequestMenu, ClientInfoMenu;
+    private GameObject NewClientRequestMenu, ClientDetailsMenu;
+
+    [SerializeField]
+    private GameObject LastSelectedObject = null; //Always leave this as null.
 
     [SerializeField]
     private Transform ButtonParentTransform;
@@ -69,15 +79,18 @@ public class ClientManager : MonoBehaviour
         }
     }
 
-    //Creates the "CurrentClientsText" prefab and parents itself to "TextParentTransform"
+    //Creates the "CurrentClientsButton" prefab and parents itself to "ButtonParentTransform"
     //which is a vertical layout transform inside of the "Clients" panel.
     public void UpdateClients(int ClientIndex)
     {
-        var ClientButton = Instantiate(CurrentClientsButton);
+        var clientBtn = Instantiate(CurrentClientsButton);
 
-        ClientButton.transform.SetParent(ButtonParentTransform, false);
+        clientIndex++;
+        clientBtn.GetComponent<ClientButton>().GetClientIndex = clientIndex;
 
-        CurrentClientsButton.GetComponentInChildren<Text>().text = ClientsToAdd[ClientIndex].ClientMenuDetails();
+        clientBtn.transform.SetParent(ButtonParentTransform, false);
+
+        clientBtn.GetComponentInChildren<Text>().text = ClientsToAdd[ClientIndex].ClientMenuDetails();
     }
 
     public List<Client> GetCurrentClients
@@ -104,6 +117,18 @@ public class ClientManager : MonoBehaviour
         }
     }
 
+    public List<ClientData> GetClientData
+    {
+        get
+        {
+            return data;
+        }
+        set
+        {
+            data = value;
+        }
+    }
+
     public GameObject GetNewClientRequestMenu
     {
         get
@@ -116,15 +141,39 @@ public class ClientManager : MonoBehaviour
         }
     }
     
-    public GameObject GetClientInfoMenu
+    public GameObject GetClientDetailsMenu
     {
         get
         {
-            return ClientInfoMenu;
+            return ClientDetailsMenu;
         }
         set
         {
-            ClientInfoMenu = value;
+            ClientDetailsMenu = value;
+        }
+    }
+
+    public GameObject GetLastSelectedObject
+    {
+        get
+        {
+            return LastSelectedObject;
+        }
+        set
+        {
+            LastSelectedObject = value;
+        }
+    }
+
+    public Button GetClientButton
+    {
+        get
+        {
+            return CurrentClientsButton;
+        }
+        set
+        {
+            CurrentClientsButton = value;
         }
     }
 
@@ -137,6 +186,18 @@ public class ClientManager : MonoBehaviour
         set
         {
             ClientInfoText = value;
+        }
+    }
+
+    public EventSystem GetEventSystem
+    {
+        get
+        {
+            return eventSystem;
+        }
+        set
+        {
+            eventSystem = value;
         }
     }
 }

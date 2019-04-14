@@ -4,21 +4,16 @@ using UnityEngine.UI;
 public class ShowNewClientDetails : MonoBehaviour
 {
     [SerializeField]
-    private Text detailsText;
+    private Text ClientDetailsText;
 
     private void Awake()
     {
-        gameObject.SetActive(false);
+        this.gameObject.SetActive(false);
     }
 
     private void OnEnable()
     {
-        UpdateClientDetails();
-    }
-
-    private void UpdateClientDetails()
-    {
         if(ClientManager.Instance.GetClientsToAdd.Count > 0)
-        detailsText.text = ClientManager.Instance.GetClientsToAdd[0].NewRequestedClientDetails();
+        ClientDetailsText.text = ClientManager.Instance.GetClientsToAdd[0].NewRequestedClientDetails();
     }
 }
