@@ -7,6 +7,9 @@ public class ClientButton : MonoBehaviour
     [SerializeField]
     private int ClientIndex;
 
+    [SerializeField]
+    private bool AlreadyInScene;
+
     public int GetClientIndex
     {
         get
@@ -16,6 +19,18 @@ public class ClientButton : MonoBehaviour
         set
         {
             ClientIndex = value;
+        }
+    }
+
+    public bool GetAlreadyInScene
+    {
+        get
+        {
+            return AlreadyInScene;
+        }
+        set
+        {
+            AlreadyInScene = value;
         }
     }
 

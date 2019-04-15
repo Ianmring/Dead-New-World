@@ -8,10 +8,10 @@ public class ClientManager : MonoBehaviour
     public static ClientManager Instance = null;
 
     [SerializeField]
-    private EventSystem eventSystem;
+    private int clientIndex;
 
     [SerializeField]
-    private int clientIndex;
+    private EventSystem eventSystem;
 
     [SerializeField]
     private Button CurrentClientsButton;
@@ -50,7 +50,7 @@ public class ClientManager : MonoBehaviour
         {
             Instance = this;
         }
-        else if(Instance != this)
+        else if (Instance != this)
         {
             Destroy(gameObject);
         }
@@ -61,21 +61,23 @@ public class ClientManager : MonoBehaviour
     }
 
     //Function that adds all of the ClientData into the "Data" list
-    //at the start of the game and assigns a random ClientData to each
-    //Client in the list.
+    //at the start of the game and assigns a ClientData to each
+    //Client in the list in order of the index.
     private void AddClientsToTheList()
     {
+        int index = 0;
         Object[] clientData = Resources.LoadAll("ClientData", typeof(ClientData));
 
         foreach (ClientData cd in clientData)
         {
             data.Add(cd);
         }
-
-        for (int i = 0; i < data.Count; i++)
+        for (int i = index; i <= clientData.Length - 1; i++)
         {
             ClientsToAdd.Add(clientObject);
-            ClientsToAdd[i].GetClientData = data[Random.Range(0, data.Count)];
+            ClientsToAdd[i].GetClientData = data[index];
+            //Debug.Log(ClientsToAdd[i].GetClientData = data[index]);
+            index++;
         }
     }
 
@@ -93,6 +95,7 @@ public class ClientManager : MonoBehaviour
         clientBtn.GetComponentInChildren<Text>().text = ClientsToAdd[ClientIndex].ClientMenuDetails();
     }
 
+    #region Properties
     public List<Client> GetCurrentClients
     {
         get
@@ -200,4 +203,17 @@ public class ClientManager : MonoBehaviour
             eventSystem = value;
         }
     }
+
+    public int GetClientIndex
+    {
+        get
+        {
+            return clientIndex;
+        }
+        set
+        {
+            clientIndex = value;
+        }
+    }
+    #endregion
 }

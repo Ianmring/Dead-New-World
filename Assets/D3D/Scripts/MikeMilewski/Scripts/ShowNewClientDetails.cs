@@ -14,6 +14,8 @@ public class ShowNewClientDetails : MonoBehaviour
     private void OnEnable()
     {
         if(ClientManager.Instance.GetClientsToAdd.Count > 0)
-        ClientDetailsText.text = ClientManager.Instance.GetClientsToAdd[0].NewRequestedClientDetails();
+        {
+            ClientDetailsText.text = ClientManager.Instance.GetClientsToAdd[0].NewRequestedClientDetails();
+        }
     }
 }

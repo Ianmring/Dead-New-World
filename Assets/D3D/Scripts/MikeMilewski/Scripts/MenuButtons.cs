@@ -7,13 +7,16 @@ public class MenuButtons : MonoBehaviour
 {
     public void GenerateClient()
     {
-        if(ClientManager.Instance.GetCurrentClients.Count > 0)
+        if(ClientManager.Instance.GetCurrentClients.Count > 0 && ClientManager.Instance.GetLastSelectedObject != null)
         {
-            if(ClientManager.Instance.GetLastSelectedObject.GetComponent<ClientButton>())
+            if(ClientManager.Instance.GetLastSelectedObject.GetComponent<ClientButton>() && 
+               ClientManager.Instance.GetLastSelectedObject.GetComponent<ClientButton>().GetAlreadyInScene == false)
             {
                 Instantiate(ClientManager.Instance.GetCurrentClients
-                           [ClientManager.Instance.GetLastSelectedObject.GetComponent<ClientButton>().GetClientIndex], 
+                           [ClientManager.Instance.GetLastSelectedObject.GetComponent<ClientButton>().GetClientIndex],
                            new Vector3(Random.Range(0.37f, 5.95f), Random.Range(-4.28f, -0.37f), 0), Quaternion.identity);
+
+                ClientManager.Instance.GetLastSelectedObject.GetComponent<ClientButton>().GetAlreadyInScene = true;
             }
         }
     }

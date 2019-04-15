@@ -1086,7 +1086,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1254411950}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1371,8 +1371,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c9f6a0c76dd52846a236430a9dfe800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventSystem: {fileID: 1136350984}
   clientIndex: -1
+  eventSystem: {fileID: 1136350984}
   CurrentClientsButton: {fileID: 8691738532020059499, guid: 50ebdaa46df962c4db493d8933a8daaf,
     type: 3}
   NewClientRequestMenu: {fileID: 714126053}
@@ -2064,7 +2064,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.00007534027, y: 0.0000006592859}
+  m_AnchoredPosition: {x: 0.00007534027, y: 0}
   m_SizeDelta: {x: 160, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1910905102
