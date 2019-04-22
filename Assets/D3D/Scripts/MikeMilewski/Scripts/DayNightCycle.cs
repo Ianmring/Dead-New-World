@@ -36,7 +36,8 @@ public class DayNightCycle : MonoBehaviour
         if (Mathf.Floor(timer % 60) == RequestTimer)
         {
             RequestTimer += 4;
-            if (ClientManager.Instance.GetNewClientRequestMenu.activeInHierarchy)
+            if (ClientManager.Instance.GetNewClientRequestMenu.activeInHierarchy
+                || ClientManager.Instance.GetCurrentClients.Count >= ClientManager.Instance.GetClientsToAdd.Count)
             {
                 return;
             }

@@ -60,29 +60,41 @@ public class ClientManager : MonoBehaviour
         AddClientsToTheList();
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            CheckClientList();
+        }
+    }
+
     //Function that adds all of the ClientData into the "Data" list
     //at the start of the game and assigns a ClientData to each
     //Client in the list in order of the index.
     private void AddClientsToTheList()
     {
-        int index = 0;
         Object[] clientData = Resources.LoadAll("ClientData", typeof(ClientData));
 
         foreach (ClientData cd in clientData)
         {
             data.Add(cd);
         }
-        for (int i = index; i <= clientData.Length - 1; i++)
+        for (int i = 0; i <= data.Count - 1; i++)
         {
             ClientsToAdd.Add(clientObject);
-            ClientsToAdd[i].GetClientData = data[index];
-            //Debug.Log(ClientsToAdd[i].GetClientData = data[index]);
-            index++;
+
+            //Test code...
+            /*
+            ClientsToAdd[i].GetClientData = data[i];
+            Index++;
+            Debug.Log("Index: " + i + " - " + (ClientsToAdd[i].GetClientData = data[i]));
+            */
         }
     }
 
-    //Creates the "CurrentClientsButton" prefab and parents itself to "ButtonParentTransform"
-    //which is a vertical layout transform inside of the "Clients" panel.
+    //Creates the "CurrentClientsButton" prefab and parents itself to the "ButtonParentTransform"
+    //which is a vertical layout transform inside of the "Clients" panel and displays the
+    //information of the client to the button text.
     public void UpdateClients(int ClientIndex)
     {
         var clientBtn = Instantiate(CurrentClientsButton);
@@ -93,6 +105,14 @@ public class ClientManager : MonoBehaviour
         clientBtn.transform.SetParent(ButtonParentTransform, false);
 
         clientBtn.GetComponentInChildren<Text>().text = ClientsToAdd[ClientIndex].ClientMenuDetails();
+    }
+
+    private void CheckClientList()
+    {
+        foreach(Client c in CurrentClients)
+        {
+            Debug.Log(c.GetClientData);
+        }
     }
 
     #region Properties

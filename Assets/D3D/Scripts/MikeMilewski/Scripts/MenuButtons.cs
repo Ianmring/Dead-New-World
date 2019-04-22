@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
 //This class handles all of the button functionalities.
-//Add this onto an empty object in the scene and attach
-//it to a button event to call a function accordingly.
+//Add this onto an empty object in the scene, attach
+//it to a button event, and call an appropriate function.
 public class MenuButtons : MonoBehaviour
 {
     public void GenerateClient()
@@ -25,17 +25,18 @@ public class MenuButtons : MonoBehaviour
     {
         if(ClientManager.Instance.GetClientsToAdd.Count > 0)
         {
-            ClientManager.Instance.GetCurrentClients.Add(ClientManager.Instance.GetClientsToAdd[0]);
+            ClientManager.Instance.GetCurrentClients.Add(ClientManager.Instance.GetClientsToAdd[ClientManager.Instance.GetClientIndex + 1]);
 
-            ClientManager.Instance.UpdateClients(0);
-
-            ClientManager.Instance.GetClientsToAdd.RemoveAt(0);
+            ClientManager.Instance.UpdateClients(ClientManager.Instance.GetClientIndex + 1);
         }
     }
 
     public void GetClientInfo()
     {
         ClientManager.Instance.GetClientDetailsMenu.SetActive(true);
+
+        ClientManager.Instance.GetCurrentClients[ClientManager.Instance.GetEventSystem.currentSelectedGameObject.GetComponent<ClientButton>().GetClientIndex].GetClientData =
+                                                 ClientManager.Instance.GetClientData[ClientManager.Instance.GetEventSystem.currentSelectedGameObject.GetComponent<ClientButton>().GetClientIndex];
 
         ClientManager.Instance.GetClientInfoText.text = ClientManager.Instance.GetCurrentClients
         [ClientManager.Instance.GetEventSystem.currentSelectedGameObject.GetComponent<ClientButton>().GetClientIndex].AdditionalClientDetails();

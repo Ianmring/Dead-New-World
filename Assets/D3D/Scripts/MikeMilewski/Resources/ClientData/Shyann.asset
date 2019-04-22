@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38f5b47d08913a143ba6c54be4868e88, type: 3}
-  m_Name: Ralph
+  m_Name: Shyann
   m_EditorClassIdentifier: 
-  Name: Ralph
-  CauseOfDeath: Lung Cancer
-  ReligiousFaction: Agnostic
+  Name: Shyann
+  CauseOfDeath: Old Age
+  ReligiousFaction: Catholic
   CurrentStatusOfBurial: Not buried
   TimeRemainingToBury: 0
   RequestedCoffin: {fileID: 0}
